@@ -10,23 +10,23 @@ class AF2Fun : AFBaseClass
 	void ExpansionInfo()
 	{
 		this.AuthorName = "Zode";
-		this.ExpansionName = "AdminFuckery2 Fun Commands";
+		this.ExpansionName = "AdminFuckery2 Фан команды";
 		this.ShortName = "AF2F";
 	}
 	
 	void ExpansionInit()
 	{
-		RegisterCommand("fun_fade", "s!iiiffii", "(targets) <r> <g> <b> <fadetime> <holdtime> <alpha> <flags> - fade target(s) screens!", ACCESS_H, @AF2Fun::fade);
-		RegisterCommand("fun_shake", "fff", "<amplitude> <frequency> <duration> - shake everyone's screen!", ACCESS_H, @AF2Fun::shake);
-		RegisterCommand("fun_gibhead", "s", "(targets) - GIBS!!! Spawns head gib on target(s)", ACCESS_H, @AF2Fun::gibhead);
-		RegisterCommand("fun_gibrand", "s!i", "(targets) <amount> - GIBS!!! Spawns random gibs on target(s)", ACCESS_H, @AF2Fun::gibrand);
-		RegisterCommand("fun_shootgrenade", "!ff", "<velocitymultipier> <time> - shoot grenades", ACCESS_H, @AF2Fun::shootgrenade);
-		RegisterCommand("fun_shootportal", "!fff", "<damage> <radius> <velocity> - shoot portals", ACCESS_H, @AF2Fun::shootportal);
-		RegisterCommand("fun_shootrocket", "!f", "<velocity> - shoot normal RPG rockets", ACCESS_H, @AF2Fun::shootrocket);
-		RegisterCommand("fun_maplight", "s", "(character from A (darkest) to Z (brightest), M returns to normal) - set map lighting", ACCESS_H, @AF2Fun::maplight);
-		RegisterCommand("fun_flash", "s!i", "(targets) <0/1> - toggle or set target(s) flashlight", ACCESS_H, @AF2Fun::flash);
-		RegisterCommand("fun_conc", "sfff", "(targets) (amplitude) (frequency) (fadetime) - CoNcUsSiOn!", ACCESS_H, @AF2Fun::conc);
-		RegisterCommand("fun_fog", "si!iiii", "(targets) (r) <g> <b> <start> <end> - set level fog, supply target(s) and -1 to disable", ACCESS_H, @AF2Fun::fog);
+		RegisterCommand("fun_fade", "s!iiiffii", "(игроки) <R> <G> <B> <время затухания> <длительность> <прозрачность> <флаги> - затухание экранов!", ACCESS_H, @AF2Fun::fade);
+		RegisterCommand("fun_shake", "fff", " <размах> <частота> <длительность> - землетресение!", ACCESS_H, @AF2Fun::shake);
+		RegisterCommand("fun_gibhead", "s", "(игроки) - МЯСО!!! - спавнить череп на игрока", ACCESS_H, @AF2Fun::gibhead);
+		RegisterCommand("fun_gibrand", "s!i", "(игроки) <количество> - МЯСО!!! - спавнить мясо на игрока)", ACCESS_H, @AF2Fun::gibrand);
+		RegisterCommand("fun_shootgrenade", "!ff", "<скорость вылета> <длительность в секундах> - кидает гранату", ACCESS_H, @AF2Fun::shootgrenade);
+		RegisterCommand("fun_shootportal", "!fff", ".fun_shootportal <урон> <радиус> <скорость> - стреляет порталами", ACCESS_H, @AF2Fun::shootportal);
+		RegisterCommand("fun_shootrocket", "!f", "<скорость> - стреляет ракетой!", ACCESS_H, @AF2Fun::shootrocket);
+		RegisterCommand("fun_maplight", "s", "(знак от A (самая темная) до Z (самая светлая), М стоит по стандарту) - меняет яркость карты", ACCESS_H, @AF2Fun::maplight);
+		RegisterCommand("fun_flash", "s!i", "(игроки) <0/1 выкл/вкл> - извините, а кто включил мой фонарик?", ACCESS_H, @AF2Fun::flash);
+		RegisterCommand("fun_conc", "sfff", " (игроки) (размах) (частота) (время затухания) - БУХАРИК!", ACCESS_H, @AF2Fun::conc);
+		RegisterCommand("fun_fog", "si!iiii", "(игроки) (R) <G> <B> <начало в юнитах> <конец в юнитах> - я ничего не вижу, -1 чтобы отключить!!!!", ACCESS_H, @AF2Fun::fog);
 	}
 }
 
@@ -60,7 +60,7 @@ namespace AF2Fun
 					msg.WriteShort(fogstart); //start dist
 					msg.WriteShort(fogend); //end dist
 				msg.End();
-				af2fun.Tell("fog applied: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				af2fun.Tell("туман применен: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 		
@@ -78,19 +78,19 @@ namespace AF2Fun
 		string cRead = AFArgs.GetString(0);
 		if(cRead.Length() >= 2)
 		{
-			af2fun.Tell("Can't define multiple characters!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2fun.Tell("Нельзя изпользовать несколько символов!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
 		cRead = cRead.ToLowercase();
 		if(g_validLight.find(cRead) <= -1)
 		{
-			af2fun.Tell("Can't set map lighting: invalid character (A to Z only!)", AFArgs.User, HUD_PRINTCONSOLE);
+			af2fun.Tell("Нельзя установить яркость карты: неизтвестный символ (Только от A до Z!)", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
 		g_EngineFuncs.LightStyle(0, cRead);
-		af2fun.Tell("maplight set to \""+cRead+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+		af2fun.Tell("яркость карты установлен на \""+cRead+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void shootrocket(AFBaseArguments@ AFArgs)
@@ -207,13 +207,13 @@ namespace AF2Fun
 				@pTarget = pTargets[i];
 				if(AFArgs.GetCount() == 1)
 				{
-					af2fun.Tell("flashlight toggled: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2fun.Tell("фонарик переключен: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					if(pTarget.FlashlightIsOn())
 						pTarget.FlashlightTurnOff();
 					else
 						pTarget.FlashlightTurnOn();
 				}else{
-					af2fun.Tell("flashlight set: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2fun.Tell("фонарик настроен: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					if(AFArgs.GetInt(1) == 0)
 						pTarget.FlashlightTurnOff();
 					else
@@ -234,9 +234,9 @@ namespace AF2Fun
 				@pTarget = pTargets[i];
 				g_PlayerFuncs.ConcussionEffect(pTarget, AFArgs.GetFloat(1), AFArgs.GetFloat(2), AFArgs.GetFloat(3));
 				if(AFArgs.GetString(0) == "@me")
-					af2fun.Tell("\"This can't be good for me but I feel great.\"", AFArgs.User, HUD_PRINTCONSOLE);
+					af2fun.Tell("\"Это не может быть хорошим для меня но я чуствую лучше\"", AFArgs.User, HUD_PRINTCONSOLE);
 				else
-					af2fun.Tell("conc'd: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2fun.Tell("отбухарили: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	 }

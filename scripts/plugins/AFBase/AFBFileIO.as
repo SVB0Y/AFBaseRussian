@@ -4,7 +4,7 @@ namespace AFBase
 	{
 		array<string> aSHold;
 		File@ file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseAccess.txt", OpenFile::READ);
-		bool bUpdatedEntry = false;
+		bool bUpdateEntry = false;
 		bool bReadFile = false;
 		if(file !is null && file.IsOpen())
 		{
@@ -44,26 +44,26 @@ namespace AFBase
 				if(sAccess != "")
 				{
 					aSHold.insertLast(parsed[0]+" "+sAccess);
-					BaseLog("Updated access ("+sAccess+"z) to "+sId);
-					bUpdatedEntry = true;
+					BaseLog("Обновлен доступ ("+sAccess+"z) на "+sId);
+					bUpdateEntry = true;
 				}else{
-					BaseLog("Updated access (z) to "+sId);
-					bUpdatedEntry = true;
+					BaseLog("Обновлен доступ (z) на "+sId);
+					bUpdateEntry = true;
 				}
 			}
 			
 			bReadFile = true;
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate access file");
+			BaseLog("Ошибка инсталляции: не найден файл доступа");
 			return;
 		}
 		
 		if(bReadFile)
-			if(!bUpdatedEntry)
+			if(!bUpdateEntry)
 			{
 				aSHold.insertLast(sId+" "+sAccess);
-				BaseLog("Added new access ("+sAccess+"z) to "+sId);
+				BaseLog("Добавлен новый доступ("+sAccess+"z) на "+sId);
 			}
 		
 		@file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseAccess.txt", OpenFile::WRITE);
@@ -85,7 +85,7 @@ namespace AFBase
 	{
 		array<string> aSHold;
 		File@ file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseSprayBans.txt", OpenFile::READ);
-		bool bUpdatedEntry = false;
+		bool bUpdateEntry = false;
 		bool bReadFile = false;
 		if(file !is null && file.IsOpen())
 		{
@@ -112,23 +112,23 @@ namespace AFBase
 					
 				if(!bMode)
 				{
-					BaseLog("Updated spraybanfile: unbanned "+sId);
-					bUpdatedEntry = true;
+					BaseLog("Обновлен файл спрей бана: разбаннен "+sId);
+					bUpdateEntry = true;
 				}
 			}
 			
 			bReadFile = true;
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate sprayban file");
+			BaseLog("Ошибка инсталляции: не найден файл спрей банов");
 			return;
 		}
 		
 		if(bReadFile)
-			if(!bUpdatedEntry && bMode)
+			if(!bUpdateEntry && bMode)
 			{
 				aSHold.insertLast(sId);
-				BaseLog("Updated spraybanfile: banned "+sId);
+				BaseLog("Обновлен файл спрей бана: забаннен "+sId);
 			}
 		
 		@file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseSprayBans.txt", OpenFile::WRITE);
@@ -150,7 +150,7 @@ namespace AFBase
 	{
 		array<string> aSHold;
 		File@ file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseGagBans.txt", OpenFile::READ);
-		bool bUpdatedEntry = false;
+		bool bUpdateEntry = false;
 		bool bReadFile = false;
 		if(file !is null && file.IsOpen())
 		{
@@ -185,23 +185,23 @@ namespace AFBase
 					
 				if(iMode == -1)
 				{
-					BaseLog("Updated gagbanfile: unbanned "+sId);
-					bUpdatedEntry = true;
+					BaseLog("Обновлен файл мьюутов: размучен "+sId);
+					bUpdateEntry = true;
 				}
 			}
 			
 			bReadFile = true;
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate gagban file");
+			BaseLog("Ошибка инсталляции: не найден файл мьюутов");
 			return;
 		}
 		
 		if(bReadFile)
-			if(!bUpdatedEntry && iMode != -1)
+			if(!bUpdateEntry && iMode != -1)
 			{
 				aSHold.insertLast(sId+" "+string(iMode));
-				BaseLog("Updated gagbanfile: banned "+sId);
+				BaseLog("Обновлен файл мьюутов: замучен "+sId);
 			}
 		
 		@file = g_FileSystem.OpenFile("scripts/plugins/store/AFBaseGagBans.txt", OpenFile::WRITE);
@@ -224,7 +224,7 @@ namespace AFBase
 		array<string> aSHold;
 		string sFileToUse = bIsIp ? "scripts/plugins/store/AFBaseIPBans.txt" : "scripts/plugins/store/AFBaseIDBans.txt";
 		File@ file = g_FileSystem.OpenFile(sFileToUse, OpenFile::READ);
-		bool bUpdatedEntry = false;
+		bool bUpdateEntry = false;
 		bool bReadFile = false;
 		bool bOutput = false;
 		
@@ -262,10 +262,10 @@ namespace AFBase
 				if(iMinutes == -1)
 				{
 					if(bIsIp)
-						BaseLog("Updated IP ban file: unbanned "+sInput);
+						BaseLog("Обновлен файл IP банов: разбаннен "+sInput);
 					else
-						BaseLog("Updated ID ban file: unbanned "+sInput);
-					bUpdatedEntry = true;
+						BaseLog("Обновлен файл ID банов: разбаннен "+sInput);
+					bUpdateEntry = true;
 					bOutput = true;
 				}
 			}
@@ -274,14 +274,14 @@ namespace AFBase
 			file.Close();
 		}else{
 			if(bIsIp)
-				BaseLog("Installation error: cannot locate IP ban file");
+				BaseLog("Ошибка инсталляции: не найден файл IP банов");
 			else
-				BaseLog("Installation error: cannot locate ID ban file");
+				BaseLog("Ошибка инсталляции: не найден файл ID банов");
 			return false;
 		}
 		
 		if(bReadFile)
-			if(!bUpdatedEntry && iMinutes != -1)
+			if(!bUpdateEntry && iMinutes != -1)
 			{
 				if(iMinutes == 0)
 				{
@@ -295,9 +295,9 @@ namespace AFBase
 				}
 				
 				if(bIsIp)
-					BaseLog("Updated ip ban: banned "+sInput);
+					BaseLog("Обновлен IP бан: забаннен "+sInput);
 				else
-					BaseLog("Updated id ban: banned "+sInput);
+					BaseLog("Обновлен ID бан: забаннен "+sInput);
 			}
 		
 		@file = g_FileSystem.OpenFile(sFileToUse, OpenFile::WRITE);
@@ -323,7 +323,7 @@ namespace AFBase
 		{
 			if(g_PlayerFuncs.AdminLevel(cast<CBasePlayer@>(g_EntityFuncs.Instance(g_EntityFuncs.IndexEnt(iIndex)))) >= ADMIN_YES)
 			{
-				BaseLog("Granted full access to "+sID);
+				BaseLog("Выдан полный доступ пользователю "+sID);
 				AFBaseUser afbUser = cast<AFBaseUser@>(g_afbUserList[iIndex]);
 				afbUser.bLock = false;
 				afbUser.iAccess = 33554431;
@@ -369,7 +369,7 @@ namespace AFBase
 				sHacc = ImplodeString(sHold);
 				sHacc += "z";
 				
-				BaseLog("Granted access ("+sHacc+") to "+sID);
+				BaseLog("Выдан доступ ("+sHacc+") to "+sID);
 				AFBaseUser afbUser = cast<AFBaseUser@>(g_afbUserList[iIndex]);
 				afbUser.bLock = false;
 				afbUser.iAccess = iHacc;
@@ -382,7 +382,7 @@ namespace AFBase
 			
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate access file");
+			BaseLog("Ошибка инсталляции: не найден файл доступа");
 		}
 	}
 	
@@ -406,7 +406,7 @@ namespace AFBase
 				if(sLine != sID)
 					continue;
 				
-				BaseLog("Applied spray block for "+sID);
+				BaseLog("Применен спрей бан для "+sID);
 				AFBaseUser afbUser = cast<AFBaseUser@>(g_afbUserList[iIndex]);
 				afbUser.bLock = false;
 				afbUser.bSprayBan = true;
@@ -418,7 +418,7 @@ namespace AFBase
 			
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate sprayban file");
+			BaseLog("Ошибка инсталляции: не найден файл спрей банов");
 		}
 	}
 	
@@ -451,7 +451,7 @@ namespace AFBase
 				if(sFix == " " || sFix == "\n" || sFix == "\r" || sFix == "\t")
 					parsed[1] = parsed[1].SubString(0, parsed[1].Length()-1);
 				
-				BaseLog("Applied gag block for "+sID);
+				BaseLog("Применен мьюут для "+sID);
 				AFBaseUser afbUser = cast<AFBaseUser@>(g_afbUserList[iIndex]);
 				afbUser.bLock = false;
 				afbUser.iGagMode = atoi(parsed[1]);
@@ -463,7 +463,7 @@ namespace AFBase
 			
 			file.Close();
 		}else{
-			BaseLog("Installation error: cannot locate gagban file");
+			BaseLog("Ошибка инсталляции: не найден файл gagban file");
 		}
 	}
 	
@@ -544,9 +544,9 @@ namespace AFBase
 			file.Close();
 		}else{
 			if(bIsIp)
-				BaseLog("Installation error: cannot locate IP ban file");
+				BaseLog("Ошибка инсталляции: не найден файл IP банов");
 			else
-				BaseLog("Installation error: cannot locate ID ban file");
+				BaseLog("Ошибка инсталляции: не найден файл ID банов");
 		}
 		
 		return sOutput;

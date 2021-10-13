@@ -1,1 +1,1 @@
-#AFBase spray ban file
+#AFBase файл блокировок спреев

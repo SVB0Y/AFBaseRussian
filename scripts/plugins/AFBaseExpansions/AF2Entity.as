@@ -13,36 +13,36 @@ class AF2Entity : AFBaseClass
 	void ExpansionInfo()
 	{
 		this.AuthorName = "Zode";
-		this.ExpansionName = "AdminFuckery2 Entity Commands";
+		this.ExpansionName = "AdminFuckery2 Энтити команды";
 		this.ShortName = "AF2E";
 	}
 	
 	void ExpansionInit()
 	{
-		RegisterCommand("ent_damage", "!fs", "<damage> <targetname> - damage entity, if no targetname given it will attempt to trace forwards", ACCESS_F, @AF2Entity::damage);
-		RegisterCommand("ent_keyvalue", "s!sss", "(key) <value> <value> <value> - get/set keyvalue of entity you are aiming at, use \"!null!\" to set keyvalue as empty", ACCESS_F, @AF2Entity::keyvalue);
-		RegisterCommand("ent_keyvaluename", "ss!sss", "(targetname) (key) <value> <value> <value> - get/set keyvalue of entity based on targetname, use \"!null!\" to set keyvalue as empty", ACCESS_F, @AF2Entity::keyvaluename);
-		RegisterCommand("ent_keyvaluerange", "sfs!sss", "(classname) (range) (key) <value> <value><value> - get/set keyvalue of entity based on classname and range, use \"!null!\" to set keyvalue as empty", ACCESS_F, @AF2Entity::keyvaluerange);
-		RegisterCommand("ent_kill", "!s", "<targetname> - removes entity, if no targetname given it will attempt to trace forwards", ACCESS_F, @AF2Entity::kill);
-		RegisterCommand("ent_trigger", "!s", "<targetname> - trigger entity, if no targetname given it will attempt to trace forwards", ACCESS_F, @AF2Entity::trigger);
-		RegisterCommand("ent_triggerrange", "sf", "(classname) (range) - trigger entity based on classname and range", ACCESS_F, @AF2Entity::triggerrange);
-		RegisterCommand("ent_rotate", "fff!s", "(x) (y) (z) <targetname> - rotate entity, if no targetname given it will attempt to trace forwards. For best results use 15 increments", ACCESS_F, @AF2Entity::rotate);
-		RegisterCommand("ent_rotateabsolute", "fff!s", "(x) (y) (z) <targetname> - set entity rotation, if no targetname given it will attempt to trace forwards", ACCESS_F, @AF2Entity::rotateabsolute);
-		RegisterCommand("ent_create", "s!s", "(classname) <\"key:value:key:value:key:value\" etc> - create entity, default position at your origin", ACCESS_F|ACCESS_E, @AF2Entity::create);
-		RegisterCommand("ent_movename", "s", "(targetname) - absolute move, entity is placed to your origin", ACCESS_F, @AF2Entity::moveabsolute);
-		RegisterCommand("ent_move", "!b", "- Use without argument to see usage/alias - Grab entity and move it relative to you", ACCESS_F, @AF2Entity::move, CMD_PRECACHE);
-		RegisterCommand("ent_movecopy", "!b", "- Use without argument to see usage/alias - Copy & grab (copied) entity and move it relative to you", ACCESS_F, @AF2Entity::movecopy, CMD_PRECACHE);
-		RegisterCommand("ent_drop", "", "- Drop entity that you are aiming at to ground", ACCESS_F, @AF2Entity::drop);
-		RegisterCommand("ent_item", "s", "(weapon_/ammo_/item_ name) - Spawn weapon/ammo/item at your location", ACCESS_F, @AF2Entity::item);
-		RegisterCommand("ent_worldcopy", "f!vbbb", "(speed) <angle vector> <0/1 reverse> <0/1 xaxis> <0/1 yaxis> - Create worldcopy", ACCESS_F, @AF2Entity::worldcopy);
-		RegisterCommand("ent_worldremove", "", "- Remove all worldcopies", ACCESS_F, @AF2Entity::worldremove);
-		RegisterCommand("ent_mover", "!i", "<0/1 mode> - weapon_entmover, don't define mode to toggle", ACCESS_F, @AF2Entity::entmover, CMD_PRECACHE);
-		RegisterCommand("ent_dumpinfo", "!bs", "<dirty 0/1> <targetname> - dump entity keyvalues into console, if no targetname given it will attempt to trace forwards", ACCESS_F, @AF2Entity::dumpinfo);
-		RegisterCommand("ent_rotatefix", "!s", "<targetname> - attempt to reset originless brush to default position", ACCESS_F, @AF2Entity::rotatefix);
-		RegisterCommand("ent_grid", "i", "(gridsize) - set a grid for snapping, 0 to disable", ACCESS_F, @AF2Entity::grid);
-		RegisterCommand("ent_bbox", "!iiii", "<r> <g> <b> <lifetime> - show the ent's bounding box", ACCESS_F, @AF2Entity::bbox, CMD_PRECACHE);
-		RegisterCommand("ent_bboxname", "s!iiii", "(targetname) <r> <g> <b> <lifetime> - show the specified ent's bounding box", ACCESS_F, @AF2Entity::bboxname, CMD_PRECACHE);
-		RegisterCommand("ent_show", "s", "(x/y/z) - show world direction", ACCESS_F, @AF2Entity::show, CMD_PRECACHE);
+		RegisterCommand("ent_damage", "!fs", "<урон> <имя цели> - наносит урон объекту, без аргументов наносит 5000 урона", ACCESS_F, @AF2Entity::damage);
+		RegisterCommand("ent_keyvalue", "s!sss", "(параметр) <значение> <значение> <значение> - меняет параметры объекту, изпользуйте \"!null!\" чтобы оставить параметр пустым", ACCESS_F, @AF2Entity::keyvalue);
+		RegisterCommand("ent_keyvaluename", "ss!sss", "(имя цели) (параметр) <значение> <значение> <значение> - меняет параметры прописанному объекту", ACCESS_F, @AF2Entity::keyvaluename);
+		RegisterCommand("ent_keyvaluerange", "sfs!sss", "(имя объекта) (радиус) (параметр) <значение> <значение> <значение> - меняет параметры какой либо группы объектов по радиусу", ACCESS_F, @AF2Entity::keyvaluerange);
+		RegisterCommand("ent_kill", "!s", "<имя цели> - удаляет объект", ACCESS_F, @AF2Entity::kill);
+		RegisterCommand("ent_trigger", "!s", "<имя цели> - активирует объект", ACCESS_F, @AF2Entity::trigger);
+		RegisterCommand("ent_triggerrange", "sf", "(имя объекта/ов) (радиус) - активирует группу объектов по радиусу", ACCESS_F, @AF2Entity::triggerrange);
+		RegisterCommand("ent_rotate", "fff!s", " (X) (Y) (Z) <имя цели> - переворачивает ось объекта, для лучших результатов изпользуйте ось 15", ACCESS_F, @AF2Entity::rotate);
+		RegisterCommand("ent_rotateabsolute", "fff!s", "(X) (Y) (Z) <имя цели> - абсолютное переворачивание объекта", ACCESS_F, @AF2Entity::rotateabsolute);
+		RegisterCommand("ent_create", "s!s", "(имя объекта) <\"параметр:значение:параметр:значение:параметр:значение\"> - создает объект с вашими параметрами, спавнит на вашу точку", ACCESS_F|ACCESS_E, @AF2Entity::create);
+		RegisterCommand("ent_movename", "s", "(имя цели) - абсолтюное движение, двигает объект на ваши кординаты", ACCESS_F, @AF2Entity::moveabsolute);
+		RegisterCommand("ent_move", "!b", "- используйте без каких либо аргументов чтобы вам прислали алиасы чтобы иcпользовать эту команду - Двигает нацеленый объект мышкой", ACCESS_F, @AF2Entity::move, CMD_PRECACHE);
+		RegisterCommand("ent_movecopy", "!b", "- тоже самое что и .ent_move, но заодно и копирует", ACCESS_F, @AF2Entity::movecopy, CMD_PRECACHE);
+		RegisterCommand("ent_drop", "", " - ложить объект нацеленый объект на пол", ACCESS_F, @AF2Entity::drop);
+		RegisterCommand("ent_item", "s", "(weapon_/ammo_/item_) - спавнит какое либо оружие, патрон или предмет, облегченный .ent_create", ACCESS_F, @AF2Entity::item);
+		RegisterCommand("ent_worldcopy", "f!vbbb", "(скорость) <угол вектора> <реверс> <0/1 X ось> <0/1 Y ось> - создает копию карты", ACCESS_F, @AF2Entity::worldcopy);
+		RegisterCommand("ent_worldremove", "", "- убирает копию карты", ACCESS_F, @AF2Entity::worldremove);
+		RegisterCommand("ent_mover", "!i", "- выдает weapon_entmover, позволяет двигать объекты на лкм, и удалять их на пкм", ACCESS_F, @AF2Entity::entmover, CMD_PRECACHE);
+		RegisterCommand("ent_dumpinfo", "!bs", "<0/1 грязно> <имя цели> - показывает информацию о нацеленном ентити", ACCESS_F, @AF2Entity::dumpinfo);
+		RegisterCommand("ent_rotatefix", "!s", "<имя цели> - попытается починить багнутое переворачивание", ACCESS_F, @AF2Entity::rotatefix);
+		RegisterCommand("ent_grid", "i", "(размер сетки в юнитах) - включает сетку когда перетаскиваешь какой либо объект, 0 отключает", ACCESS_F, @AF2Entity::grid);
+		RegisterCommand("ent_bbox", "!iiii", "<R> <G> <B> <длительность> - показывает границы объекта", ACCESS_F, @AF2Entity::bbox, CMD_PRECACHE);
+		RegisterCommand("ent_bboxname", "s!iiii", "(имя цели) <R> <G> <B> <длительность> - показывает прописанного границы объекта", ACCESS_F, @AF2Entity::bboxname, CMD_PRECACHE);
+		RegisterCommand("ent_show", "s", "(X/Y/Z) - показывает направление карты/мира", ACCESS_F, @AF2Entity::show, CMD_PRECACHE);
 		
 		g_Hooks.RegisterHook(Hooks::Player::PlayerPreThink, @AF2Entity::PlayerPreThink);
 		g_Hooks.RegisterHook(Hooks::Player::PlayerSpawn, @AF2Entity::PlayerSpawn);
@@ -213,9 +213,9 @@ namespace AF2Entity
 		}
 		
 		if(wasValid)
-			af2entity.Tell("Showing direction(s): "+mode, AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Показываю директорию: "+mode, AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("Invalid direction mode: "+mode, AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Недействительный режим директории: "+mode, AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void bboxname(AFBaseArguments@ AFArgs)
@@ -242,9 +242,9 @@ namespace AF2Entity
 		}
 		
 		if(iC == 0)
-			af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("Showing bbox on "+string(iC)+" ents", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Показуем bbox на "+string(iC)+" ентити", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void bbox(AFBaseArguments@ AFArgs)
@@ -262,7 +262,7 @@ namespace AF2Entity
 		CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 		if(pEntity is null)
 		{
-			af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нет объекта впереди(4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 	
@@ -277,9 +277,9 @@ namespace AF2Entity
 		pCustom.SetKeyvalue("$f_afbgrid", AFArgs.GetInt(0));
 		if(AFArgs.GetInt(0) <= 0)
 		{
-			af2entity.Tell("Grid disabled", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Сетка отключена", AFArgs.User, HUD_PRINTCONSOLE);
 		}else{
-			af2entity.Tell("Grid is now: "+AFArgs.GetInt(0), AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Сетка включена, в юнитах: "+AFArgs.GetInt(0), AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 
@@ -402,19 +402,19 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't dump: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя свалить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			dictionary stuff = bDirty ? AF2LegacyCode::reverseGetKeyvalue(pEntity) : AF2LegacyCode::prunezero(AF2LegacyCode::reverseGetKeyvalue(pEntity));
 			array<string> dkeys = stuff.getKeys();
-			af2entity.Tell("Entity keyvalues:", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Значения объекта:", AFArgs.User, HUD_PRINTCONSOLE);
 			for(uint i = 0; i < dkeys.length(); i++)
 			{
 				string sout = string(stuff[dkeys[i]]);
@@ -427,7 +427,7 @@ namespace AF2Entity
 			{
 				dictionary stuff = AF2LegacyCode::reverseGetKeyvalue(pEntity);
 				array<string> dkeys = stuff.getKeys();
-				af2entity.Tell("========\nEntity keyvalues:\n========", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("========\nЗначения объектов:\n========", AFArgs.User, HUD_PRINTCONSOLE);
 				for(uint i = 0; i < dkeys.length(); i++)
 				{
 					string sout = string(stuff[dkeys[i]]);
@@ -439,7 +439,7 @@ namespace AF2Entity
 			}
 			
 			if(iC == 0)
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 	
@@ -488,14 +488,14 @@ namespace AF2Entity
 						CBaseEntity@ pEntity = g_EntityFuncs.Instance(tr.pHit);
 						if(pEntity is null || pEntity.pev.classname == "worldspawn")
 						{
-							af2entity.Tell("No entity in front (4096 units)!", pPlayer, HUD_PRINTTALK);
+							af2entity.Tell("Нет объекта впереди (4096 юнитов)!", pPlayer, HUD_PRINTTALK);
 							return HOOK_CONTINUE;
 						}
 						
 						CustomKeyvalues@ pCustom = pEntity.GetCustomKeyvalues();
 						if(pCustom.GetKeyvalue("$i_afbentgrab").GetInteger() == 1)
 						{
-							af2entity.Tell("Can't grab: entity already being grabbed!", pPlayer, HUD_PRINTTALK);
+							af2entity.Tell("Нельзя схватить: объект уже схвачен!", pPlayer, HUD_PRINTTALK);
 							return HOOK_CONTINUE;
 						}
 						g_SoundSystem.PlaySound(pPlayer.edict(), CHAN_WEAPON, "tfc/items/inv3.wav", 1.0f, 1.0f, SND_FORCE_LOOP, PITCH_NORM);
@@ -572,13 +572,13 @@ namespace AF2Entity
 						CBaseEntity@ pEntity = g_EntityFuncs.Instance(tr.pHit);
 						if(pEntity is null || pEntity.pev.classname == "worldspawn")
 						{
-							af2entity.Tell("No entity in front (4096 units)!", pPlayer, HUD_PRINTTALK);
+							af2entity.Tell("Нет объекта впереди (4096 юнитов)!", pPlayer, HUD_PRINTTALK);
 							return HOOK_CONTINUE;
 						}
 						
 						if(pEntity.IsPlayer())
 						{
-							af2entity.Tell("Can't kill: target is player!", pPlayer, HUD_PRINTTALK);
+							af2entity.Tell("Нельзя удалить: цель это игрок!", pPlayer, HUD_PRINTTALK);
 							return HOOK_CONTINUE;
 						}
 						
@@ -712,23 +712,23 @@ namespace AF2Entity
 				weaponmover(AFArgs.User, true, false);
 			}
 			
-			af2entity.Tell("Toggled entmover", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Переключен ентмувер", AFArgs.User, HUD_PRINTCONSOLE);
 		}else if(iMode == 1)
 		{
 			if(!bIsOn)
 			{
 				weaponmover(AFArgs.User, true, false);
-				af2entity.Tell("Gave entmover", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Выдан ентмувер", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
-				af2entity.Tell("Can't give entmover: entmover is already out", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нелья выдать ентмувер: ентмувер уже в руках", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}else{
 			if(bIsOn)
 			{
 				weaponmover(AFArgs.User, false, false);
-				af2entity.Tell("Removed entmover", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Убран ентмувер", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
-				af2entity.Tell("Can't remove entmover: entmover is not out", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Убрать ентмувер: ентмувер не в руках", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -738,7 +738,7 @@ namespace AF2Entity
 		CBaseEntity@ pWorld = g_EntityFuncs.Create("func_rotating", Vector(0,0,0), AFArgs.GetVector(1), true);
 		if(pWorld is null)
 		{
-			af2entity.Tell("Failed to create worldcopy!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Ошибка создать копию карты!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -759,7 +759,7 @@ namespace AF2Entity
 		g_EntityFuncs.DispatchKeyValue(pWorld.edict(), "effects", 2048);
 		g_EntityFuncs.DispatchKeyValue(pWorld.edict(), "targetname", "afb_worldcopy");
 		g_EntityFuncs.DispatchSpawn(pWorld.edict());
-		af2entity.Tell("Created worldcopy!", AFArgs.User, HUD_PRINTCONSOLE);
+		af2entity.Tell("Создана копия карты!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void worldremove(AFBaseArguments@ AFArgs)
@@ -773,9 +773,9 @@ namespace AF2Entity
 		}
 		
 		if(iC > 0)
-			af2entity.Tell(string(iC)+" worldcopies deleted", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell(string(iC)+" копии мира удалены", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("No worldcopies currently exist!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Никаких копий мира не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void item(AFBaseArguments@ AFArgs)
@@ -784,13 +784,13 @@ namespace AF2Entity
 		
 		if(sEnt == "weapon_entmover")
 		{
-				af2entity.Tell("Can't spawn entmover!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя заспавнить ентмувер!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 		}
 		
 		if(sEnt.SubString(0, 7) != "weapon_" && sEnt.SubString(0, 5) != "item_" && sEnt.SubString(0, 5) != "ammo_")
 		{
-			af2entity.Tell("Can't spawn \""+AFArgs.GetString(0)+"\": not allowed!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя спавнить \""+AFArgs.GetString(0)+"\": не разрешено!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 	
@@ -798,9 +798,9 @@ namespace AF2Entity
 		if(pEntity !is null)
 		{
 			g_EntityFuncs.DispatchSpawn(pEntity.edict());
-			af2entity.Tell("Spawned \""+AFArgs.GetString(0)+"\"!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Заспавнили \""+AFArgs.GetString(0)+"\"!", AFArgs.User, HUD_PRINTCONSOLE);
 		}else
-			af2entity.Tell("Failed to spawn \""+AFArgs.GetString(0)+"\"!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Ошибка спавна \""+AFArgs.GetString(0)+"\"!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void drop(AFBaseArguments@ AFArgs)
@@ -808,18 +808,18 @@ namespace AF2Entity
 		CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 		if(pEntity is null)
 		{
-			af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
 		if(pEntity.IsPlayer())
 		{
-			af2entity.Tell("Can't drop: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя положить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
 		g_EngineFuncs.DropToFloor(pEntity.edict());
-		af2entity.Tell("Dropped entity!", AFArgs.User, HUD_PRINTCONSOLE);
+		af2entity.Tell("Положили объект!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void movecopy(AFBaseArguments@ AFArgs)
@@ -827,10 +827,10 @@ namespace AF2Entity
 		int iMode = AFArgs.GetCount() >= 1 ? AFArgs.GetBool(0) ? 2 : 0 : -1;
 		if(iMode == -1)
 		{
-			af2entity.Tell("Aliases: (execute these, perferrably save to autoexec cfg)", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Алиасы: (напишите их, рекомендованно сохранить их в autoexec.cfg)", AFArgs.User, HUD_PRINTCONSOLE);
 			af2entity.Tell("    alias +copy \".ent_movecopy 1\"", AFArgs.User, HUD_PRINTCONSOLE);
 			af2entity.Tell("    alias -copy \".ent_movecopy 0\"", AFArgs.User, HUD_PRINTCONSOLE);
-			af2entity.Tell("    bind (button) +copy", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("    bind (кнопка) +copy", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -842,10 +842,10 @@ namespace AF2Entity
 		int iMode = AFArgs.GetCount() >= 1 ? AFArgs.GetBool(0) ? 1 : 0 : -1;
 		if(iMode == -1)
 		{
-			af2entity.Tell("Aliases: (execute these, perferrably save to autoexec cfg)", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Алиасы: (напишите их, рекомендованно сохранить их в autoexec.cfg)", AFArgs.User, HUD_PRINTCONSOLE);
 			af2entity.Tell("    alias +grab \".ent_move 1\"", AFArgs.User, HUD_PRINTCONSOLE);
 			af2entity.Tell("    alias -grab \".ent_move 0\"", AFArgs.User, HUD_PRINTCONSOLE);
-			af2entity.Tell("    bind (button) +grab", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("    bind (кнопка) +grab", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -1068,7 +1068,7 @@ namespace AF2Entity
 	{
 		if(g_EngineFuncs.NumberOfEntities() >= g_Engine.maxEntities-15*g_Engine.maxClients-100)
 		{
-			af2entity.Tell("Can't copy: reached maximum limit of entities!", pUser, HUD_PRINTTALK);
+			af2entity.Tell("Копирование невозможно: достигнуто максимум лимит объектов!", pUser, HUD_PRINTTALK);
 			return null;
 		}
 		
@@ -1131,14 +1131,14 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_EntityFuncs.Instance(tr.pHit);
 			if(pEntity is null || pEntity.pev.classname == "worldspawn")
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
 			CustomKeyvalues@ pCustom = pEntity.GetCustomKeyvalues();
 			if(pCustom.GetKeyvalue("$i_afbentgrab").GetInteger() == 1)
 			{
-				af2entity.Tell("Can't grab: entity already being grabbed!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нельзя схватить: объект уже схвачен!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
@@ -1170,27 +1170,27 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_EntityFuncs.Instance(tr.pHit);
 			if(pEntity is null || pEntity.pev.classname == "worldspawn")
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
 			CustomKeyvalues@ pCustom = pEntity.GetCustomKeyvalues();
 			if(pCustom.GetKeyvalue("$i_afbentgrab").GetInteger() == 1)
 			{
-				af2entity.Tell("Can't copy: entity already being grabbed!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нельзя копировать: объект уже схвачен!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't copy: target is player!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нельзя копировать: цель это игрок!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
 			CBaseEntity@ pCopyEntity = entCopy(pEntity, AFArgs.User);
 			if(pCopyEntity is null)
 			{
-				af2entity.Tell("Can't copy: copy result was null!", AFArgs.User, HUD_PRINTTALK);
+				af2entity.Tell("Нельзя копировать: результат копирования пустой!", AFArgs.User, HUD_PRINTTALK);
 				return;
 			}
 			
@@ -1226,14 +1226,14 @@ namespace AF2Entity
 		if(iC > 0)
 			af2entity.Tell(string(iC)+" entities moved", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void create(AFBaseArguments@ AFArgs)
 	{
 		if(AFArgs.GetString(0) == "weapon_entmover")
 		{
-				af2entity.Tell("Can't create entmover!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя создать ентмувер!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 		}
 	
@@ -1284,7 +1284,7 @@ namespace AF2Entity
 		{
 			if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 			{
-				af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}
@@ -1292,7 +1292,7 @@ namespace AF2Entity
 		CBaseEntity@ pEntity = g_EntityFuncs.CreateEntity(AFArgs.GetString(0), dKeyvalues, false);
 		if(pEntity is null)
 		{
-			af2entity.Tell("Can't create: entity was null!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя создать: объект был пустой!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -1300,7 +1300,7 @@ namespace AF2Entity
 			g_EntityFuncs.DispatchKeyValue(pEntity.edict(), "origin", string(vecOrigin.x)+" "+string(vecOrigin.y)+" "+string(vecOrigin.z));
 		
 		g_EntityFuncs.DispatchSpawn(pEntity.edict());
-		af2entity.Tell("Entity created!", AFArgs.User, HUD_PRINTCONSOLE);
+		af2entity.Tell("Объект создан!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void rotatefix(AFBaseArguments@ AFArgs)
@@ -1311,7 +1311,7 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
@@ -1327,7 +1327,7 @@ namespace AF2Entity
 			if(iC > 0)
 				af2entity.Tell(string(iC)+" entities fixed", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 	
@@ -1335,7 +1335,7 @@ namespace AF2Entity
 	{
 		if(pEntity.IsPlayer())
 		{
-			af2entity.Tell("Can't fix: target is player!", user, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя исправить: цель это игрок!", user, HUD_PRINTCONSOLE);
 			return false;
 		}
 	
@@ -1343,12 +1343,12 @@ namespace AF2Entity
 			CustomKeyvalues@ pCustom = pEntity.GetCustomKeyvalues();
 			if(pCustom.GetKeyvalue("$i_afbentgrab").GetInteger() == 1)
 			{
-				af2entity.Tell("Can't fix: entity being grabbed!", user, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя исправить: объект схвачен!", user, HUD_PRINTCONSOLE);
 				return false;
 			}
 			
 			if(!pCustom.GetKeyvalue("$i_afbentisoriginless").Exists()){
-				af2entity.Tell("Can't fix: dont know if entity has origin or not! (entity needs to be rotated at least once)", user, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя исправить: не знаю если у объекта есть источник или нет! (объект должен быть повернут хотябы один раз)", user, HUD_PRINTCONSOLE);
 				return false;
 			}
 			
@@ -1356,15 +1356,15 @@ namespace AF2Entity
 				Vector afbMove = pCustom.GetKeyvalue("$v_afbentofs3").GetVector();
 				pCustom.SetKeyvalue("$v_afbentofs2", Vector(0,0,0));
 				pEntity.SetOrigin(afbMove);
-				af2entity.Tell("Fixed! Entity sent to X:"+string(afbMove.x)+" Y:"+string(afbMove.y)+" Z:"+string(afbMove.z), user, HUD_PRINTCONSOLE);
+				af2entity.Tell("Исправлен! Объект был отправлен на кординаты X:"+string(afbMove.x)+" Y:"+string(afbMove.y)+" Z:"+string(afbMove.z), user, HUD_PRINTCONSOLE);
 				return true;
 			}
 			
-			af2entity.Tell("Can't fix: impossible error!", user, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя исправить: невозможная ошибка!", user, HUD_PRINTCONSOLE);
 			return false;
 			
 		}else{
-			af2entity.Tell("Can't fix: entity is not a brush!", user, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя исправить: объект не браш!", user, HUD_PRINTCONSOLE);
 			return false;
 		}
 	}
@@ -1378,7 +1378,7 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
@@ -1392,9 +1392,9 @@ namespace AF2Entity
 			}
 			
 			if(iC > 0)
-				af2entity.Tell(string(iC)+" entities rotated", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell(string(iC)+" объекты повернуты", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 	
@@ -1407,7 +1407,7 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
@@ -1421,9 +1421,9 @@ namespace AF2Entity
 			}
 			
 			if(iC > 0)
-				af2entity.Tell(string(iC)+" entities rotated", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell(string(iC)+" объекты повернуты", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 	
@@ -1431,14 +1431,14 @@ namespace AF2Entity
 	{
 		if(pEntity.IsPlayer())
 		{
-			af2entity.Tell("Can't rotate: target is player!", user, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя повернуть: цель это игрок!", user, HUD_PRINTCONSOLE);
 			return false;
 		}
 		CustomKeyvalues@ pCustom = pEntity.GetCustomKeyvalues();
 		if(pEntity.IsBSPModel()){
 			if(pCustom.GetKeyvalue("$i_afbentgrab").GetInteger() == 1)
 			{
-				af2entity.Tell("Can't rotate: entity being grabbed!", user, HUD_PRINTTALK);
+				af2entity.Tell("Нельзя повернуть: объект схвачен!", user, HUD_PRINTTALK);
 				return false;
 			}
 			
@@ -1506,13 +1506,13 @@ namespace AF2Entity
 		Vector vecBrushOrigin = Vector(0,0,0);
 		if(isBrush && pCustom.GetKeyvalue("$i_afbentisoriginless").GetInteger() == 1){
 			bBrushFuckery = true;
-			af2entity.Tell("Now attempting to rotate originless brush..", user, HUD_PRINTCONSOLE);
+			af2entity.Tell("Пытаемся повернуть браш без источника..", user, HUD_PRINTCONSOLE);
 			pEntity.SetOrigin(Vector(0,0,0));
 			vecBrushOrigin = getBrushOrigin(pEntity, true);
 			if(vecRotation.x != 0 || vecRotation.z != 0){
 				unsupported = true;
 				pCustom.SetKeyvalue("$i_afbrotunsupported", 1);
-				af2entity.Tell("Warning: buggy operation on originless brush: either rotating along pitch or roll - use .ent_move to re-adjust brush.", user, HUD_PRINTCONSOLE);
+				af2entity.Tell("Предупреждение: багнутая операция на без-источникого браша: либо поверните, либо изпользуйте .ent_move", user, HUD_PRINTCONSOLE);
 			}
 		}
 		
@@ -1531,7 +1531,7 @@ namespace AF2Entity
 		if(bBrushFuckery && !unsupported){
 			if(vecOldAngles.x != 0 || vecOldAngles.z != 0){
 				unsupported = true;
-				af2entity.Tell("Warning: buggy operation on originless brush: YAW-fix not applied, brush has pitch or roll rotation applied - use .ent_move to re-adjust brush.", user, HUD_PRINTCONSOLE);
+				af2entity.Tell("Предупреждение: багнутая операция на без-источникого браша: исправление через одну из углов не получилось, - изпользуйте .ent_move", user, HUD_PRINTCONSOLE);
 			}
 		}
 		
@@ -1561,7 +1561,7 @@ namespace AF2Entity
 			pEntity.SetOrigin(delta);
 		}
 		
-		af2entity.Tell("Rotated entity (old angle x:"+string(vecOldAngles.x)+" y:"+string(vecOldAngles.y)+" z:"+string(vecOldAngles.z)+") (new angle x:"+string(vecAngles.x)+" y:"+string(vecAngles.y)+" z:"+string(vecAngles.z)+") (pos x:"+string(pEntity.pev.origin.x)+" y:"+string(pEntity.pev.origin.y)+" z:"+string(pEntity.pev.origin.z)+")!", user, HUD_PRINTCONSOLE);
+		af2entity.Tell("Повернули объект (старый угол x:"+string(vecOldAngles.x)+" y:"+string(vecOldAngles.y)+" z:"+string(vecOldAngles.z)+") (новый угол x:"+string(vecAngles.x)+" y:"+string(vecAngles.y)+" z:"+string(vecAngles.z)+") (pos x:"+string(pEntity.pev.origin.x)+" y:"+string(pEntity.pev.origin.y)+" z:"+string(pEntity.pev.origin.z)+")!", user, HUD_PRINTCONSOLE);
 	}
 	
 	Vector polarcoords(float r, Vector ang)
@@ -1596,7 +1596,7 @@ namespace AF2Entity
 		{
 			if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 			{
-				af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}
@@ -1610,9 +1610,9 @@ namespace AF2Entity
 		}
 		
 		if(iC > 0)
-			af2entity.Tell(string(iC)+" entities triggered!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell(string(iC)+" объектов активировано!", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("No entity with that classname!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нету объекта с такми типом класса!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void trigger(AFBaseArguments@ AFArgs)
@@ -1623,24 +1623,24 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't trigger: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя активировать: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			pEntity.Use(AFArgs.User, AFArgs.User, USE_TOGGLE, 0);
-			af2entity.Tell("Triggered entity!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Активировали объект!", AFArgs.User, HUD_PRINTCONSOLE);
 		}else{
 			if(AFArgs.GetString(0) == "trigger_setcvar")
 			{
 				if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 				{
-					af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 					return;
 				}
 			}
@@ -1654,9 +1654,9 @@ namespace AF2Entity
 			}
 			
 			if(iC > 0)
-				af2entity.Tell(string(iC)+" entities triggered!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell(string(iC)+" объектов активировано!", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 
@@ -1668,24 +1668,24 @@ namespace AF2Entity
 			CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 			if(pEntity is null)
 			{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't kill: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя удалить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			g_EntityFuncs.Remove(pEntity);
-			af2entity.Tell("Killed entity!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Объект удален!", AFArgs.User, HUD_PRINTCONSOLE);
 		}else{
 			if(AFArgs.GetString(0) == "trigger_setcvar")
 			{
 				if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 				{
-					af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 					return;
 				}
 			}
@@ -1699,9 +1699,9 @@ namespace AF2Entity
 			}
 			
 			if(iC > 0)
-				af2entity.Tell(string(iC)+" entities killed", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell(string(iC)+" удалено объектов", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 
@@ -1725,7 +1725,7 @@ namespace AF2Entity
 		{
 			if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 			{
-				af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}
@@ -1734,7 +1734,7 @@ namespace AF2Entity
 		{
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't set: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя установить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 				continue;
 			}
 		
@@ -1742,15 +1742,15 @@ namespace AF2Entity
 			{
 				string sReturn = AF2LegacyCode::getKeyValue(pEntity, AFArgs.GetString(2));
 				if(sReturn != "§§§§N/A")
-					af2entity.Tell("Entity key is \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Значение объекта : \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 				else
-					af2entity.Tell("Unsupported key in get", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Неподдерживаемое значение", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
 				if(AFArgs.GetString(2) == "model" || AFArgs.GetString(2) == "viewmodel" || AFArgs.GetString(2) == "weaponmodel" || AFArgs.GetString(2) == "modelindex")
 				{
 					if(!bHasE)
 					{
-						af2entity.Tell("Blocked: you require access flag E to do this action (\"highrisk\" key).", AFArgs.User, HUD_PRINTCONSOLE);
+						af2entity.Tell("Заблокировано: вам требуеться имметь доступ Е чтобы зделать это (\"большой риск\" доступ)", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 				}
@@ -1759,16 +1759,16 @@ namespace AF2Entity
 				if(sValHold.ToLowercase() == "!null!")
 					sValout = "";
 				
-				af2entity.Tell("Set entity key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Установлено значение объекта: \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 				g_EntityFuncs.DispatchKeyValue(pEntity.edict(), AFArgs.GetString(2), sValout);
 			}
 			iC++;
 		}
 		
 		if(iC > 0)
-			af2entity.Tell(string(iC)+" entities found", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell(string(iC)+" найдено объектов", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("No entity with that classname!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нету объекта с такми типом класса!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void keyvaluename(AFBaseArguments@ AFArgs)
@@ -1789,7 +1789,7 @@ namespace AF2Entity
 		{
 			if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 			{
-				af2entity.Tell("Blocked: you require the access flag C to do this action (\"rcon\" key)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Заблокировано: вам требуеться имметь доступ С чтобы зделать это (\"rcon\" доступ)!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}
@@ -1799,7 +1799,7 @@ namespace AF2Entity
 		{
 			if(pEntity.IsPlayer())
 			{
-				af2entity.Tell("Can't set: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нельзя установить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 				continue;
 			}
 		
@@ -1807,15 +1807,15 @@ namespace AF2Entity
 			{
 				string sReturn = AF2LegacyCode::getKeyValue(pEntity, AFArgs.GetString(1));
 				if(sReturn != "§§§§N/A")
-					af2entity.Tell("Entity key is \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Значение объекта: \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 				else
-					af2entity.Tell("Unsupported key in get", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Неподдерживаемое значение", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
 				if(AFArgs.GetString(1) == "model" || AFArgs.GetString(1) == "viewmodel" || AFArgs.GetString(1) == "weaponmodel" || AFArgs.GetString(1) == "modelindex")
 				{
 					if(!bHasE)
 					{
-						af2entity.Tell("Blocked: you require access flag E to do this action (\"highrisk\" key).", AFArgs.User, HUD_PRINTCONSOLE);
+						af2entity.Tell("Заблокировано: вам требуеться имметь доступ Е чтобы зделать это (\"большой риск\" доступ)", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 				}
@@ -1824,16 +1824,16 @@ namespace AF2Entity
 				if(sValHold.ToLowercase() == "!null!")
 					sValout = "";
 				
-				af2entity.Tell("Set entity key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Установлено значение объекта: \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 				g_EntityFuncs.DispatchKeyValue(pEntity.edict(), AFArgs.GetString(1), sValout);
 			}
 			iC++;
 		}
 		
 		if(iC > 0)
-			af2entity.Tell(string(iC)+" entities found", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell(string(iC)+" найдено объектов", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
 	void keyvalue(AFBaseArguments@ AFArgs)
@@ -1841,13 +1841,13 @@ namespace AF2Entity
 		CBaseEntity@ pEntity = g_Utility.FindEntityForward(AFArgs.User, 4096);
 		if(pEntity is null)
 		{
-			af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
 		if(pEntity.IsPlayer())
 		{
-			af2entity.Tell("Can't set: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Нельзя установить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -1865,15 +1865,15 @@ namespace AF2Entity
 		{
 			string sReturn = AF2LegacyCode::getKeyValue(pEntity, AFArgs.GetString(0));
 			if(sReturn != "§§§§N/A")
-				af2entity.Tell("Entity key is \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Значение объекта: \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("Unsupported key in get", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Неподдерживаемое значение", AFArgs.User, HUD_PRINTCONSOLE);
 		}else{
 			if(AFArgs.GetString(0) == "model" || AFArgs.GetString(0) == "viewmodel" || AFArgs.GetString(0) == "weaponmodel" || AFArgs.GetString(0) == "modelindex")
 			{
 				if(!bHasE)
 				{
-					af2entity.Tell("Blocked: you require access flag E to do this action (\"highrisk\" key).", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Заблокировано: вам требуеться имметь доступ Е чтобы зделать это (\"большой риск\" доступ)", AFArgs.User, HUD_PRINTCONSOLE);
 					return;
 				}
 			}
@@ -1882,7 +1882,7 @@ namespace AF2Entity
 			if(sValHold.ToLowercase() == "!null!")
 				sValout = "";
 			
-			af2entity.Tell("Set entity key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+			af2entity.Tell("Установлено значение объекта: \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 			g_EntityFuncs.DispatchKeyValue(pEntity.edict(), AFArgs.GetString(0), sValout);
 		}
 	}
@@ -1898,13 +1898,13 @@ namespace AF2Entity
 			{
 				if(pEntity.IsPlayer())
 				{
-					af2entity.Tell("Can't damage: target is player!", AFArgs.User, HUD_PRINTCONSOLE);
+					af2entity.Tell("Нельзя поранить: цель это игрок!", AFArgs.User, HUD_PRINTCONSOLE);
 					return;
 				}
 				pEntity.TakeDamage(AFArgs.User.pev, AFArgs.User.pev, fDamage, DMG_BLAST);
 			
 			}else{
-				af2entity.Tell("No entity in front (4096 units)!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Нет объекта впереди (4096 юнитов)!", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}else{
 			int iC = 0;
@@ -1916,9 +1916,9 @@ namespace AF2Entity
 			}
 			
 			if(iC > 0)
-				af2entity.Tell("Damaged "+string(iC)+" entities", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Поранили "+string(iC)+" объектов", AFArgs.User, HUD_PRINTCONSOLE);
 			else
-				af2entity.Tell("No entity with that name!", AFArgs.User, HUD_PRINTCONSOLE);
+				af2entity.Tell("Такого объекта с именем не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 }

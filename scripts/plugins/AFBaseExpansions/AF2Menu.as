@@ -10,13 +10,13 @@ class AF2Menu : AFBaseClass
 	void ExpansionInfo()
 	{
 		this.AuthorName = "Zode";
-		this.ExpansionName = "AdminFuckery2 Menu System";
+		this.ExpansionName = "AdminFuckery2 Система меню";
 		this.ShortName = "AF2MS";
 	}
 	
 	void ExpansionInit()
 	{
-		RegisterCommand("afb_menu", "", "- pop open a simple command menu", ACCESS_H, @AF2Menu::popmenu, true);
+		RegisterCommand("afb_menu", "", "- показует простенькое меню, на котором перевод невозможен", ACCESS_H, @AF2Menu::popmenu, true);
 		AF2Menu::initializeMenus();
 	}
 	

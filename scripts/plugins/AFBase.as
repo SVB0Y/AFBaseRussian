@@ -22,17 +22,17 @@
 void PluginInit()
 {
 	AFBase::BaseLog(AFBase::g_afInfo+" - Plugin init");
-	g_Module.ScriptInfo.SetAuthor("Zode");
-	g_Module.ScriptInfo.SetContactInfo("Zodemon @ Sven co-op forums, Zode @ Sven co-op discord");
+	g_Module.ScriptInfo.SetAuthor("Zode, переведено на русский SV BOY-ем");
+	g_Module.ScriptInfo.SetContactInfo("Zode @ Sven co-op discord");
 	g_Hooks.RegisterHook(Hooks::Player::ClientSay, @AFBase::HandleClientChat);
 	g_Hooks.RegisterHook(Hooks::Player::ClientPutInServer, @AFBase::HandleClientConnect);
 	g_Hooks.RegisterHook(Hooks::Player::ClientConnected, @AFBase::HandleClientPreConnect);
 	g_Hooks.RegisterHook(Hooks::Player::ClientDisconnect, @AFBase::HandleClientDisconnect);
 	
-	@AFBase::g_cvar_afb_ignoreAccess = CCVar("afb_access_ignore", 0, "0/1 ignore access file and use admins.txt instead", ConCommandFlag::AdminOnly, @AFBase::AccessIgnoreCB);
+	@AFBase::g_cvar_afb_ignoreAccess = CCVar("afb_access_ignore", 0, "0/1 Игнорировать файл с доступами и вместо флагов изпользовать admin.txt", ConCommandFlag::AdminOnly, @AFBase::AccessIgnoreCB);
 	
 	AFBase::g_afbIsSafePlugin = false;
-	AFBase::BaseLog("Loading expansions.");
+	AFBase::BaseLog("Загружаем дополнения.");
 	AFBase::g_afbUserList.deleteAll(); //af1/2 fix: reset incase shit gets stuck 
 	AFBase::g_afbExpansionList.deleteAll();
 	AFBase::g_afbConCommandList.deleteAll();
@@ -42,7 +42,7 @@ void PluginInit()
 	AFBaseBaseExpansionCall();
 	AFBaseCallExpansions();
 	AFBase::g_afbVisualCommandList.sortAsc();
-	AFBase::BaseLog("Expansions loaded!");
+	AFBase::BaseLog("Загрузили дополнения!");
 	
 	CBasePlayer@ pSearch = null; //af2.1 fix: handle connected clients on reload
 	for(int i = 1; i <= g_Engine.maxClients; i++)
@@ -53,7 +53,7 @@ void PluginInit()
 			string sFixId = AFBase::FormatSafe(AFBase::GetFixedSteamID(pSearch));
 			if(sFixId == "")
 			{
-				AFBase::BaseLog("PLUGININIT: Error handling user steamid "+pSearch.pev.netname);
+				AFBase::BaseLog("PLUGININIT: Ошибка обращения пользователя steamid"+pSearch.pev.netname);
 			}
 			if(!AFBase::g_afbUserList.exists(pSearch.entindex()))
 			{
@@ -98,7 +98,7 @@ void MapInit()
 			string sFixId = AFBase::FormatSafe(AFBase::GetFixedSteamID(pSearch));
 			if(sFixId == "")
 			{
-				AFBase::BaseLog("MAPINIT: Error handling user steamid "+pSearch.pev.netname);
+				AFBase::BaseLog("MAPINIT: Ошибка обращения пользователя steamid "+pSearch.pev.netname);
 			}
 
 			if(!AFBase::g_afbUserList.exists(pSearch.entindex()))
@@ -141,7 +141,7 @@ void MapInit()
 		
 	@AFBase::g_afbThink = g_Scheduler.SetInterval("AFBaseThink", 2.0f+Math.RandomFloat(0.01f, 0.09f));
 	AFBase::g_afbIsSafePlugin = true;
-	AFBase::BaseLog("Map init(s) called in expansion(s).");
+	AFBase::BaseLog("Карта инициирована, вызываються доплнения");
 }
 
 void MapActivate()
@@ -154,7 +154,7 @@ void MapActivate()
 		if(AFBClass !is null)
 			AFBClass.MapActivate();
 	}
-	AFBase::BaseLog("Map activate(s) called in expansion(s).");
+	AFBase::BaseLog("Активация карты, вызываються доплнения");
 }
 
 void AFBaseThink()
@@ -236,7 +236,7 @@ namespace AFBase
 	
 	bool g_afbIsSafePlugin = false;
 	
-	const string g_afInfo = "AFBase 1.6.0 PUBLIC";
+	const string g_afInfo = "AFBase 1.6.0 ПУБЛИЧНЫЙ (РУССКАЯ ВЕРСИЯ)";
 	const string g_afServerPrefix = "s_";
 	bool IsSafe()
 	{
@@ -251,7 +251,7 @@ namespace AFBase
 	HookReturnCode HandleClientPreConnect(edict_t@ eEdict, const string &in sNick, const string &in sIp, bool &out bNoJoin, string &out sReason)
 	{
 		g_afbTempUser[FormatSafe(sNick)] = sIp;
-		BaseLog("User "+sNick+" connected from "+sIp);
+		BaseLog("Пользователь "+sNick+" подключился из"+sIp);
 		
 		return HOOK_CONTINUE;
 	}
@@ -260,7 +260,7 @@ namespace AFBase
 	{
 		string sFixId = FormatSafe(GetFixedSteamID(pPlayer));
 		if(sFixId == "")
-			BaseLog("CONNECT: Error handling user "+pPlayer.pev.netname);
+			BaseLog("ПОДКЛЮЧЕНИЕ: Ошибка обращения пользователя"+pPlayer.pev.netname);
 		
 		//if(!g_afbUserList.exists(pPlayer.entindex()))
 		//{
@@ -295,13 +295,13 @@ namespace AFBase
 			{
 				if(iBanMinutes == 0)
 				{
-					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (ban time left: permanent)\"\n");
-					BaseLog("GATEKEEP: kicking "+pPlayer.pev.netname+": has permanent ban with reason \""+sBanReason+"\"");
-					afbasebase.TellAll("GATEKEEP: kicking "+pPlayer.pev.netname+": has permanent ban with reason \""+sBanReason+"\"", HUD_PRINTTALK);
+					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (время бана: навсегда)\"\n");
+					BaseLog("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан навсегда с причиной \""+sBanReason+"\"");
+					afbasebase.TellAll("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан навсегда с причиной \""+sBanReason+"\"", HUD_PRINTTALK);
 				}else{
-					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (ban left: "+string(iBanMinutes)+"m)\"\n");
-					BaseLog("GATEKEEP: kicking "+pPlayer.pev.netname+": has ban with reason \""+sBanReason+"\", "+string(iBanMinutes)+" minute(s) left.");
-					afbasebase.TellAll("GATEKEEP: kicking "+pPlayer.pev.netname+": has ban with reason \""+sBanReason+"\", "+string(iBanMinutes)+" minute(s) left", HUD_PRINTTALK);
+					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (минут до разбана: "+string(iBanMinutes)+"м)\"\n");
+					BaseLog("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан с причиной \""+sBanReason+"\", "+string(iBanMinutes)+" минут осталось.");
+					afbasebase.TellAll("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан с причиной \""+sBanReason+"\", "+string(iBanMinutes)+" минут осталось", HUD_PRINTTALK);
 				}
 				
 				return HOOK_CONTINUE;
@@ -318,13 +318,13 @@ namespace AFBase
 			{
 				if(iBanMinutes == 0)
 				{
-					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (ban time left: permanent)\"\n");
-					BaseLog("GATEKEEP: kicking "+pPlayer.pev.netname+": has permanent ban with reason \""+sBanReason+"\"");
-					afbasebase.TellAll("GATEKEEP: kicking "+pPlayer.pev.netname+": has permanent ban with reason \""+sBanReason+"\"", HUD_PRINTTALK);
+					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (время бана: навсегда)\"\n");
+					BaseLog("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан навсегда с причиной \""+sBanReason+"\"");
+					afbasebase.TellAll("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан навсегда с причиной \""+sBanReason+"\"", HUD_PRINTTALK);
 				}else{
-					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (ban left: "+string(iBanMinutes)+"m)\"\n");
-					BaseLog("GATEKEEP: kicking "+pPlayer.pev.netname+": has ban with reason \""+sBanReason+"\", "+string(iBanMinutes)+" minutes left.");
-					afbasebase.TellAll("GATEKEEP: kicking "+pPlayer.pev.netname+": has ban with reason \""+sBanReason+"\", "+string(iBanMinutes)+" minutes left", HUD_PRINTTALK);
+					g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pPlayer.edict()))+" \""+sBanReason+" (минут до разбана: "+string(iBanMinutes)+"м)\"\n");
+					BaseLog("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан с причиной \""+sBanReason+"\", "+string(iBanMinutes)+" минут осталось");
+					afbasebase.TellAll("ПРИВРАТНИК: кикаем "+pPlayer.pev.netname+": имеет бан с причиной \""+sBanReason+"\", "+string(iBanMinutes)+" минут осталось", HUD_PRINTTALK);
 				}
 				
 				return HOOK_CONTINUE;
@@ -451,7 +451,7 @@ namespace AFBase
 				string sFixId = FormatSafe(GetFixedSteamID(pSearch));
 				if(sFixId == "")
 				{
-					AFBase::BaseLog("CALLBACK: Error handling user steamid "+pSearch.pev.netname);
+					AFBase::BaseLog("CALLBACK: Ошибка обращения пользователя steamid"+pSearch.pev.netname);
 				}
 
 				if(!AFBase::g_afbUserList.exists(pSearch.entindex()))

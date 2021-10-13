@@ -32,7 +32,7 @@ namespace AF2Entity
 		{
 			self.PrecacheCustomModels();
 			g_Game.PrecacheModel("models/not_precached.mdl");
-			g_Game.PrecacheModel("models/zode/v_entmover.mdl");
+			g_Game.PrecacheModel("models/zode/v_entmoverv2.mdl");
 			g_Game.PrecacheModel("models/zode/p_entmover.mdl");
 			g_Game.PrecacheModel("sprites/zbeam4.spr");
 			g_Game.PrecacheModel("sprites/zode/border.spr");
@@ -62,7 +62,7 @@ namespace AF2Entity
 		
 		bool Deploy()
 		{
-			return self.DefaultDeploy(self.GetV_Model("models/zode/v_entmover.mdl"), self.GetP_Model("models/zode/p_entmover.mdl"), MOVER_DRAW, "onehanded");
+			return self.DefaultDeploy(self.GetV_Model("models/zode/v_entmoverv2.mdl"), self.GetP_Model("models/zode/p_entmover.mdl"), MOVER_DRAW, "onehanded");
 		}
 		
 		void Holster(int skip = 0)

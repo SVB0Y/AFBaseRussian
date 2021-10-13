@@ -28,19 +28,19 @@ namespace AFBase
 		bool bUnsafe = false;
 		if(pUser is null)
 		{
-			BaseLog("Player SteamID check failed: User entity is null! Returning empty");
+			BaseLog("Ошибка проверки SteamID игрока: Пользователь сущности отсутствует! Показуем пустую");
 			return "";
 		}
 		
 		if(!pUser.IsConnected())
 		{
 			bUnsafe = true;
-			BaseLog("WARNING: Checking against disconnected player!");
+			BaseLog("ПРЕДУПРЕЖДЕНИЕ: Проверка против отключенных игроков!");
 		}
 		AFBaseUser@ afbUser = GetUser(pUser);
 		if(afbUser is null)
 		{
-			BaseLog("User cache missing. Getting ID from engine..");
+			BaseLog("Кеш пользователей отсутствует. Берем ID из движка..");
 			string steamID = g_EngineFuncs.GetPlayerAuthId(pUser.edict());
 			if(steamID == "")
 				for(int i = 0; i < 8; i++) // lowered search amount
@@ -52,7 +52,7 @@ namespace AFBase
 				
 			if(bUnsafe && steamID == "")
 			{
-				BaseLog("Player SteamID check failed: User cache missing & user is not connected, returning empty");
+				BaseLog("Ошибка проверки игрока SteamID: Кеш пользователя отсутствует и пользователь не подключен, показуем пустоту");
 				return "";
 			}
 
@@ -233,7 +233,7 @@ namespace AFBase
 				return true;
 			}
 			
-			BaseTell("Failed to find targets.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@admins" && iFlags & TARGETS_NOALL == 0)
@@ -264,7 +264,7 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find targets.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение целей.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@noadmins" && iFlags & TARGETS_NOALL == 0)
@@ -294,7 +294,7 @@ namespace AFBase
 				return true;
 			}
 			
-			BaseTell("Failed to find targets.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@dead" && iFlags & TARGETS_NODEAD == 0 && iFlags & TARGETS_NOALL == 0)
@@ -321,7 +321,7 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find targets.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@alive" && iFlags & TARGETS_NOALIVE == 0 && iFlags & TARGETS_NOALL == 0)
@@ -348,14 +348,14 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find targets.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@aim" && iFlags & TARGETS_NOAIM == 0)
 		{
 			if(pSelf is null)
 			{
-				BaseTell("Can't use @aim as server!", pSelf, hudTarget);
+				BaseTell("Нельзя изпользовать @aim от имени сервера!", pSelf, hudTarget);
 				return false;
 			}
 			
@@ -371,7 +371,7 @@ namespace AFBase
 			{
 				if(!pHitEnt.IsPlayer())
 				{
-					BaseTell("Failed to find target (4096 units).", pSelf, hudTarget);
+					BaseTell("Ошибка нахождения цели (4096 юнитов).", pSelf, hudTarget);
 					return false;
 				}
 				
@@ -401,7 +401,7 @@ namespace AFBase
 				return true;
 			}
 			
-			BaseTell("Failed to find target (4096 units).", pSelf, hudTarget);
+			BaseTell("Ошибка нахождения цели (4096 юнитов).", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@random" && iFlags & TARGETS_NORANDOM == 0)
@@ -443,14 +443,14 @@ namespace AFBase
 				return true;
 			}
 			
-			BaseTell("Failed to find target.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@last" && iFlags & TARGETS_NOLAST == 0)
 		{
 			if(pSelf is null)
 			{
-				BaseTell("Can't use @last as server!", pSelf, hudTarget);
+				BaseTell("Нельзя изпользовать @last от имени сервера!", pSelf, hudTarget);
 				return false;
 			}
 			CBasePlayer@ pSearch = null;
@@ -482,14 +482,14 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find target. @last is probably empty, it is only set by @aim, @random, nick/steamid.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение цели. @last похоже пустой, оно ставиться через @aim, @random, ник/steamid.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput == "@me" && iFlags & TARGETS_NOME == 0)
 		{
 			if(pSelf is null)
 			{
-				BaseTell("Can't use @me as server!", pSelf, hudTarget);
+				BaseTell("Нельзя изпользовать @me от имени сервера!", pSelf, hudTarget);
 				return false;
 			}
 			
@@ -501,7 +501,7 @@ namespace AFBase
 				return true;
 			}
 			
-			BaseTell("Something went horribly wrong, if you see this message it probably means you dont exist.", pSelf, hudTarget);
+			BaseTell("Чтото пошло не по плану, если вы видите это сообщение то скорее всего вы не существуете.", pSelf, hudTarget);
 			return false;
 		}
 		else if(sFilterInput.SubString(0,6) == "steam_")
@@ -553,7 +553,7 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find target steamid, you need quotes around the steamid or you need to check the steamid itself.", pSelf, hudTarget);
+			BaseTell("Ошибка нахождение SteamID цели, вы должны поставить кавычки возле SteamID или вы должны проверить сам SteamID.", pSelf, hudTarget);
 			return false;
 		}
 		else if(iFlags & TARGETS_NONICK == 0)
@@ -642,11 +642,11 @@ namespace AFBase
 			{
 				if(hudTarget == HUD_PRINTCONSOLE)
 				{
-					BaseTell("Too many hits with wildcard! Found "+string(aCBPHold.length())+" matching players:", pSelf, hudTarget);
+					BaseTell("Слишком много попаданий с постановочным знаком! Нашли "+string(aCBPHold.length())+" совпадающих игроков:", pSelf, hudTarget);
 					for(uint i = 0; i < aCBPHold.length(); i++)
 						BaseTell(string(i)+": "+string(aCBPHold[i].pev.netname), pSelf, hudTarget);
 				}else{
-					BaseTell("Too many hits with wildcard! Found "+string(aCBPHold.length())+" matching players.", pSelf, hudTarget);
+					BaseTell("Слишком много попаданий с постановочным знаком! Нашли "+string(aCBPHold.length())+" совпадающих игроков.", pSelf, hudTarget);
 				}
 				
 				return false;
@@ -667,11 +667,11 @@ namespace AFBase
 				return true;
 			}
 		
-			BaseTell("Failed to find target nickname, try using quotes and/or wildcard search?", pSelf, hudTarget);
+			BaseTell("Ошибка нахождения никнейма цели, попробуйте изпользовать кавычки или/и подстановочный знак для поиска?", pSelf, hudTarget);
 			return false;
 		}
 		
-		BaseTell("Failed to find target, something went horribly wrong.", pSelf, hudTarget);
+		BaseTell("Ошибка нахождения цели, чтото пошло не так.", pSelf, hudTarget);
 		return false;
 	}
 	

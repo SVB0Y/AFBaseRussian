@@ -12,47 +12,47 @@ class AF2Player : AFBaseClass
 	void ExpansionInfo()
 	{
 		this.AuthorName = "Zode";
-		this.ExpansionName = "AdminFuckery2 Player Commands";
+		this.ExpansionName = "AdminFuckery2 Команды Игроков";
 		this.ShortName = "AF2P";
 	}
 	
 	void ExpansionInit()
 	{
-		RegisterCommand("player_teleportaim", "s", "(targets) - teleport target(s) to where you are aiming at", ACCESS_G, @AF2Player::teleportaim);
-		RegisterCommand("say !tpaim", "s", "(targets) - teleport target(s) to where you are aiming at", ACCESS_G, @AF2Player::teleportaim, CMD_SUPRESS);
-		RegisterCommand("player_teleportmeto", "s", "(target) - teleport you to target", ACCESS_G, @AF2Player::teleportmeto);
-		RegisterCommand("say !tpmeto", "s", "(target) - teleport you to target", ACCESS_G, @AF2Player::teleportmeto, CMD_SUPRESS);
-		RegisterCommand("player_teleporttome", "s", "(targets) - teleport target(s) to you", ACCESS_G, @AF2Player::teleporttome);
-		RegisterCommand("say !tptome", "s", "(targets) - teleport target(s) to you", ACCESS_G, @AF2Player::teleporttome, CMD_SUPRESS);
-		RegisterCommand("player_teleportpos", "sv", "(targets) (vector) - teleport target(s) to position", ACCESS_G, @AF2Player::teleportpos);
-		RegisterCommand("player_disarm", "s!s", "(targets) <weapon> - disarm target(s), don't define weapon to disarm everything", ACCESS_G, @AF2Player::disarm);
-		RegisterCommand("player_getmodel", "s", "(targets) - return target(s) playermodel", ACCESS_Z, @AF2Player::getmodel);
-		RegisterCommand("player_give", "ss", "(targets) (weapon/ammo/item) - give target(s) stuff", ACCESS_G, @AF2Player::give);
-		RegisterCommand("say !give", "ss", "(targets) (weapon/ammo/item) - give target(s) stuff", ACCESS_G, @AF2Player::give, CMD_SUPRESS);
-		RegisterCommand("player_giveall", "!ss", "<targets> <set> - give target(s) all stock weapons, don't define target to view all currently possible sets, set defaults to vanilla", ACCESS_G, @AF2Player::giveall);
-		RegisterCommand("player_giveammo", "s!i", "(targets) <0/1 all> - give target(s) ammo, defaults to all weapons", ACCESS_G, @AF2Player::giveammo);
-		RegisterCommand("say !giveammo", "s!i", "(targets) <0/1 all> - give target(s) ammo, defaults to all weapons", ACCESS_G, @AF2Player::giveammo, CMD_SUPRESS);
-		RegisterCommand("player_givemapcfg", "s", "(targets) - apply map cfg to target(s)", ACCESS_G, @AF2Player::givemapcfg);
-		RegisterCommand("player_position", "s", "(target) - returns target position,", ACCESS_G, @AF2Player::position);
-		RegisterCommand("player_resurrect", "s!b", "(targets) <0/1 no respawn> - resurrect target(s)", ACCESS_G, @AF2Player::resurrect);
-		RegisterCommand("say !resurrect", "s!b", "(targets) <0/1 no respawn> - resurrect target(s)", ACCESS_G, @AF2Player::resurrect, CMD_SUPRESS);
-		RegisterCommand("player_maxspeed", "sf", "(targets) (speed) - set target(s) max speed, -1 to restore to default", ACCESS_G, @AF2Player::maxspeed);
-		RegisterCommand("player_keyvalue", "ss!sss", "(targets) (key) <value> <value> <value> - get/set target(s) keyvalue", ACCESS_F|ACCESS_G, @AF2Player::keyvalue);
-		RegisterCommand("player_nosolid", "s!b", "(targets) <0/1 mode> - set target(s) solidity, don't define mode to toggle", ACCESS_G, @AF2Player::nosolid);
-		RegisterCommand("say !nosolid", "s!i", "(targets) <0/1 mode> - set target(s) nosolid mode, don't define mode to toggle", ACCESS_G, @AF2Player::nosolid, CMD_SUPRESS);
-		RegisterCommand("player_noclip", "s!i", "(targets) <0/1 mode> - set target(s) noclip mode, don't define mode to toggle", ACCESS_G, @AF2Player::noclip);
-		RegisterCommand("player_god", "s!i", "(targets) <0/1 mode> - set target(s) godmode, don't define mode to toggle", ACCESS_G, @AF2Player::god);
-		RegisterCommand("player_freeze", "s!i", "(targets) <0/1 mode> - freeze/unfreeze target(s), don't define mode to toggle", ACCESS_G, @AF2Player::freeze);
-		RegisterCommand("say !freeze", "s!i", "(targets) <0/1 mode> - freeze/unfreeze target(s), don't define mode to toggle", ACCESS_G, @AF2Player::freeze, CMD_SUPRESS);
-		RegisterCommand("player_ignite", "s", "(targets) - ignite target(s)", ACCESS_G, @AF2Player::ignite, CMD_PRECACHE);
-		RegisterCommand("player_viewmode", "sb", "(targets) (0/1 firstperson/thirdperson) - set target(s) viewmode", ACCESS_G, @AF2Player::viewmode);
-		RegisterCommand("player_notarget", "s!i", "(targets) <0/1 mode> - set target(s) notarget, don't define mode to toggle", ACCESS_G, @AF2Player::notarget);
-		RegisterCommand("player_tag", "!ss", "<targets> <tag> - tag target, visible only for admins. Run without arguments to view list", ACCESS_G, @AF2Player::tagplayer, CMD_PRECACHE);
-		RegisterCommand("say !tag", "!ss", "<targets> <tag> - tag target, visible only for admins. Run without arguments to view list", ACCESS_G, @AF2Player::tagplayer, CMD_PRECACHE|CMD_SUPRESS);
-		RegisterCommand("player_tagfix", "", "- refresh tags on your view, in case something fucks up", ACCESS_G, @AF2Player::tagfix, CMD_PRECACHE);
-		RegisterCommand("say !tagfix", "", "- refresh tags on your view, in case something fucks up", ACCESS_G, @AF2Player::tagfix, CMD_PRECACHE|CMD_SUPRESS);
-		RegisterCommand("player_exec", "ss!i", "(targets) (\"command\") <noquotes 0/1> - execute command on client console", ACCESS_G, @AF2Player::cexec);
-		RegisterCommand("player_dumpinfo", "s!b", "(targets) <dirty 0/1> - dump player keyvalues into console", ACCESS_F|ACCESS_G, @AF2Player::dumpinfo);
+		RegisterCommand("player_teleportaim", "s", "(игроки) - телепорт по прицелу", ACCESS_G, @AF2Player::teleportaim);
+		RegisterCommand("say !tpaim", "s", "(игроки) - телепорт по прицелу", ACCESS_G, @AF2Player::teleportaim, CMD_SUPRESS);
+		RegisterCommand("player_teleportmeto", "s", "(игроки) - телепорт к игроку", ACCESS_G, @AF2Player::teleportmeto);
+		RegisterCommand("say !tpmeto", "s", "(игроки) - телепорт к игроку", ACCESS_G, @AF2Player::teleportmeto, CMD_SUPRESS);
+		RegisterCommand("player_teleporttome", "s", "(игроки) - телепорт игрока к вам", ACCESS_G, @AF2Player::teleporttome);
+		RegisterCommand("say !tptome", "s", "(игроки) - телепорт игрока к вам", ACCESS_G, @AF2Player::teleporttome, CMD_SUPRESS);
+		RegisterCommand("player_teleportpos", "sv", "(игроки) (X) (Y) (Z) - телепорт по кординатам", ACCESS_G, @AF2Player::teleportpos);
+		RegisterCommand("player_disarm", "s!s", "(игроки) <оружие> - убирает оружия/ие игрока, не указуйте оружие чтобы отобрать все оружия", ACCESS_G, @AF2Player::disarm);
+		RegisterCommand("player_getmodel", "s", "(игроки) - узнаёт название модели игрока", ACCESS_Z, @AF2Player::getmodel);
+		RegisterCommand("player_give", "ss", "(игроки) (weapon_/ammo_/item_) - выдаёт вещь", ACCESS_G, @AF2Player::give);
+		RegisterCommand("say !give", "ss", "(игроки) (weapon_/ammo_/item_) - выдаёт вещь", ACCESS_G, @AF2Player::give, CMD_SUPRESS);
+		RegisterCommand("player_giveall", "!ss", " <игроки> <сет> - выдаёт все оружия напишите ins2 или cs16 чтоб выдать оружие соотвественым плагинам", ACCESS_G, @AF2Player::giveall);
+		RegisterCommand("player_giveammo", "s!i", "(игроки) <0/1 данному оружию/всем оружям> - выдает патроны", ACCESS_G, @AF2Player::giveammo);
+		RegisterCommand("say !giveammo", "s!i", "(игроки) <0/1 данному оружию/всем оружию> - выдает патроны", ACCESS_G, @AF2Player::giveammo, CMD_SUPRESS);
+		RegisterCommand("player_givemapcfg", "s", "(игроки) - выдает стандартное экипировку карты", ACCESS_G, @AF2Player::givemapcfg);
+		RegisterCommand("player_position", "s", "(игрок) - показывает позицию игрока", ACCESS_G, @AF2Player::position);
+		RegisterCommand("player_resurrect", "s!b", "(игроки) <0/1 возрождение/на месте> - возрождение", ACCESS_G, @AF2Player::resurrect);
+		RegisterCommand("say !resurrect", "s!b", "(игроки) <0/1 возрождение/на месте> - возрождение", ACCESS_G, @AF2Player::resurrect, CMD_SUPRESS);
+		RegisterCommand("player_maxspeed", "sf", "(игроки) (скорость в юнитах) - меняет скорость игрока, -1 для стандратной скорости", ACCESS_G, @AF2Player::maxspeed);
+		RegisterCommand("player_keyvalue", "ss!sss", "(игроки) (параметр) <значение> <знач.> <знач.> - меняет параметры игрока", ACCESS_F|ACCESS_G, @AF2Player::keyvalue);
+		RegisterCommand("player_nosolid", "s!b", "(игроки) <0/1 выкл/вкл> - солидность", ACCESS_G, @AF2Player::nosolid);
+		RegisterCommand("say !nosolid", "s!i", "(игроки) <0/1 выкл/вкл> - солидность", ACCESS_G, @AF2Player::nosolid, CMD_SUPRESS);
+		RegisterCommand("player_noclip", "s!i", "(игроки) <0/1 выкл/вкл> - ноклип", ACCESS_G, @AF2Player::noclip);
+		RegisterCommand("player_god", "s!i", "(игроки) <0/1 выкл/вкл> - бессмертие", ACCESS_G, @AF2Player::god);
+		RegisterCommand("player_freeze", "s!i", "(игроки) <0/1 выкл/вкл> - замораживает/размораживает ", ACCESS_G, @AF2Player::freeze);
+		RegisterCommand("say !freeze", "s!i", "(игроки) <0/1 выкл/вкл> - замораживает/размораживает ", ACCESS_G, @AF2Player::freeze, CMD_SUPRESS);
+		RegisterCommand("player_ignite", "s", "(игроки) - поджечь игрока", ACCESS_G, @AF2Player::ignite, CMD_PRECACHE);
+		RegisterCommand("player_viewmode", "sb", "(игроки) (0/1 от 1-го лица/ от 3-го лица) - переключает от 1-го и 3-го лица", ACCESS_G, @AF2Player::viewmode);
+		RegisterCommand("player_notarget", "s!i", "(игроки) <0/1 выкл/вкл> - нотаргет", ACCESS_G, @AF2Player::notarget);
+		RegisterCommand("player_tag", "!ss", "<игроки> <тег> - дать тег игроку, только админы могут видеть теги, используйте без аргументов чтобы посмотреть список", ACCESS_G, @AF2Player::tagplayer, CMD_PRECACHE);
+		RegisterCommand("say !tag", "!ss", "<игроки> <тег> - дать тег игроку, только админы могут видеть теги, используйте без аргументов чтобы посмотреть список", ACCESS_G, @AF2Player::tagplayer, CMD_PRECACHE|CMD_SUPRESS);
+		RegisterCommand("player_tagfix", "", "- фикс тег, если чтото с ними не так", ACCESS_G, @AF2Player::tagfix, CMD_PRECACHE);
+		RegisterCommand("say !tagfix", "", "- фикс тег, если чтото с ними не так", ACCESS_G, @AF2Player::tagfix, CMD_PRECACHE|CMD_SUPRESS);
+		RegisterCommand("player_exec", "ss!i", "(игроки) (\"команда\") <без кавычек 0/1> - заставляет игрока написать за него в консоль", ACCESS_G, @AF2Player::cexec);
+		RegisterCommand("player_dumpinfo", "s!b", "(игроки) <0/1 грязно> - показывает игровые значения о игроке", ACCESS_F|ACCESS_G, @AF2Player::dumpinfo);
 	
 		g_Hooks.RegisterHook(Hooks::Player::PlayerSpawn, @AF2Player::PlayerSpawn);
 		
@@ -77,15 +77,15 @@ class AF2Player : AFBaseClass
 		@AF2Player::g_playerThink = g_Scheduler.SetInterval("playerThink", 0.25f);
 		
 		dictionary MenuCommands = {
-			{".player_giveammo","give ammo"},
-			{".player_ignite","ignite"},
-			{".player_teleporttome","teleport to me"},
-			{".player_teleportmeto","teleport me to"},
-			{".player_freeze","toggle freeze"},
-			{".player_nosolid","toggle nosolid"},
-			{".player_noclip","toggle noclip"},
-			{".player_god","toggle god"},
-			{".player_notarget","toggle notarget"}
+			{".player_giveammo","дать патрон"},
+			{".player_ignite","поджечь"},
+			{".player_teleporttome","телепорт к себе"},
+			{".player_teleportmeto","телепорт меня к"},
+			{".player_freeze","переключить заморозку"},
+			{".player_nosolid","переключить несолидность"},
+			{".player_noclip","переключить ноклип"},
+			{".player_god","переключить бессмертие"},
+			{".player_notarget","переключить нотаргет"}
 		}; // purposefully not broadcasting to everything with *, instead using SID
 		af2player.SendMessage("AF2MS", "RegisterMenuCommand", MenuCommands);
 	}
@@ -141,7 +141,7 @@ class AF2Player : AFBaseClass
 		string sTag = AF2Player::getTagData(sId);
 		if(sTag != "none")
 		{
-			AF2Player::tagTalk("[AF2P tagtalk] "+pPlayer.pev.netname+" (tag: "+sTag+") has connected");
+			AF2Player::tagTalk("[AF2P Теги] "+pPlayer.pev.netname+" (тег: "+sTag+") подключился");
 			AF2Player::tagViewAdd(pPlayer, sTag);
 			AF2Player::g_tagList[pPlayer.entindex()] = sTag;
 		}
@@ -176,7 +176,7 @@ namespace AF2Player
 				@pTarget = pTargets[i];
 				dictionary stuff = bDirty ? AF2LegacyCode::reverseGetKeyvalue(pTarget) : AF2LegacyCode::prunezero(AF2LegacyCode::reverseGetKeyvalue(pTarget));
 				array<string> dkeys = stuff.getKeys();
-				af2player.Tell("Player \""+pTarget.pev.netname+"\" keyvalues:", AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Игрок \""+pTarget.pev.netname+"\" значение:", AFArgs.User, HUD_PRINTCONSOLE);
 				for(uint j = 0; j < dkeys.length(); j++)
 				{
 					string sout = string(stuff[dkeys[j]]);
@@ -213,8 +213,8 @@ namespace AF2Player
 		{
 			if(sOut.Find(execBlackList[i], 0, String::CaseInsensitive) != String::INVALID_INDEX)
 			{
-				af2player.Tell("Can't execute, found blacklisted part: \""+execBlackList[i]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-				af2player.Log("Blocked: "+AFArgs.User.pev.netname+" attempted to remote execute \""+sOut+"\" on target(s): "+AFArgs.GetString(0));
+				af2player.Tell("Нельзя выполнить, найдена команда черного списка: \""+execBlackList[i]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Log("Заблокировано: "+AFArgs.User.pev.netname+" попытался выполнить удаленно \""+sOut+"\" на цель(ей): "+AFArgs.GetString(0));
 				return;
 			}
 		}
@@ -226,8 +226,8 @@ namespace AF2Player
 			{
 				if(sOut.Find(coms[i], 0, String::CaseInsensitive) != String::INVALID_INDEX)
 				{
-					af2player.Tell("Can't execute, found blacklisted part: \""+coms[i]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-					af2player.Log("Blocked: "+AFArgs.User.pev.netname+" attempted to remote execute \""+sOut+"\" on target(s): "+AFArgs.GetString(0));
+					af2player.Tell("Нельзя выполнить, найдена команда черного списка: \""+coms[i]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Log("Заблокировано: "+AFArgs.User.pev.netname+" попытался выполнить удаленно \""+sOut+"\" на цель(ей): "+AFArgs.GetString(0));
 					return;
 				}
 			}
@@ -245,7 +245,7 @@ namespace AF2Player
 					message.WriteString(sOut);
 				message.End();
 				
-				af2player.Tell("Executed on "+pTarget.pev.netname+": "+sOut, AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Удал. Выполненно на "+pTarget.pev.netname+": "+sOut, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -254,7 +254,7 @@ namespace AF2Player
 	{
 		HUD targetHud = AFArgs.IsChat ? HUD_PRINTTALK : HUD_PRINTCONSOLE;
 		tagRefreshView(AFArgs.User);
-		af2player.Tell("Refreshed tag view", AFArgs.User, targetHud);
+		af2player.Tell("Обновлен просмотр тегов", AFArgs.User, targetHud);
 	}
 
 	void tagplayer(AFBaseArguments@ AFArgs)
@@ -263,8 +263,8 @@ namespace AF2Player
 		
 		if(AFArgs.GetCount() == 0)
 		{
-			af2player.Tell("Printed list of tags to console", AFArgs.User, targetHud);
-			af2player.Tell("Available tags (use \"off\" to remove tag):", AFArgs.User, HUD_PRINTCONSOLE);
+			af2player.Tell("Показую список тегов в консоль...", AFArgs.User, targetHud);
+			af2player.Tell("Доступные теги (изпользуйте \"отключен\" чтоб убрать тег):", AFArgs.User, HUD_PRINTCONSOLE);
 			for(uint i = 0; i < g_validTags.length(); i++)
 				af2player.Tell(g_validTags[i], AFArgs.User, HUD_PRINTCONSOLE);
 				
@@ -272,15 +272,15 @@ namespace AF2Player
 		}
 		else if(AFArgs.GetCount() == 1)
 		{
-			af2player.Tell("Missing arguments! Usage: <targets> <tag>", AFArgs.User, targetHud);
+			af2player.Tell("Аргументы отсутствуют! изпользование: <цель> <тег>", AFArgs.User, targetHud);
 			return;
 		}
 		
 		string sTag = AFArgs.GetString(1);
 		
-		if(g_validTags.find(sTag) <= -1 && sTag != "off")
+		if(g_validTags.find(sTag) <= -1 && sTag != "отключен")
 		{
-			af2player.Tell("Invalid tag! Run without arguments to view list of tags", AFArgs.User, targetHud);
+			af2player.Tell("Неизвестный тег! Изпользуйте без агрументов чтобы посмотреть список тегов", AFArgs.User, targetHud);
 			return;
 		}
 		
@@ -291,20 +291,20 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				if(sTag == "off")
+				if(sTag == "отключен")
 				{
 					if(g_tagList.exists(pTarget.entindex()))
 					{
 						removeTag(pTarget);
-						tagTalk("[AF2P tagtalk] Admin "+AFArgs.User.pev.netname+" removed tag from "+pTarget.pev.netname);
-						af2player.Tell("Removed tag from "+pTarget.pev.netname, AFArgs.User, targetHud);
+						tagTalk("[AF2P Теги] Админ "+AFArgs.User.pev.netname+" убрал тег у "+pTarget.pev.netname);
+						af2player.Tell("Убрал тег у "+pTarget.pev.netname, AFArgs.User, targetHud);
 					}else{
-						af2player.Tell("Can't remove: no tag!", AFArgs.User, targetHud);
+						af2player.Tell("Нельзя убрать: тега нету!", AFArgs.User, targetHud);
 					}
 				}else{
 					addTag(pTarget, sTag);
-					tagTalk("[AF2P tagtalk] Admin "+AFArgs.User.pev.netname+" set tag "+sTag+" to "+pTarget.pev.netname);
-					af2player.Tell("Set tag "+sTag+" to "+pTarget.pev.netname, AFArgs.User, targetHud);
+					tagTalk("[AF2P Теги] Админ "+AFArgs.User.pev.netname+" установил тег "+sTag+" у "+pTarget.pev.netname);
+					af2player.Tell("Установлен тег "+sTag+" у "+pTarget.pev.netname, AFArgs.User, targetHud);
 				}
 			}
 		}
@@ -466,7 +466,7 @@ namespace AF2Player
 	void removeTag(CBasePlayer@ pTarget)
 	{
 		g_tagList.delete(pTarget.entindex());
-		setTagData(pTarget, "off");
+		setTagData(pTarget, "отключен");
 		tagViewRemove(pTarget);
 	}
 	
@@ -498,11 +498,11 @@ namespace AF2Player
 			}
 			file.Close();
 		}else{
-			af2player.Log("Installation error: cannot locate tag file");
+			af2player.Log("Ошибка инсталляции: не найден файл список тегов");
 			return false;
 		}
 		
-		if(sTag == "off" && lTags.exists(usrId))
+		if(sTag == "отключен" && lTags.exists(usrId))
 		{
 			lTags.delete(usrId);
 		}else{
@@ -522,7 +522,7 @@ namespace AF2Player
 			file.Close();
 			return true;
 		}else{
-			af2player.Log("Failed to write tag file");
+			af2player.Log("Ошибка написанния файла тегов");
 			return false;
 		}
 	}
@@ -559,7 +559,7 @@ namespace AF2Player
 			file.Close();
 			return sReturn;
 		}else{
-			af2player.Log("Installation error: cannot locate tag file");
+			af2player.Log("Ошибка инсталляции: не найден файл список тегов");
 			return "none";
 		}
 	}
@@ -635,8 +635,8 @@ namespace AF2Player
 				@pTarget = pTargets[i];
 				PlayerViewMode viewMode = AFArgs.GetBool(1) ? ViewMode_ThirdPerson : ViewMode_FirstPerson;
 				pTarget.SetViewMode(viewMode);
-				string sMode = AFArgs.GetBool(1) ? "thirdperson" : "firstperson";
-				af2player.Tell("Set "+pTarget.pev.netname+" viewmode to \""+sMode+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				string sMode = AFArgs.GetBool(1) ? "3-го лица" : "1-го лица";
+				af2player.Tell("Установлен "+pTarget.pev.netname+" режим от \""+sMode+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -653,14 +653,14 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_FLAMING > 0 ? true : false;
 				if(!bIsOn)
 				{
-					af2player.Tell("Set "+pTarget.pev.netname+" on fire", AFArgs.User, HUD_PRINTCONSOLE);
-					af2player.TellAll("OMG! "+pTarget.pev.netname+" spontaneously combusted!", HUD_PRINTTALK);
+					af2player.Tell("Подожгли "+pTarget.pev.netname+" ", AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.TellAll("ОМГ! "+pTarget.pev.netname+" самопроизвольно возгорелся!", HUD_PRINTTALK);
 					g_SoundSystem.PlaySound(pTarget.edict(), CHAN_ITEM, "ambience/flameburst1.wav", 1.0f, 1.0f);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags |= PLAYER_FLAMING;
 					g_playerModes[pTarget.entindex()] = iFlags;
 				}else
-					af2player.Tell("Player "+pTarget.pev.netname+" is already burning!", AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Игрок "+pTarget.pev.netname+" уже горит!", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -679,7 +679,7 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_FROZEN > 0 ? true : false;
 				if(iMode == -1)
 				{
-					af2player.Tell("Toggled freeze for "+pTarget.pev.netname, AFArgs.User, targetHud);
+					af2player.Tell("Переключена заморозка у "+pTarget.pev.netname, AFArgs.User, targetHud);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags ^= PLAYER_FROZEN;
 					g_playerModes[pTarget.entindex()] = iFlags;
@@ -687,21 +687,21 @@ namespace AF2Player
 				{
 					if(!bIsOn)
 					{
-						af2player.Tell("Set freeze on for "+pTarget.pev.netname, AFArgs.User, targetHud);
+						af2player.Tell("Включено заморозка у "+pTarget.pev.netname, AFArgs.User, targetHud);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags |= PLAYER_FROZEN;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already frozen!", AFArgs.User, targetHud);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже заморожен!", AFArgs.User, targetHud);
 				}else{
 					if(bIsOn)
 					{
-						af2player.Tell("Set freeze off for "+pTarget.pev.netname, AFArgs.User, targetHud);
+						af2player.Tell("Отключено заморозка у "+pTarget.pev.netname, AFArgs.User, targetHud);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags &= ~PLAYER_FROZEN;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is not frozen!", AFArgs.User, targetHud);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" не заморожен!", AFArgs.User, targetHud);
 				}
 			}
 			
@@ -722,7 +722,7 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_GOD > 0 ? true : false;
 				if(iMode == -1)
 				{
-					af2player.Tell("Toggled godmode for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Переключен бессмертие для"+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags ^= PLAYER_GOD;
 					g_playerModes[pTarget.entindex()] = iFlags;
@@ -730,21 +730,21 @@ namespace AF2Player
 				{
 					if(!bIsOn)
 					{
-						af2player.Tell("Set godmode on for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Включено бессмертие для"+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags |= PLAYER_GOD;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already in godmode!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже бессмертен!", AFArgs.User, HUD_PRINTCONSOLE);
 				}else{
 					if(bIsOn)
 					{
-						af2player.Tell("Set god off for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Отключено бессмертие для"+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags &= ~PLAYER_GOD;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is not in godmode!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" не бессмертен!", AFArgs.User, HUD_PRINTCONSOLE);
 				}
 			}
 			
@@ -765,7 +765,7 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_NOCLIP > 0 ? true : false;
 				if(iMode == -1)
 				{
-					af2player.Tell("Toggled noclip for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Переключен ноклип для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags ^= PLAYER_NOCLIP;
 					g_playerModes[pTarget.entindex()] = iFlags;
@@ -773,21 +773,21 @@ namespace AF2Player
 				{
 					if(!bIsOn)
 					{
-						af2player.Tell("Set noclip on for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Включен ноклип для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags |= PLAYER_NOCLIP;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already noclipped!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже в ноклипе!", AFArgs.User, HUD_PRINTCONSOLE);
 				}else{
 					if(bIsOn)
 					{
-						af2player.Tell("Set noclip off for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Отключен ноклип для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags &= ~PLAYER_NOCLIP;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already clipping!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже в клипе!", AFArgs.User, HUD_PRINTCONSOLE);
 				}
 			}
 			
@@ -809,7 +809,7 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_NOSOLID > 0 ? true : false;
 				if(iMode == -1)
 				{
-					af2player.Tell("Toggled solidity for "+pTarget.pev.netname, AFArgs.User, targetHud);
+					af2player.Tell("Переключен солидность для"+pTarget.pev.netname, AFArgs.User, targetHud);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags ^= PLAYER_NOSOLID;
 					g_playerModes[pTarget.entindex()] = iFlags;
@@ -817,21 +817,21 @@ namespace AF2Player
 				{
 					if(!bIsOn)
 					{
-						af2player.Tell("Set nosolid on for "+pTarget.pev.netname, AFArgs.User, targetHud);
+						af2player.Tell("Включен солидность для"+pTarget.pev.netname, AFArgs.User, targetHud);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags |= PLAYER_NOSOLID;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already nosolid!", AFArgs.User, targetHud);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже не солидный!", AFArgs.User, targetHud);
 				}else{
 					if(bIsOn)
 					{
-						af2player.Tell("Set nosolid off for "+pTarget.pev.netname, AFArgs.User, targetHud);
+						af2player.Tell("Отключен солидность для"+pTarget.pev.netname, AFArgs.User, targetHud);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags &= ~PLAYER_NOSOLID;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already solid!", AFArgs.User, targetHud);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже солидный!", AFArgs.User, targetHud);
 				}
 			}
 			
@@ -990,33 +990,33 @@ namespace AF2Player
 					string sReturn = AF2LegacyCode::getKeyValue(pTarget, AFArgs.GetString(1));
 					if(sReturn != "§§§§N/A")
 					{
-						af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+sReturn+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 					}
 					else
 					{
 						//retarded. but works.
 						if(AFArgs.GetString(1).ToLowercase() == "m_ieffectblockweapons")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_iEffectBlockWeapons)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_iEffectBlockWeapons)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectinvulnerable")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_iEffectInvulnerable)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_iEffectInvulnerable)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectinvisible")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_iEffectInvisible)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_iEffectInvisible)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectnonsolid")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_iEffectNonSolid)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_iEffectNonSolid)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectrespiration")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_flEffectRespiration)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_flEffectRespiration)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectgravity")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_flEffectGravity)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_flEffectGravity)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectfriction")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_flEffectFriction)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_flEffectFriction)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectspeed")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_flEffectSpeed)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_flEffectSpeed)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectdamage")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_flEffectDamage)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_flEffectDamage)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else if(AFArgs.GetString(1).ToLowercase() == "m_ideaths")
-							af2player.Tell("Player \""+pTarget.pev.netname+"\" key is \""+string(pTarget.m_iDeaths)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("У игрока \""+pTarget.pev.netname+"\" параметр стоит на \""+string(pTarget.m_iDeaths)+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						else
-							af2player.Tell("Unsupported key in get", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("Не поддержуемый параметр", AFArgs.User, HUD_PRINTCONSOLE);
 						
 					}
 				}else{
@@ -1024,7 +1024,7 @@ namespace AF2Player
 					{
 						if(!bHasE)
 						{
-							af2player.Tell("Blocked: you require access flag E to do this action (\"highrisk\" key).", AFArgs.User, HUD_PRINTCONSOLE);
+							af2player.Tell("Заблокировано: вам требуеться иметь доступ Е чтобы изпользовать это (\"большой риск\" доступ).", AFArgs.User, HUD_PRINTCONSOLE);
 							return;
 						}
 					}
@@ -1032,57 +1032,57 @@ namespace AF2Player
 					//round two
 					if(AFArgs.GetString(1).ToLowercase() == "m_ieffectblockweapons")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_iEffectBlockWeapons = atoi(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectinvulnerable")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_iEffectInvulnerable = atoi(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectinvisible")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_iEffectInvisible = atoi(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_ieffectnonsolid")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_iEffectNonSolid = atoi(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectrespiration")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_flEffectRespiration = atof(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectgravity")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_flEffectGravity = atof(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectfriction")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_flEffectFriction = atof(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectspeed")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_flEffectSpeed = atof(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_fleffectdamage")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_flEffectDamage = atof(sValout);
 					}
 					else if(AFArgs.GetString(1).ToLowercase() == "m_ideaths")
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						pTarget.m_iDeaths = atoi(sValout);
 					}
 					else
 					{
-						af2player.Tell("Set player \""+pTarget.pev.netname+"\" key to \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлено игроку \""+pTarget.pev.netname+"\" параметр на \""+sValout+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 						g_EntityFuncs.DispatchKeyValue(pTarget.edict(), AFArgs.GetString(1), sValout);
 					}
 				}
@@ -1100,7 +1100,7 @@ namespace AF2Player
 			{
 				@pTarget = pTargets[i];
 				pTarget.SetMaxSpeedOverride(int(AFArgs.GetFloat(1)));
-				af2player.Tell("Set max speed "+string(AFArgs.GetFloat(1))+" to "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Установлена максмимальная скорость "+string(AFArgs.GetFloat(1))+" на "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -1126,7 +1126,7 @@ namespace AF2Player
 					pTarget.pev.angles = oldAngles;
 				}
 				
-				af2player.Tell("Resurrected "+pTarget.pev.netname, AFArgs.User, targetHud);
+				af2player.Tell("Возрожден "+pTarget.pev.netname, AFArgs.User, targetHud);
 			}
 		}
 	}
@@ -1140,7 +1140,7 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				af2player.Tell("Player "+pTarget.pev.netname+" position X: "+pTarget.pev.origin.x+" Y: "+pTarget.pev.origin.y+" Z: "+pTarget.pev.origin.z, AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Игрок "+pTarget.pev.netname+" позиция X: "+pTarget.pev.origin.x+" Y: "+pTarget.pev.origin.y+" Z: "+pTarget.pev.origin.z, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -1155,7 +1155,7 @@ namespace AF2Player
 			{
 				@pTarget = pTargets[i];
 				g_PlayerFuncs.ApplyMapCfgToPlayer(pTarget, false);
-				af2player.Tell("Gave map cfg to "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Выдана конфигурация карты для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -1173,7 +1173,7 @@ namespace AF2Player
 				@pTarget = pTargets[i];
 				if(!pTarget.HasWeapons())
 				{
-					af2player.Tell(string(pTarget.pev.netname)+" has no weapons to give ammo to.", AFArgs.User, targetHud);
+					af2player.Tell(string(pTarget.pev.netname)+" не имеет никаких оружий которым выдать можно патроны.", AFArgs.User, targetHud);
 					continue;
 				}
 				
@@ -1194,9 +1194,9 @@ namespace AF2Player
 					}
 					
 					if(wasGivenAmmo)
-						af2player.Tell("Gave ammo to "+pTarget.pev.netname+" (holding: "+activeItem.pszName()+")", AFArgs.User, targetHud);
+						af2player.Tell("Выданы патроны для "+pTarget.pev.netname+" (держит: "+activeItem.pszName()+")", AFArgs.User, targetHud);
 					else
-						af2player.Tell("Can't give ammo to "+pTarget.pev.netname+", weapon uses no ammo! (holding: "+activeItem.pszName()+")", AFArgs.User, targetHud);
+						af2player.Tell("Нельзя выдать патроны для "+pTarget.pev.netname+", оружие не изпользует патроны! (держит: "+activeItem.pszName()+")", AFArgs.User, targetHud);
 					
 					continue;
 				}
@@ -1230,9 +1230,9 @@ namespace AF2Player
 				}
 					
 				if(amt > 0)
-					af2player.Tell("Gave ammo to "+pTarget.pev.netname+" (potential weapons supplied: "+string(amt)+")", AFArgs.User, targetHud);
+					af2player.Tell("Выданы патроны для "+pTarget.pev.netname+" (потенциально доставлены оружия: "+string(amt)+")", AFArgs.User, targetHud);
 				else
-					af2player.Tell("Didn't give amm to "+pTarget.pev.netname+" (potential weapons supplied: "+string(amt)+"!)", AFArgs.User, targetHud);
+					af2player.Tell("Невыданы патроны для "+pTarget.pev.netname+" (потенциально доставлены оружия: "+string(amt)+"!)", AFArgs.User, targetHud);
 			}
 		}
 	}
@@ -1283,7 +1283,7 @@ namespace AF2Player
 		"weapon_cofswitchblade", "weapon_cofnightstick", "weapon_cofbranch", "weapon_cofsledgehammer",
 		"weapon_cofaxe", "weapon_cofglock", "weapon_cofvp70", "weapon_cofp345",
 		"weapon_cofrevolver", "weapon_cofshotgun", "weapon_cofrifle", "weapon_cofm16",
-		"weapon_cofg43", "weapon_coftmp", "weapon_cofmp5", "weapon_coffamas",
+		"weapon_cofg43", "weapon_coftmp", "weapon_cofmp5", "weapon_cотключенamas",
 		"weapon_cofsyringe", "weapon_coflantern", "weapon_cofbooklaser", "weapon_cofcamera",
 		"weapon_cofak74", "weapon_cofberetta", "weapon_cofdeagle", "weapon_cofp228",
 		"weapon_cofglock18", "weapon_cofanaconda", "weapon_cofgolden", "weapon_cofuzi",
@@ -1305,7 +1305,7 @@ namespace AF2Player
 		int availables = 0;
 		if(sTargets == "")
 		{
-			af2player.Tell("Currently available sets (use \"all\" to get literally everything):", AFArgs.User, HUD_PRINTCONSOLE);
+			af2player.Tell("Доступные сеты (изпользуйте \"all\" чтобы выдать ВСЕ оружия):", AFArgs.User, HUD_PRINTCONSOLE);
 			array<string> plugins = g_PluginManager.GetPluginList();
 			af2player.Tell("vanilla", AFArgs.User, HUD_PRINTCONSOLE);
 			for(uint i = 0; i < plugins.length(); i++)
@@ -1340,7 +1340,7 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				af2player.Tell("Gave everything from \""+sSet+"\" set to "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Выдано всё из \""+sSet+"\" сета для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 				if(sSet == "vanilla")
 				{
 					for(uint j = 0; j < player_weaponlist_native.length(); j++)
@@ -1388,7 +1388,7 @@ namespace AF2Player
 		HUD targetHud = AFArgs.IsChat ? HUD_PRINTTALK : HUD_PRINTCONSOLE;
 		if(AFArgs.GetString(1) == "weapon_entmover")
 		{
-			af2player.Tell("Can't give entmover!", AFArgs.User, targetHud);
+			af2player.Tell("Нельзя выдать ентмувер!", AFArgs.User, targetHud);
 			return;
 		}
 		
@@ -1400,12 +1400,12 @@ namespace AF2Player
 				@pTarget = pTargets[i];
 				if(pTarget.HasNamedPlayerItem(AFArgs.GetString(1)) !is null)
 				{
-					af2player.Tell("Can't give "+AFArgs.GetString(1)+" to "+pTarget.pev.netname+": target already has weapon!", AFArgs.User, targetHud);
+					af2player.Tell("Нельзя выдать"+AFArgs.GetString(1)+" для "+pTarget.pev.netname+": цель уже имеет такое оружие!", AFArgs.User, targetHud);
 					continue;
 				}
 				
 				pTarget.GiveNamedItem(AFArgs.GetString(1), 0, 9999);
-				af2player.Tell("Gave "+AFArgs.GetString(1)+" to "+pTarget.pev.netname, AFArgs.User, targetHud);
+				af2player.Tell("Выдан "+AFArgs.GetString(1)+" для "+pTarget.pev.netname, AFArgs.User, targetHud);
 			}
 		}
 	}
@@ -1420,7 +1420,7 @@ namespace AF2Player
 			{
 				@pTarget = pTargets[i];
 				KeyValueBuffer@ pInfo = g_EngineFuncs.GetInfoKeyBuffer(pTarget.edict());
-				af2player.Tell("Player "+pTarget.pev.netname+" model is "+pInfo.GetValue("model"), AFArgs.User, HUD_PRINTCONSOLE);
+				af2player.Tell("Игрок "+pTarget.pev.netname+" имеет модель "+pInfo.GetValue("model"), AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -1430,7 +1430,7 @@ namespace AF2Player
 		string sTargetWeapon = AFArgs.GetCount() >= 2 ? AFArgs.GetString(1) : "";
 		if(sTargetWeapon == "weapon_entmover")
 		{
-			af2player.Tell("Can't disarm entmover!", AFArgs.User, HUD_PRINTCONSOLE);
+			af2player.Tell("Нельзя отобрать ентмувер!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -1443,7 +1443,7 @@ namespace AF2Player
 				@pTarget = pTargets[i];
 				if(!pTarget.HasWeapons())
 				{
-					af2player.Tell("Can't disarm "+pTarget.pev.netname+": player has no weapons!", AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Нельзя отобрать "+pTarget.pev.netname+": игрок не имеет оружий!", AFArgs.User, HUD_PRINTCONSOLE);
 				}
 				
 				if(sTargetWeapon == "")
@@ -1473,14 +1473,14 @@ namespace AF2Player
 						}
 					}
 					
-					af2player.Tell("Disarmed "+string(amt)+" weapons from "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Отобрали "+string(amt)+" оружий из "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 				}
 				else
 				{
 					if(AFBase::RemoveSingleItem(pTarget, sTargetWeapon))
-						af2player.Tell("Disarmed \""+sTargetWeapon+"\" from "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Отобрали \""+sTargetWeapon+"\" из "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					else
-						af2player.Tell(string(pTarget.pev.netname)+" has no weapon called \""+sTargetWeapon+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell(string(pTarget.pev.netname)+" не имеет оружия \""+sTargetWeapon+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 				}
 			}
 		}
@@ -1497,7 +1497,7 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				af2player.Tell("Teleported "+pTarget.pev.netname+" to X: "+position.x+" Y: "+position.y+" Z: "+position.z, AFArgs.User, targetHud);
+				af2player.Tell("Телепортировали "+pTarget.pev.netname+" на X: "+position.x+" Y: "+position.y+" Z: "+position.z, AFArgs.User, targetHud);
 				pTarget.SetOrigin(position);
 				pTarget.pev.velocity = Vector(0,0,0);
 				pTarget.pev.flFallVelocity = 0.0f;
@@ -1515,7 +1515,7 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				af2player.Tell("Teleported "+pTarget.pev.netname, AFArgs.User, targetHud);
+				af2player.Tell("Телепортировали "+pTarget.pev.netname, AFArgs.User, targetHud);
 				pTarget.SetOrigin(AFArgs.User.pev.origin);
 				pTarget.pev.velocity = Vector(0,0,0);
 				pTarget.pev.fixangle = FAM_FORCEVIEWANGLES;
@@ -1531,7 +1531,7 @@ namespace AF2Player
 		if(AFBase::GetTargetPlayers(AFArgs.User, targetHud, AFArgs.GetString(0), TARGETS_NOALL|TARGETS_NOIMMUNITYCHECK, pTargets))
 		{
 			CBasePlayer@ pTarget = null;
-			af2player.Tell("Teleported to "+AFArgs.GetString(0), AFArgs.User, targetHud);
+			af2player.Tell("Телепортировали на "+AFArgs.GetString(0), AFArgs.User, targetHud);
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
@@ -1560,7 +1560,7 @@ namespace AF2Player
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				af2player.Tell("Teleported "+pTarget.pev.netname, AFArgs.User, targetHud);
+				af2player.Tell("Телепортировали "+pTarget.pev.netname, AFArgs.User, targetHud);
 				pTarget.SetOrigin(endResult);
 				pTarget.pev.velocity = Vector(0,0,0);
 				pTarget.pev.flFallVelocity = 0.0f;
@@ -1581,7 +1581,7 @@ namespace AF2Player
 				bool bIsOn = int(g_playerModes[pTarget.entindex()]) & PLAYER_NOTARGET > 0 ? true : false;
 				if(iMode == -1)
 				{
-					af2player.Tell("Toggled notarget for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+					af2player.Tell("Переключен нотаргет для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 					int iFlags = int(g_playerModes[pTarget.entindex()]);
 					iFlags ^= PLAYER_NOTARGET;
 					g_playerModes[pTarget.entindex()] = iFlags;
@@ -1589,21 +1589,21 @@ namespace AF2Player
 				{
 					if(!bIsOn)
 					{
-						af2player.Tell("Set notarget on for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Включен нотаргет для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags |= PLAYER_NOTARGET;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is already in notarget!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже в нотаргете!", AFArgs.User, HUD_PRINTCONSOLE);
 				}else{
 					if(bIsOn)
 					{
-						af2player.Tell("Set notarget for "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Установлен нотаргет для "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 						int iFlags = int(g_playerModes[pTarget.entindex()]);
 						iFlags &= ~PLAYER_NOTARGET;
 						g_playerModes[pTarget.entindex()] = iFlags;
 					}else
-						af2player.Tell("Player "+pTarget.pev.netname+" is not in notarget!", AFArgs.User, HUD_PRINTCONSOLE);
+						af2player.Tell("Игрок "+pTarget.pev.netname+" уже в таргете!", AFArgs.User, HUD_PRINTCONSOLE);
 				}
 			}
 			

@@ -1,19 +1,19 @@
-#AFBase access file, everyone has flag Z by default.
-#Flags
-#A - Immunity
-#B - Set access, stop/start expansion
-#C - Rcon
-#D - Ban/unban
-#E - Kick, changelevel, "highrisk"
-#F - Ent_ commands
-#G - Player_ commands, slap, slay, trackdecals
-#H - Fun_commands, say, vote
-#IJKLMNOPQRSTUVWXY - Custom access flags 1 to 17
+#AFBase файл доступа, у всех доступ Z по стандарту.
+#Флаги доступа
+#A - Иммунитет
+#B - Выдача доступа, стартование\отстановка дополнений
+#C - Удаленная консоль
+#D - Бан/Разбан
+#E - Кик, смена уровня, "большой риск"
+#F - Ентити команды
+#G - Команды на игроков, наносение или убийство игроков, слежка за спреями
+#H - Фановые комманды, отправка админских сообщений, голосование
+#IJKLMNOPQRSTUVWXY - флаги доступа дополнений, от 1 до 17
 
-#Format
-#STEAMID ACCESSFLAGS
+#Формат
+#STEAMID ФЛАГИДОСТУПА
 
-#Examples
-#STEAM_0:1:129159025 ABCDEFGHIJKLMNOPQRSTUVWYX
-#STEAM_0:1:129159025 CDEFGHI
-#STEAM_0:1:129159025 Y
+#Примеры
+#STEAM_0:0:111664443 ABCDEFGHIJKLMNOPQRSTUVWYX
+#STEAM_0:0:111664443 CDEFGHI
+#STEAM_0:0:111664443 Y

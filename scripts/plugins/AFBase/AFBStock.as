@@ -11,7 +11,7 @@ class AFBaseBase : AFBaseClass
 	void ExpansionInfo()
 	{
 		this.AuthorName = "Zode";
-		this.ExpansionName = "AdminFuckery Base";
+		this.ExpansionName = "AdminFuckery Базовая";
 		this.ShortName = "AFB";
 		this.StatusOverride = true; // Base plugin cant be stopped
 	}
@@ -19,33 +19,33 @@ class AFBaseBase : AFBaseClass
 	void ExpansionInit()
 	{
 		AFBaseBase::g_decaltrackers.resize(0);
-		RegisterCommand("afb_help", "!ib", "<page> <0/1 show expansion> - List available commands", ACCESS_Z, @AFBaseBase::help, CMD_SERVER);
-		RegisterCommand("afb_info", "", "- Show info", ACCESS_Z, @AFBaseBase::info, CMD_SERVER);
-		RegisterCommand("afb_who", "!b", "<0/1 don't shorten nicks> - Show client information", ACCESS_Z, @AFBaseBase::who, CMD_SERVER);
-		RegisterCommand("afb_expansion_list", "", "- List expansions", ACCESS_Z, @AFBaseBase::extlist, CMD_SERVER);
-		RegisterCommand("afb_expansion_stop", "s", "(\"expansion SID\") - stop expansion", ACCESS_B, @AFBaseBase::extstop, CMD_SERVER);
-		RegisterCommand("afb_expansion_start", "s", "(\"expansion SID\") - start expansion", ACCESS_B, @AFBaseBase::extstart, CMD_SERVER);
-		RegisterCommand("afb_access", "s!s", "(target) <accessflags> - get/set accessflags, add + or - before flags to add or remove", ACCESS_B, @AFBaseBase::access, CMD_SERVER); 
-		RegisterCommand("admin_kick", "s!s", "(target) <\"reason\"> - kicks target with reason", ACCESS_E, @AFBaseBase::kick, CMD_SERVER);
-		RegisterCommand("admin_rcon", "s!i", "(command) <noquotes 0/1> - remote console", ACCESS_C, @AFBaseBase::rcon);
-		RegisterCommand("admin_changelevel", "s", "(level) - change level", ACCESS_E, @AFBaseBase::changelevel, CMD_SERVER);
-		RegisterCommand("admin_slay", "s", "(target) - slay target(s)", ACCESS_G, @AFBaseBase::slay, CMD_SERVER);
-		RegisterCommand("admin_slap", "s!i", "(target) <damage> - slap target(s)", ACCESS_G, @AFBaseBase::slap, CMD_SERVER);
-		RegisterCommand("admin_say", "bis!isiiiff", "(0/1 showname) (0/1/2 chat/hud/middle) (\"text\") <holdtime> <target> <r> <g> <b> <x> <y> - say text", ACCESS_H, @AFBaseBase::say, CMD_SERVER);
-		RegisterCommand("admin_trackdecals", "!i", "<0/1 mode> - track player sprays, don't define mode to toggle", ACCESS_G, @AFBaseBase::trackdecals);
-		RegisterCommand("admin_ban", "s!sib", "(\"steamid\") <\"reason\"> <duration in minutes, 0 for infinite> <0/1 ban ip instead of steamid> - ban target", ACCESS_D, @AFBaseBase::ban, CMD_SERVER);
-		RegisterCommand("admin_unban", "s", "(\"steamid or ip\") - unban target", ACCESS_D, @AFBaseBase::unban, CMD_SERVER);
-		RegisterCommand("afb_setlast", "s", "(target) - sets last target, use if you only want to select somebody without running a command on them", ACCESS_G, @AFBaseBase::selectlast);
-		RegisterCommand("admin_banlate", "s!si", "(\"steamid/ip\") <\"reason\"> <duration in minutes, 0 for infinite> - late ban target, basically adds to ban list. Doesn't validate player like admin_ban does.", ACCESS_D, @AFBaseBase::banlate, CMD_SERVER);
-		RegisterCommand("admin_blockdecals", "sb", "(target) (0/1 unban/ban) - Ban target from spraying", ACCESS_G, @AFBaseBase::bandecals, CMD_SERVER);
-		RegisterCommand("admin_gag", "ss", "(targets) (mode a/c/v) - gag player, a = all, c = chat, v = voice", ACCESS_G, @AFBaseBase::gag, CMD_SERVER);
-		RegisterCommand("admin_ungag", "s", "(targets) - ungag player", ACCESS_G, @AFBaseBase::ungag, CMD_SERVER);
-		RegisterCommand("afb_peek", "s", "(targets) - peeks into internal AFB info", ACCESS_B, @AFBaseBase::peek, CMD_SERVER);
-		RegisterCommand("afb_disconnected", "!b", "<0/1 don't shorten nicks> - Show recently disconnected client information", ACCESS_E, @AFBaseBase::disconnected, CMD_SERVER);
-		RegisterCommand("afb_last", "!b", "<0/1 don't shorten nicks> - (alias for afb_disconnected) Show recently disconnected client information", ACCESS_E, @AFBaseBase::disconnected, CMD_SERVER);
-		RegisterCommand("afb_whatsnew", "", "- show changelog for this version", ACCESS_Z, @AFBaseBase::whatsnew, CMD_SERVER);
+		RegisterCommand("afb_help", "!ib", "<страница 1-10> <0/1 показывать дополнения> - показывает команды афб", ACCESS_Z, @AFBaseBase::help, CMD_SERVER);
+		RegisterCommand("afb_info", "", "- информация о афб", ACCESS_Z, @AFBaseBase::info, CMD_SERVER);
+		RegisterCommand("afb_who", "!b", "<0/1 не укорачивать ники> - показывает общее доступную информацию о игроках", ACCESS_Z, @AFBaseBase::who, CMD_SERVER);
+		RegisterCommand("afb_expansion_list", "", "- список дополнений афб", ACCESS_Z, @AFBaseBase::extlist, CMD_SERVER);
+		RegisterCommand("afb_expansion_stop", "s", "(айди дополнения) - останавливает дополнение", ACCESS_B, @AFBaseBase::extstop, CMD_SERVER);
+		RegisterCommand("afb_expansion_start", "s", "(айди дополнения) - стартует дополнение", ACCESS_B, @AFBaseBase::extstart, CMD_SERVER);
+		RegisterCommand("afb_access", "s!s", "(игрок) (доступ) - выдаёт административные флаги выбранному игроку, + выдает, - отбирает", ACCESS_B, @AFBaseBase::access, CMD_SERVER); 
+		RegisterCommand("admin_kick", "s!s", "(игрок) <\"причина\"> - кикает игрока", ACCESS_E, @AFBaseBase::kick, CMD_SERVER);
+		RegisterCommand("admin_rcon", "s!i", "(команда) <без кавычек 0/1> - выполняет команду от имени консоли", ACCESS_C, @AFBaseBase::rcon);
+		RegisterCommand("admin_changelevel", "s", "(название карты) - меняет карту", ACCESS_E, @AFBaseBase::changelevel, CMD_SERVER);
+		RegisterCommand("admin_slay", "s", "(игрок) - убивает игрока", ACCESS_G, @AFBaseBase::slay, CMD_SERVER);
+		RegisterCommand("admin_slap", "s!i", "(игрок) <урон> - бьёт игрока", ACCESS_G, @AFBaseBase::slap, CMD_SERVER);
+		RegisterCommand("admin_say", "bis!isiiiff", "(0/1 показывать имя) (0/1/2 чат/худ/по середине) (\"текст\") <длительность> <игрок> <R> <G> <B> <X> <Y> - пишет текст", ACCESS_H, @AFBaseBase::say, CMD_SERVER);
+		RegisterCommand("admin_trackdecals", "!i", "<0/1 вкл/выкл> - отслеживает стим айди и имя игрока, при наводке на спрей", ACCESS_G, @AFBaseBase::trackdecals);
+		RegisterCommand("admin_ban", "s!sib", "(\"стим айди\") <\"причина\"> (длительность в минутах, 0 навсегда) (0 бан по стим айди, 1 бан по айпи) - банит игрока", ACCESS_D, @AFBaseBase::ban, CMD_SERVER);
+		RegisterCommand("admin_unban", "s", "(\"стим айди/айпи\") - разбан игрока", ACCESS_D, @AFBaseBase::unban, CMD_SERVER);
+		RegisterCommand("afb_setlast", "s", "(игрок) - ставит на игрока тег @last, полезно если к примеру ты часто пишешь ему команды", ACCESS_G, @AFBaseBase::selectlast);
+		RegisterCommand("admin_banlate", "s!si", "(\"стим айди/айпи\") <\"причина\"> (длительность в минутах, 0 навсегда) - банит игрока, добавляя его айди/айпи в бан лист", ACCESS_D, @AFBaseBase::banlate, CMD_SERVER);
+		RegisterCommand("admin_blockdecals", "sb", "(игрок) (0/1 разбан/бан) - блокирует выбранному игроку использовать спрей", ACCESS_G, @AFBaseBase::bandecals, CMD_SERVER);
+		RegisterCommand("admin_gag", "ss", "(игроки) (режим a/c/v) - мьюутить игрока, c = чат, v = голосовой, a = оба", ACCESS_G, @AFBaseBase::gag, CMD_SERVER);
+		RegisterCommand("admin_ungag", "s", "(игроки) - размьючивает игрока", ACCESS_G, @AFBaseBase::ungag, CMD_SERVER);
+		RegisterCommand("afb_peek", "s", "(игрок) - показывает информацию о игроке", ACCESS_B, @AFBaseBase::peek, CMD_SERVER);
+		RegisterCommand("afb_disconnected", "!b", "<0/1 не укорачивать ники> - показывает недавний список игроков которые вышли из сервера", ACCESS_E, @AFBaseBase::disconnected, CMD_SERVER);
+		RegisterCommand("afb_last", "!b", "<0/1 не укорачивать ники> - алиас к .afb_disconnected, тоже показывает информацию о игроках которые недавно вышли", ACCESS_E, @AFBaseBase::disconnected, CMD_SERVER);
+		RegisterCommand("afb_whatsnew", "", "- показывает список новых изменений в обновлённом версии afb", ACCESS_Z, @AFBaseBase::whatsnew, CMD_SERVER);
 		
-		@AFBaseBase::cvar_iBanMaxMinutes = CCVar("afb_maxban", 10080, "maximum time for bans in minutes (default: 10080)", ConCommandFlag::AdminOnly, CVarCallback(this.afb_cvar_ibanmaxminutes));
+		@AFBaseBase::cvar_iBanMaxMinutes = CCVar("afb_maxban", 10080, "максимальное время бана в минутах (по стандарту: 10080)", ConCommandFlag::AdminOnly, CVarCallback(this.afb_cvar_ibanmaxminutes));
 		
 		g_Hooks.RegisterHook(Hooks::Player::PlayerDecal, @AFBaseBase::PlayerDecalHook);
 		g_Hooks.RegisterHook(Hooks::Player::PlayerPreDecal, @AFBaseBase::PlayerPreDecalHook);
@@ -93,8 +93,8 @@ namespace AFBaseBase
 		
 		if(file !is null && file.IsOpen())
 		{
-			TellLongCustom("----AdminFuckeryBase: What's new------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
-			TellLongCustom("AFB Version: "+AFBase::g_afInfo+"\nChangelog:\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("----AdminFuckeryBase: Что нового:------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("AFB Версия: "+AFBase::g_afInfo+"\nСписок изменений:\n", AFArgs.User, HUD_PRINTCONSOLE);
 			
 			while(!file.EOFReached())
 			{
@@ -114,8 +114,8 @@ namespace AFBaseBase
 			TellLongCustom("--------------------------------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 			file.Close();
 		}else{
-			AFBase::BaseLog("Installation error: cannot locate changelog file");
-			afbasebase.Tell("Installation error: cannot locate changelog file", AFArgs.User, HUD_PRINTCONSOLE);
+			AFBase::BaseLog("Ошибка установки: неможет найти файл изменений");
+			afbasebase.Tell("Ошибка установки: неможет найти файл изменений", AFArgs.User, HUD_PRINTCONSOLE);
 		}
 	}
 
@@ -138,7 +138,7 @@ namespace AFBaseBase
 		AFBase::AFBaseUser@ AFBUser = AFBase::GetUser(pUser);
 		if(AFBUser is null)
 		{
-			afbasebase.Log("Disconnect logging: failed to retrieve cached user info.");
+			afbasebase.Log("Лог дисконектов: провалено нахождение закешированую информацию пользователей");
 			return;
 		}
 		
@@ -181,11 +181,11 @@ namespace AFBaseBase
 		bool bNoFormat = AFArgs.GetCount() >= 1 ? AFArgs.GetBool(0) : false;
 		array<string> disKeys = g_disconnectedUserList.getKeys();
 		string sSpace = "                                                                                                                                                                ";
-		TellLongCustom("----AdminFuckeryBase: Clients recently disconnected from server-----------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("----AdminFuckeryBase: Игроки которые недавно вышли из сервера-----------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 		if(!bNoFormat)
-			TellLongCustom("----Nicks longer than 15 characters have been cut off with \"~\", use .afb_disconnected 1 to remove this\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("----Ники которые имееют 15+ символов будут укорочены с \"~\", изпользуйте .afb_disconnected 1 чтобы обойти это\n", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			TellLongCustom("----Nicks are no longer cut off. formatting may fuck up, use .afb_disconnected 0 to fix this\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("----Ники не укороченые. Форматирование может сломаться от этого, изпользуйте .afb_disconnected 0 чтобы обойти это\n", AFArgs.User, HUD_PRINTCONSOLE);
 		int iOffsetId = 0;
 		uint iLongestNick = 4;
 		uint iLongestAuth = 6;
@@ -221,10 +221,10 @@ namespace AFBaseBase
 		if(iOffsetId < 1)
 			iOffsetId = 1;
 		string sVID = sSpace.SubString(0,iOffsetId)+"#  ";
-		string sVNICK = "Nick"+sSpace.SubString(0,iLongestNick-4)+"  ";
-		string sVAUTH = "Authid"+sSpace.SubString(0,iLongestAuth-6)+"  ";
-		string sVIP = "Ip"+sSpace.SubString(0,iLongestIp-2)+"  ";
-		string sMIN = "Min(s)"+sSpace.SubString(0,iLongestMinutes-6);
+		string sVNICK = "Ник"+sSpace.SubString(0,iLongestNick-4)+"  ";
+		string sVAUTH = "АутID"+sSpace.SubString(0,iLongestAuth-6)+"  ";
+		string sVIP = "IP"+sSpace.SubString(0,iLongestIp-2)+"  ";
+		string sMIN = "Минут(ов)"+sSpace.SubString(0,iLongestMinutes-6);
 		TellLongCustom(sVID+sVNICK+sVAUTH+sVIP+sMIN+"\n", AFArgs.User, HUD_PRINTCONSOLE);
 		for(uint i = 0; i < disKeys.length(); i++)
 		{
@@ -281,11 +281,11 @@ namespace AFBaseBase
 				AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 				if(afbUser is null)
 				{
-					afbasebase.Tell("Can't peek: AFBaseUser class missing!", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell("Нельзя посмотреть: AFBaseUser класс отсутсвует!", AFArgs.User, HUD_PRINTCONSOLE);
 					return;
 				}
 				
-				afbasebase.Tell("Peek: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Смотрим: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 				afbasebase.Tell("bLock: "+(afbUser.bLock ? "True" : "False"), AFArgs.User, HUD_PRINTCONSOLE);
 				afbasebase.Tell("iAccess: "+string(afbUser.iAccess), AFArgs.User, HUD_PRINTCONSOLE);
 				afbasebase.Tell("sAccess: "+afbUser.sAccess, AFArgs.User, HUD_PRINTCONSOLE);
@@ -311,9 +311,9 @@ namespace AFBaseBase
 			AFBase::UpdateBanFile(sId, iMinutes, sReason, false);
 		
 		if(iMinutes == 0)
-			g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pTarget.edict()))+" \""+sReason+" (ban duration: permanent)\"\n");
+			g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pTarget.edict()))+" \""+sReason+" (длительность бана: навсегда)\"\n");
 		else
-			g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pTarget.edict()))+" \""+sReason+" (ban duration: "+string(iMinutes)+"m)\"\n");
+			g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pTarget.edict()))+" \""+sReason+" (длительность бана: "+string(iMinutes)+"m)\"\n");
 	}
 	
 	void AddBan(string sInput, int iMinutes, string sReason, bool bIsIp)
@@ -328,9 +328,9 @@ namespace AFBaseBase
 	{
 		bool bOut = false;
 		if(bIsIp)
-			bOut = AFBase::UpdateBanFile(sInput, -1, "unban", true);
+			bOut = AFBase::UpdateBanFile(sInput, -1, "разбан", true);
 		else
-			bOut = AFBase::UpdateBanFile(sInput, -1, "unban", false);
+			bOut = AFBase::UpdateBanFile(sInput, -1, "разбан", false);
 			
 		return bOut;
 	}
@@ -348,7 +348,7 @@ namespace AFBaseBase
 				AFBase::AFBaseUser afbUser = AFBase::GetUser(pTarget);
 				if(afbUser.iGagMode == -1)
 				{
-					afbasebase.Tell("Won't ungag: "+pTarget.pev.netname+"! Target already is ungagged.", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell("Нельзя размьютить: "+pTarget.pev.netname+"! Цель уже размьючена.", AFArgs.User, HUD_PRINTCONSOLE);
 					continue;
 				}
 				
@@ -361,9 +361,9 @@ namespace AFBaseBase
 				string sFixId = AFBase::FormatSafe(AFBase::GetFixedSteamID(pTarget));
 				AFBase::UpdateGagFile(sFixId, -1);
 				
-				afbasebase.TellAll(AFArgs.FixedNick+" ungagged player \""+pTarget.pev.netname+"\"", HUD_PRINTTALK);
-				afbasebase.Tell("Ungagged \""+pTarget.pev.netname+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" ungagged \""+pTarget.pev.netname+"\"");
+				afbasebase.TellAll(AFArgs.FixedNick+" размьючиваем игрока \""+pTarget.pev.netname+"\"", HUD_PRINTTALK);
+				afbasebase.Tell("размьючиваем \""+pTarget.pev.netname+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" размьючен \""+pTarget.pev.netname+"\"");
 			}
 		}
 	}
@@ -377,7 +377,7 @@ namespace AFBaseBase
 			AFBase::AFBaseUser afbUser = AFBase::GetUser(pUser);
 			if(afbUser.iGagMode == 1 || afbUser.iGagMode == 3)
 			{
-				afbasebase.Tell("Can't talk: gagged", pUser, HUD_PRINTTALK);
+				afbasebase.Tell("Чат запрещён: вы замьючены", pUser, HUD_PRINTTALK);
 				sparams.set_ShouldHide(true);
 				return HOOK_HANDLED;
 			}
@@ -425,7 +425,7 @@ namespace AFBaseBase
 		string sMode = AFArgs.GetString(1);
 		if(sMode != "a" && sMode != "c" && sMode != "v")
 		{
-			afbasebase.Tell("Unknown mode!", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Tell("Неизвестный режим!", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		int iMode = 0;
@@ -438,11 +438,11 @@ namespace AFBaseBase
 			
 		string sOutMode = "";
 		if(iMode == 3)
-			sOutMode = "chat & voice";
+			sOutMode = "чат & голосовой";
 		else if(iMode == 2)
-			sOutMode = "voice";
+			sOutMode = "голосовой";
 		else
-			sOutMode = "chat";
+			sOutMode = "чат";
 	
 		array<CBasePlayer@> pTargets;
 		if(AFBase::GetTargetPlayers(AFArgs.User, HUD_PRINTCONSOLE, AFArgs.GetString(0), TARGETS_NOALL|TARGETS_NOAIM|TARGETS_NORANDOM, pTargets))
@@ -455,7 +455,7 @@ namespace AFBaseBase
 				AFBase::AFBaseUser afbUser = AFBase::GetUser(pTarget);
 				if(afbUser.iGagMode != -1)
 				{
-					afbasebase.Tell("Won't gag: "+pTarget.pev.netname+"! Target already has gag mode set.", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell("Нельзя замьютить: "+pTarget.pev.netname+"! Цель уже имеет режим мьюта.", AFArgs.User, HUD_PRINTCONSOLE);
 					continue;
 				}
 				
@@ -468,9 +468,9 @@ namespace AFBaseBase
 				string sFixId = AFBase::FormatSafe(AFBase::GetFixedSteamID(pTarget));
 				AFBase::UpdateGagFile(sFixId, iMode);
 				
-				afbasebase.TellAll(AFArgs.FixedNick+" gagged player \""+pTarget.pev.netname+"\" (mode: "+sOutMode+")", HUD_PRINTTALK);
-				afbasebase.Tell("Gagged \""+pTarget.pev.netname+"\" (mode: "+sOutMode+")", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" gagged \""+pTarget.pev.netname+"\" (mode: "+sOutMode+" )");
+				afbasebase.TellAll(AFArgs.FixedNick+" замьючил игрока \""+pTarget.pev.netname+"\" (режим: "+sOutMode+")", HUD_PRINTTALK);
+				afbasebase.Tell("Замьютил \""+pTarget.pev.netname+"\" (режим: "+sOutMode+")", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" замьючен \""+pTarget.pev.netname+"\" (режим: "+sOutMode+" )");
 			}
 		}
 	}
@@ -543,11 +543,11 @@ namespace AFBaseBase
 				AFBase::AFBaseUser afbUser = AFBase::GetUser(pTarget);
 				if(afbUser.bSprayBan && bMode)
 				{
-					afbasebase.Tell("Can't sprayban: user already spraybanned!", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell("Нельзя заблокировать спрей: у игрока и так заблокировано!", AFArgs.User, HUD_PRINTCONSOLE);
 					continue;
 				}else if(!afbUser.bSprayBan && !bMode)
 				{
-					afbasebase.Tell("Can't sprayunban: user not spraybanned!", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell("Нельзя разблокировать спрей: спрей игрока не заблокирован", AFArgs.User, HUD_PRINTCONSOLE);
 					continue;
 				}
 				
@@ -562,13 +562,13 @@ namespace AFBaseBase
 				
 				if(bMode)
 				{
-					afbasebase.TellAll(AFArgs.FixedNick+" banned player \""+AFArgs.GetString(0)+"\" from spraying decals", HUD_PRINTTALK);
-					afbasebase.Tell("Banned \""+AFArgs.GetString(0)+"\" from spraying decals", AFArgs.User, HUD_PRINTCONSOLE);
-					afbasebase.Log(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" from spraying decals");
+					afbasebase.TellAll(AFArgs.FixedNick+" заблокировал игроку \""+AFArgs.GetString(0)+"\" изпользовать спрей", HUD_PRINTTALK);
+					afbasebase.Tell("Заблокировано \""+AFArgs.GetString(0)+"\" изпользовать спрей", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Log(AFArgs.FixedNick+" заблокировал \""+AFArgs.GetString(0)+"\" изпользовать спрей");
 				}else{
-					afbasebase.TellAll(AFArgs.FixedNick+" unbanned player \""+AFArgs.GetString(0)+"\" from spraying decals", HUD_PRINTTALK);
-					afbasebase.Tell("Unbanned \""+AFArgs.GetString(0)+"\" from spraying decals", AFArgs.User, HUD_PRINTCONSOLE);
-					afbasebase.Log(AFArgs.FixedNick+" unbanned \""+AFArgs.GetString(0)+"\" from spraying decals");
+					afbasebase.TellAll(AFArgs.FixedNick+" разблокировал игроку \""+AFArgs.GetString(0)+"\" изпользовать спрей", HUD_PRINTTALK);
+					afbasebase.Tell("Разблокировано \""+AFArgs.GetString(0)+"\" изпользовать спрей", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Log(AFArgs.FixedNick+" разблокировал \""+AFArgs.GetString(0)+"\" изпользовать спрей");
 				}
 			}
 		}
@@ -576,13 +576,13 @@ namespace AFBaseBase
 
 	void banlate(AFBaseArguments@ AFArgs)
 	{
-		string sReason = AFArgs.GetCount() >= 2 ? AFArgs.GetString(1) : "banned";
+		string sReason = AFArgs.GetCount() >= 2 ? AFArgs.GetString(1) : "забанен";
 		int iMinutes = AFArgs.GetCount() >= 3 ? AFArgs.GetInt(2) : 30;
 		
 		if(!AFBase::IsNumeric(AFArgs.RawArgs[3]))
 		{
-			afbasebase.TellLong("Whoops! Seems like you mixed up the arguments. You tried to enter \""+AFArgs.RawArgs[3]+"\" as the ban duration.", AFArgs.User, HUD_PRINTCONSOLE);
-			afbasebase.TellLong("Usage: .admin_banlate (\"steamid/ip\") <\"reason\"> <duration in minutes, 0 for infinite>", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.TellLong("Упс! Походу вы перепутали аргументы. Вы написали параметр \""+AFArgs.RawArgs[3]+"\" как длительность бана.", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.TellLong("Изпользование: .admin_banlate (\"стим айди/айпи\") <\"причина\"> (длительность в минутах, 0 навсегда)", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -593,12 +593,12 @@ namespace AFBaseBase
 		{
 			if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 			{
-				afbasebase.Tell("Can't permaban: you are missing access flag C!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Бан навсегда невозможен: у вас не хватает флага С!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}else if(iMinutes > cvar_iBanMaxMinutes.GetInt()){
 			iMinutes = cvar_iBanMaxMinutes.GetInt();
-			afbasebase.Tell("Restricting ban time, larger than cvar: "+string(cvar_iBanMaxMinutes.GetInt()), AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Tell("Ограничиваем время бана, которая больше чем параметр: "+string(cvar_iBanMaxMinutes.GetInt()), AFArgs.User, HUD_PRINTCONSOLE);
 		}
 			
 		string sHold = AFArgs.GetString(0);
@@ -606,32 +606,32 @@ namespace AFBaseBase
 		{
 			if(iMinutes > 0)
 			{
-				afbasebase.TellAll(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes", HUD_PRINTTALK);
-				afbasebase.Tell("Banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes");
+				afbasebase.TellAll(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут", HUD_PRINTTALK);
+				afbasebase.Tell("Забанили \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут");
 			}else{
-				afbasebase.TellAll(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" permanently", HUD_PRINTTALK);
-				afbasebase.Tell("Banned \""+AFArgs.GetString(0)+"\" permanently", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" permanently");
+				afbasebase.TellAll(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" навсегда", HUD_PRINTTALK);
+				afbasebase.Tell("Забанили \""+AFArgs.GetString(0)+"\" навсегда", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" навсегда");
 			}
 			
 			AddBan(sHold, iMinutes, sReason, false);
 		}else{
 			if(sHold.ToLowercase() == "loopback" || sHold == "127.0.0.1")
 			{
-				afbasebase.Tell("Can't ban: user ip is localhost!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Бан невозможен: айпи пользователя локальный!", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 			
 			if(iMinutes > 0)
 			{
-				afbasebase.TellAll(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes", HUD_PRINTTALK);
-				afbasebase.Tell("Banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" for "+string(iMinutes)+" minutes");
+				afbasebase.TellAll(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут", HUD_PRINTTALK);
+				afbasebase.Tell("Забанили \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" на "+string(iMinutes)+" минут");
 			}else{
-				afbasebase.TellAll(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" permanently", HUD_PRINTTALK);
-				afbasebase.Tell("Banned \""+AFArgs.GetString(0)+"\" permanently", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" banned \""+AFArgs.GetString(0)+"\" permanently");
+				afbasebase.TellAll(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" навсегда", HUD_PRINTTALK);
+				afbasebase.Tell("Забанили \""+AFArgs.GetString(0)+"\" навсегда", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" забанил \""+AFArgs.GetString(0)+"\" навсегда");
 			}
 			
 			AddBan(sHold, iMinutes, sReason, true);
@@ -647,7 +647,7 @@ namespace AFBaseBase
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				afbasebase.Tell("Last target is now: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Выбраная цель: "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -668,8 +668,8 @@ namespace AFBaseBase
 		{
 			if(!AFBase::IsNumeric(AFArgs.RawArgs[3]))
 			{
-				afbasebase.TellLong("Whoops! Seems like you mixed up the arguments. You tried to enter \""+AFArgs.RawArgs[3]+"\" as the ban duration.", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.TellLong("Usage: .admin_ban (\"steamid\") <\"reason\"> <duration in minutes, 0 for infinite> <0/1 ban ip instead of steamid>", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.TellLong("Упс! Походу вы перепутали аргументы. Вы написали параметр  \""+AFArgs.RawArgs[3]+"\" как длительность бана.", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.TellLong("Изпользование: .admin_ban (\"стим айди\") <\"причина\"> (длительность в минутах, 0 навсегда) (0 бан по стим айди, 1 бан по айпи)", AFArgs.User, HUD_PRINTCONSOLE);
 				return;
 			}
 		}
@@ -690,20 +690,20 @@ namespace AFBaseBase
 					AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 					if(afbUser is null)
 					{
-						afbasebase.Tell("Can't ban: null player?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Бан невозможен: несуществующий игрок?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
 					string sIp = afbUser.sIp;
 					if(sIp == "" && bBanIp)
 					{
-						afbasebase.Tell("Can't ban: user ip not collected -- plugin reloaded?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Бан невозможен: айпи пользователя не найден -- плагин перезапущен?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
 					if(sIp == "loopback" || sIp == "127.0.0.1")
 					{
-						afbasebase.Tell("Can't ban: user ip is localhost!", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Бан невозможен: айпи пользователя локальный!", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
@@ -711,24 +711,24 @@ namespace AFBaseBase
 					{
 						if(!AFBase::CheckAccess(AFArgs.User, ACCESS_C))
 						{
-							afbasebase.Tell("Can't permaban: you are missing access flag C!", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Tell("Бан навсегда невозможен: вам нехватает флага С!", AFArgs.User, HUD_PRINTCONSOLE);
 							return;
 						}
 					}else if(iMinutes > cvar_iBanMaxMinutes.GetInt()){
 						iMinutes = cvar_iBanMaxMinutes.GetInt();
-						afbasebase.Tell("Restricting ban time, larger than cvar: "+string(cvar_iBanMaxMinutes.GetInt()), AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Ограничиваем время бана, которая больше чем параметр: "+string(cvar_iBanMaxMinutes.GetInt()), AFArgs.User, HUD_PRINTCONSOLE);
 					}
 					
 					string sFill = bBanIp ? "ip: "+sIp : "steamid: "+sId;
 					if(iMinutes > 0)
 					{
-						afbasebase.TellAll(AFArgs.FixedNick+" banned player "+pTarget.pev.netname+" ("+sFill+") for "+string(iMinutes)+" minutes (reason: "+sReason+")", HUD_PRINTTALK);
-						afbasebase.Tell("Banned player "+pTarget.pev.netname+" ("+sFill+") for "+string(iMinutes)+" minutes with reason \""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-						afbasebase.Log(AFArgs.FixedNick+" banned player "+pTarget.pev.netname+" ("+sFill+") for "+string(iMinutes)+" minutes with reason \""+sReason+"\"");
+						afbasebase.TellAll(AFArgs.FixedNick+" забанил игрока "+pTarget.pev.netname+" ("+sFill+") на "+string(iMinutes)+" минут (причина: "+sReason+")", HUD_PRINTTALK);
+						afbasebase.Tell("Забанили игрока "+pTarget.pev.netname+" ("+sFill+") на "+string(iMinutes)+" минут с причиной\""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Log(AFArgs.FixedNick+" забанил игрока "+pTarget.pev.netname+" ("+sFill+") на "+string(iMinutes)+" минут с причиной \""+sReason+"\"");
 					}else{
-						afbasebase.TellAll(AFArgs.FixedNick+" banned player "+pTarget.pev.netname+" ("+sFill+") permanently (reason: "+sReason+")", HUD_PRINTTALK);
-						afbasebase.Tell("Banned player "+pTarget.pev.netname+" ("+sFill+") permanently with reason \""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-						afbasebase.Log(AFArgs.FixedNick+" banned player "+pTarget.pev.netname+" ("+sFill+") permanently with reason \""+sReason+"\"");
+						afbasebase.TellAll(AFArgs.FixedNick+" забанил игрока "+pTarget.pev.netname+" ("+sFill+") навсегда (причина: "+sReason+")", HUD_PRINTTALK);
+						afbasebase.Tell("Забанили игрока "+pTarget.pev.netname+" ("+sFill+") навсегда с причиной \""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Log(AFArgs.FixedNick+" забанил игрока "+pTarget.pev.netname+" ("+sFill+") навсегда с причиной \""+sReason+"\"");
 					}
 					
 					AddBan(pTarget, iMinutes, sReason, bBanIp);
@@ -744,20 +744,20 @@ namespace AFBaseBase
 		{
 			if(RemoveBan(sHold, false))
 			{
-				afbasebase.TellAll(AFArgs.FixedNick+" unbanned "+sHold, HUD_PRINTTALK);
-				afbasebase.Tell("Unbanned "+sHold, AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" unbanned "+sHold);
+				afbasebase.TellAll(AFArgs.FixedNick+" разбанил "+sHold, HUD_PRINTTALK);
+				afbasebase.Tell("Разбанили "+sHold, AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" разбанил "+sHold);
 			}else{
-				afbasebase.Tell("No such entry in ban list!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Такой записи в бан листе не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}else{
 			if(RemoveBan(sHold, true))
 			{
-				afbasebase.TellAll(AFArgs.FixedNick+" unbanned "+sHold, HUD_PRINTTALK);
-				afbasebase.Tell("Unbanned "+sHold, AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" unbanned "+sHold);
+				afbasebase.TellAll(AFArgs.FixedNick+" разбанил "+sHold, HUD_PRINTTALK);
+				afbasebase.Tell("Разбанили "+sHold, AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" разбанил "+sHold);
 			}else{
-				afbasebase.Tell("No such entry in ban list!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Такой записи в бан листе не существует!", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -993,27 +993,27 @@ namespace AFBaseBase
 			if(g_decaltrackers.find(AFArgs.User.entindex()) > -1)
 			{
 				g_decaltrackers.removeAt(g_decaltrackers.find(AFArgs.User.entindex()));
-				afbasebase.Tell("Stopped tracking", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Остановили отслеживание", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
 				g_decaltrackers.insertLast(AFArgs.User.entindex());
-				afbasebase.Tell("Started tracking", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Начали отслеживание", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}else if(iMode == 1)
 		{
 			if(g_decaltrackers.find(AFArgs.User.entindex()) > -1)
 			{
-				afbasebase.Tell("Can't set: Not tracking!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Нельзя установить: не отслеживаем!", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
 				g_decaltrackers.insertLast(AFArgs.User.entindex());
-				afbasebase.Tell("Started tracking", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Начали отслеживание", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}else{
 			if(g_decaltrackers.find(AFArgs.User.entindex()) > -1)
 			{
 				g_decaltrackers.removeAt(g_decaltrackers.find(AFArgs.User.entindex()));
-				afbasebase.Tell("Stopped tracking", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Остановили отслеживание", AFArgs.User, HUD_PRINTCONSOLE);
 			}else{
-				afbasebase.Tell("Can't set: Already tracking!", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Tell("Нельзя установить: отслеживаем!", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
 	}
@@ -1031,7 +1031,7 @@ namespace AFBaseBase
 		float fX = AFArgs.GetCount() >= 9 ? AFArgs.GetFloat(8) : -1.0f;
 		float fY = AFArgs.GetCount() >= 10 ? AFArgs.GetFloat(9) : -1.0f;
 		if(bShowName)
-			sMessage = " [ADMIN] "+AFArgs.FixedNick+": "+sMessage;
+			sMessage = " [АДМИН] "+AFArgs.FixedNick+": "+sMessage;
 		else if(!bShowName && iTargetHud == 0) // fix uglyness in chat
 			sMessage = " "+sMessage;
 			
@@ -1039,7 +1039,7 @@ namespace AFBaseBase
 		if(AFBase::GetTargetPlayers(AFArgs.User, HUD_PRINTCONSOLE, sWantedTarget, TARGETS_NOIMMUNITYCHECK, pTargets))
 		{
 			CBasePlayer@ pTarget = null;
-			afbasebase.Tell("Broadcasted \""+sMessage+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Tell("Транслировался \""+sMessage+"\"", AFArgs.User, HUD_PRINTCONSOLE);
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
@@ -1076,8 +1076,8 @@ namespace AFBaseBase
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				afbasebase.TellAll(AFArgs.FixedNick+" slapped player "+pTarget.pev.netname+" with "+string(iDamage)+" damage", HUD_PRINTTALK);
-				afbasebase.Tell("Slapped player "+pTarget.pev.netname+" with "+string(iDamage)+" damage", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.TellAll(AFArgs.FixedNick+" ударил игрока "+pTarget.pev.netname+" на "+string(iDamage)+" урона", HUD_PRINTTALK);
+				afbasebase.Tell("Ударил игрока "+pTarget.pev.netname+" на "+string(iDamage)+" урона", AFArgs.User, HUD_PRINTCONSOLE);
 				entvars_t@ world = g_EntityFuncs.Instance(0).pev;
 				pTarget.TakeDamage(world, world, iDamage, DMG_GENERIC);
 				pTarget.pev.velocity = Vector(Math.RandomFloat(-512,512), Math.RandomFloat(-512,512), Math.RandomFloat(-512,512));
@@ -1099,9 +1099,9 @@ namespace AFBaseBase
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				afbasebase.TellAll(AFArgs.FixedNick+" slayed player "+pTarget.pev.netname, HUD_PRINTTALK);
-				afbasebase.Tell("Slayed player "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" slayed player "+pTarget.pev.netname);
+				afbasebase.TellAll(AFArgs.FixedNick+" убил игрока "+pTarget.pev.netname, HUD_PRINTTALK);
+				afbasebase.Tell("Убили игрока "+pTarget.pev.netname, AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" убил игрока "+pTarget.pev.netname);
 				entvars_t@ world = g_EntityFuncs.Instance(0).pev;
 				//making sure slay works with non-vanilla players (SCXPM/Balancing scripts or when the admin has poked around with _keyvalue health)
 				pTarget.pev.health = 1;
@@ -1159,9 +1159,9 @@ namespace AFBaseBase
 			return;
 		}
 		
-		afbasebase.Tell("Changed level to: "+sMap, AFArgs.User, HUD_PRINTCONSOLE);
-		afbasebase.TellAll(AFArgs.FixedNick+" changed level to "+sMap, HUD_PRINTTALK);
-		afbasebase.Log(AFArgs.FixedNick+" changed level to "+sMap);
+		afbasebase.Tell("Меняем карту на: "+sMap, AFArgs.User, HUD_PRINTCONSOLE);
+		afbasebase.TellAll(AFArgs.FixedNick+" поменял карту на "+sMap, HUD_PRINTTALK);
+		afbasebase.Log(AFArgs.FixedNick+" поменял карту на "+sMap);
 		NetworkMessage message(MSG_ALL, NetworkMessages::SVC_INTERMISSION, null);
 		message.End();
 		g_Scheduler.SetTimeout("changelevelsteptwo", 4.0f, sMap);
@@ -1193,17 +1193,17 @@ namespace AFBaseBase
 		
 		if(aSHold[0] == "")
 		{
-			afbasebase.Tell("Can't execute rcon: empty", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Tell("Невозможно выполнить rcon: пусто", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}else if(int(AFArgs.GetString(0).FindFirstOf(";", 0)) > -1)
 		{
-			afbasebase.Tell("Can't execute rcon: contains \";\"", AFArgs.User, HUD_PRINTCONSOLE);
-			afbasebase.Log("Admin "+AFArgs.User.pev.netname+" tried to execute rcon with character \";\"");
+			afbasebase.Tell("Невозможно выполнить rcon: имеет \";\"", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Log("Админ "+AFArgs.User.pev.netname+" пытался выполнить rcon с знаком \";\"");
 			return;
 		}else if(g_blackListCommands.find(aSHold[0]) > -1)
 		{
-			afbasebase.Tell("Can't execute rcon: blacklisted command \""+aSHold[0]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-			afbasebase.Log("Admin "+AFArgs.User.pev.netname+" tried to execute rcon with blacklisted command \""+aSHold[0]+"\"");
+			afbasebase.Tell("Невозможно выполнить rcon: команда в чёрном списке \""+aSHold[0]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Log("Админ "+AFArgs.User.pev.netname+" пытался выполнить rcon с командой из черного списка \""+aSHold[0]+"\"");
 			return;
 		}else if(int(AFArgs.GetString(0).FindFirstOf("as_command", 0)) > -1)
 		{
@@ -1223,8 +1223,8 @@ namespace AFBaseBase
 			}
 			if(b)
 			{
-				afbasebase.Tell("Can't execute rcon: contains AFB command \""+c[w]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log("Admin "+AFArgs.User.pev.netname+" tried to execute rcon with AFB command \""+c[w]+"\"");
+				afbasebase.Tell("Невозможно выполнить rcon: имеет AFB команду \""+c[w]+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log("Админ "+AFArgs.User.pev.netname+" пытался выполнить rcon с AFB командой \""+c[w]+"\"");
 				return;
 			}
 		}
@@ -1244,8 +1244,8 @@ namespace AFBaseBase
 			sOut += noquotes == 0 ? "\"" : "";
 		}
 		
-		afbasebase.Tell("Executed rcon: "+sOut, AFArgs.User, HUD_PRINTCONSOLE);
-		afbasebase.Log("Admin "+AFArgs.User.pev.netname+" executed rcon "+sOut);
+		afbasebase.Tell("Выполнен rcon: "+sOut, AFArgs.User, HUD_PRINTCONSOLE);
+		afbasebase.Log("Админ "+AFArgs.User.pev.netname+" выполнил rcon "+sOut);
 		g_EngineFuncs.ServerCommand(sOut+"\n");
 	}
 
@@ -1259,9 +1259,9 @@ namespace AFBaseBase
 			for(uint i = 0; i < pTargets.length(); i++)
 			{
 				@pTarget = pTargets[i];
-				afbasebase.TellAll(AFArgs.FixedNick+" kicked player "+pTarget.pev.netname+" (reason: "+sReason+")", HUD_PRINTTALK);
-				afbasebase.Tell("Kicked player "+pTarget.pev.netname+" with reason \""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
-				afbasebase.Log(AFArgs.FixedNick+" kicked player "+pTarget.pev.netname+" with reason \""+sReason+"\"");
+				afbasebase.TellAll(AFArgs.FixedNick+" кикнул игрока "+pTarget.pev.netname+" (причина: "+sReason+")", HUD_PRINTTALK);
+				afbasebase.Tell("Кикнули игрока "+pTarget.pev.netname+" с причиной \""+sReason+"\"", AFArgs.User, HUD_PRINTCONSOLE);
+				afbasebase.Log(AFArgs.FixedNick+" кикнул игрока "+pTarget.pev.netname+" с причиной \""+sReason+"\"");
 				g_EngineFuncs.ServerCommand("kick #"+string(g_EngineFuncs.GetPlayerUserId(pTarget.edict()))+" \""+sReason+"\"\n");
 			}
 		}
@@ -1271,7 +1271,7 @@ namespace AFBaseBase
 	{
 		if(AFBase::g_cvar_afb_ignoreAccess.GetInt() >= 1)
 		{
-			afbasebase.Tell("Can't modify: afb_access_ignore is on.", AFArgs.User, HUD_PRINTCONSOLE);
+			afbasebase.Tell("Нельзя изменить: afb_access_ignore включен.", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 		
@@ -1289,11 +1289,11 @@ namespace AFBaseBase
 					{
 						if(int(sFlags.FindFirstOf("b", 0)) > -1 && (sFlags.SubString(0,1) == "-" || sFlags.SubString(0,1) == "+"))
 						{
-							afbasebase.Tell("Can't modify: can't add or remove flag 'b' on self.", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Tell("Нельзя изменить: нельзя добавлять или убирать доступ 'B' не себя", AFArgs.User, HUD_PRINTCONSOLE);
 							continue;
 						}else if(int(sFlags.FindFirstOf("b", 0)) <= -1 && (sFlags.SubString(0,1) != "-" && sFlags.SubString(0,1) != "+"))
 						{
-							afbasebase.Tell("Can't modify: can't set flags without flag 'b' on self.", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Tell("Нельзя изменить: нельзя ставить доступ без доступа 'B'", AFArgs.User, HUD_PRINTCONSOLE);
 							continue;
 						}
 					}
@@ -1305,7 +1305,7 @@ namespace AFBaseBase
 					AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 					if(afbUser is null)
 					{
-						afbasebase.Tell("Can't update: null player?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Нельзя добавить: несуществующий игрок?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
@@ -1338,9 +1338,9 @@ namespace AFBaseBase
 					afbUser.sAccess = sNewAccess+"z";
 					afbUser.bLock = true;
 					AFBase::g_afbUserList[pTarget.entindex()] = afbUser;
-					afbasebase.Log(AFArgs.FixedNick+" updated "+string(pTarget.pev.netname)+" access to "+sNewAccess+"z");
-					afbasebase.Tell("updated "+string(pTarget.pev.netname)+" access to "+sNewAccess+"z", AFArgs.User, HUD_PRINTCONSOLE);
-					afbasebase.TellAll(AFArgs.FixedNick+" updated "+pTarget.pev.netname+" access to \""+sNewAccess+"z\"", HUD_PRINTTALK);
+					afbasebase.Log(AFArgs.FixedNick+" изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAccess+"z");
+					afbasebase.Tell("Изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAccess+"z", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.TellAll(AFArgs.FixedNick+" изменил "+pTarget.pev.netname+" доступ на \""+sNewAccess+"z\"", HUD_PRINTTALK);
 					AFBase::UpdateAccessFile(sFixId, sNewAccess);
 				}else if(sFlags.SubString(0,1) == "-")
 				{
@@ -1348,7 +1348,7 @@ namespace AFBaseBase
 					AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 					if(afbUser is null)
 					{
-						afbasebase.Tell("Can't update: null player?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Нельзя добавить: несуществующий игрок?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
@@ -1382,9 +1382,9 @@ namespace AFBaseBase
 					afbUser.sAccess = sNewAccess+"z";
 					afbUser.bLock = true;
 					AFBase::g_afbUserList[pTarget.entindex()] = afbUser;
-					afbasebase.Log(AFArgs.FixedNick+" updated "+string(pTarget.pev.netname)+" access to "+sNewAccess+"z");
-					afbasebase.Tell("updated "+string(pTarget.pev.netname)+" access to "+sNewAccess+"z", AFArgs.User, HUD_PRINTCONSOLE);
-					afbasebase.TellAll(AFArgs.FixedNick+" updated "+pTarget.pev.netname+" access to \""+sNewAccess+"z\"", HUD_PRINTTALK);
+					afbasebase.Log(AFArgs.FixedNick+" изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAccess+"z");
+					afbasebase.Tell("Изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAccess+"z", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.TellAll(AFArgs.FixedNick+" изменил "+pTarget.pev.netname+" доступ на \""+sNewAccess+"z\"", HUD_PRINTTALK);
 					AFBase::UpdateAccessFile(sFixId, sNewAccess);
 				}else if(sFlags != "!")
 				{
@@ -1392,7 +1392,7 @@ namespace AFBaseBase
 					AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 					if(afbUser is null)
 					{
-						afbasebase.Tell("Can't update: null player?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Нельзя добавить: несуществующий игрок?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
@@ -1410,19 +1410,19 @@ namespace AFBaseBase
 					afbUser.iAccess = iNewAcc;
 					afbUser.bLock = true;
 					AFBase::g_afbUserList[pTarget.entindex()] = afbUser;
-					afbasebase.Log(AFArgs.FixedNick+" updated "+string(pTarget.pev.netname)+" access to "+sNewAcc);
-					afbasebase.Tell("updated "+string(pTarget.pev.netname)+" access to "+sNewAcc+"z", AFArgs.User, HUD_PRINTCONSOLE);
-					afbasebase.TellAll(AFArgs.FixedNick+" updated "+pTarget.pev.netname+" access to \""+sNewAcc+"\"", HUD_PRINTTALK);
+					afbasebase.Log(AFArgs.FixedNick+" изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAcc);
+					afbasebase.Tell("Изменил "+string(pTarget.pev.netname)+" доступ на "+sNewAcc+"z", AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.TellAll(AFArgs.FixedNick+" изменил "+pTarget.pev.netname+" доступ на \""+sNewAcc+"\"", HUD_PRINTTALK);
 					AFBase::UpdateAccessFile(sFixId, sNewAcc);
 				}else{
 					AFBase::AFBaseUser@ afbUser = AFBase::GetUser(pTarget);
 					if(afbUser is null)
 					{
-						afbasebase.Tell("Can't tell: null player?", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Tell("Немогу сказать: несуществующий игрок?", AFArgs.User, HUD_PRINTCONSOLE);
 						return;
 					}
 					
-					afbasebase.Tell(string(pTarget.pev.netname)+" accessflags: "+afbUser.sAccess, AFArgs.User, HUD_PRINTCONSOLE);
+					afbasebase.Tell(string(pTarget.pev.netname)+" доступ флаги: "+afbUser.sAccess, AFArgs.User, HUD_PRINTCONSOLE);
 				}
 			}
 		}
@@ -1430,13 +1430,13 @@ namespace AFBaseBase
 
 	void info(AFBaseArguments@ AFArgs)
 	{
-		TellLongCustom("----AdminFuckeryBase: Info------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom("AFB Version: "+AFBase::g_afInfo+"\n", AFArgs.User, HUD_PRINTCONSOLE);
-		string sSafe = AFBase::g_afbIsSafePlugin ? "Yes" : "No";
-		TellLongCustom("Safeplugin: "+sSafe+"\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom("AFB Users: "+string(AFBase::g_afbUserList.getSize())+"\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom("AFB Expansions: "+string(AFBase::g_afbExpansionList.getSize())+"\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom("AFB Commands: CON/CHAT "+string(AFBase::g_afbConCommandList.getSize())+"/"+string(AFBase::g_afbChatCommandList.getSize())+" (total: "+string(AFBase::g_afbVisualCommandList.length())+")\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("----AdminFuckeryBase: Инфо------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("AFB Версия: "+AFBase::g_afInfo+"\n", AFArgs.User, HUD_PRINTCONSOLE);
+		string sSafe = AFBase::g_afbIsSafePlugin ? "Да" : "Нет";
+		TellLongCustom("Безопасный ли плагин?: "+sSafe+"\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("AFB Пользователи: "+string(AFBase::g_afbUserList.getSize())+"\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("AFB Дополнения: "+string(AFBase::g_afbExpansionList.getSize())+"\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("AFB Команды: Кон/Чат "+string(AFBase::g_afbConCommandList.getSize())+"/"+string(AFBase::g_afbChatCommandList.getSize())+" (всего: "+string(AFBase::g_afbVisualCommandList.length())+")\n", AFArgs.User, HUD_PRINTCONSOLE);
 		TellLongCustom("--------------------------------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 
@@ -1452,11 +1452,11 @@ namespace AFBaseBase
 				bShowAll = true;
 		array<string> afbKeys = AFBase::g_afbUserList.getKeys();
 		string sSpace = "                                                                                                                                                                ";
-		TellLongCustom("----AdminFuckeryBase: Clients on server-----------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("----AdminFuckeryBase: Игроки на сервере-----------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 		if(!bNoFormat)
-			TellLongCustom("----Nicks longer than 15 characters have been cut off with \"~\", use .afb_who 1 to remove this\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("----Ники которые имееют 15+ символов будут укорочены с \"~\", изпользуйте .afb_who 1 чтобы обойти это\n", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			TellLongCustom("----Nicks are no longer cut off. formatting may fuck up, use .afb_who 0 to fix this\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("----Ники не укороченые. Форматирование может сломаться от этого, изпользуйте .afb_who 0 чтобы обойти это\n", AFArgs.User, HUD_PRINTCONSOLE);
 		int iOffsetId = 0;
 		uint iLongestNick = 4;
 		uint iLongestOldNick = 8;
@@ -1568,7 +1568,7 @@ namespace AFBaseBase
 		AFBaseClass@ AFBClass = null;
 		array<string> afbKeys = AFBase::g_afbExpansionList.getKeys();
 		string sSpace = "                                                                                                                                                                ";
-		TellLongCustom("----AdminFuckeryBase: Expansions------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("----AdminFuckeryBase: Дополнения------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 		int iOffsetId = 0;
 		uint iLongestSID = 3;
 		uint iLongestName = 4;
@@ -1594,9 +1594,9 @@ namespace AFBaseBase
 			iOffsetId = 1;
 		string sVID = sSpace.SubString(0,iOffsetId)+"#  ";
 		string sVSID = "SID"+sSpace.SubString(0,iLongestSID-3)+"  ";
-		string sVNAME = "Name"+sSpace.SubString(0,iLongestName-4)+"  ";
-		string sVAUTH = "Author"+sSpace.SubString(0,iLongestAuthor-6)+"  ";
-		string sVSTAT = "Status";
+		string sVNAME = "Имя"+sSpace.SubString(0,iLongestName-4)+"  ";
+		string sVAUTH = "Автор"+sSpace.SubString(0,iLongestAuthor-6)+"  ";
+		string sVSTAT = "Статус";
 		TellLongCustom(sVID+sVSID+sVNAME+sVSTAT+"\n", AFArgs.User, HUD_PRINTCONSOLE);
 		for(uint i = 0; i < afbKeys.length(); i++)
 		{
@@ -1615,7 +1615,7 @@ namespace AFBaseBase
 				sVSID = AFBClass.ShortName+sSpace.SubString(0,iLongestSID-AFBClass.ShortName.Length())+"  ";
 				sVNAME = AFBClass.ExpansionName+sSpace.SubString(0,iLongestName-AFBClass.ExpansionName.Length())+"  ";
 				sVAUTH = AFBClass.AuthorName+sSpace.SubString(0,iLongestAuthor-AFBClass.AuthorName.Length())+"  ";
-				sVSTAT = AFBClass.Running ? "Running" : "Stopped";
+				sVSTAT = AFBClass.Running ? "Работает" : "Остановлен";
 				TellLongCustom(sVID+sVSID+sVNAME+sVSTAT+"\n", AFArgs.User, HUD_PRINTCONSOLE);
 			}
 		}
@@ -1635,19 +1635,19 @@ namespace AFBaseBase
 				{
 					if(AFBClass.StatusOverride)
 					{
-						TellLongCustom("[AFB] Error: Expansion "+AFBClass.ShortName+" can't be stopped: locked!\n", AFArgs.User, HUD_PRINTCONSOLE);
-						afbasebase.Log(AFArgs.FixedNick+" attempted to stop locked expansion "+string(AFBClass.ShortName));
+						TellLongCustom("[AFB] Ошибка: Дополнение "+AFBClass.ShortName+" невозможно остановить: закрыто!\n", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Log(AFArgs.FixedNick+" попытался остановить закрытое дополнение "+string(AFBClass.ShortName));
 						return;
 					}else{
 						if(AFBClass.Running)
 						{
-							TellLongCustom("[AFB] Stopped expansion: "+AFBClass.ShortName+".\n", AFArgs.User, HUD_PRINTCONSOLE);
-							afbasebase.Log(AFArgs.FixedNick+" stopped expansion "+string(AFBClass.ShortName));
+							TellLongCustom("[AFB] Дополнение остановлен: "+AFBClass.ShortName+".\n", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Log(AFArgs.FixedNick+" дополнение остановлено "+string(AFBClass.ShortName));
 							AFBClass.Stop();
 							return;
 						}else{
-							TellLongCustom("[AFB] Can't stop expansion "+AFBClass.ShortName+": Already stopped!\n", AFArgs.User, HUD_PRINTCONSOLE);
-							afbasebase.Log(AFArgs.FixedNick+" attempted to stop already stopped expansion "+string(AFBClass.ShortName));
+							TellLongCustom("[AFB] Невозможно остановить дополнение "+AFBClass.ShortName+": Уже остановлен!\n", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Log(AFArgs.FixedNick+" попытался остановить уже остановленое дополнение "+string(AFBClass.ShortName));
 							return;
 						}
 					}
@@ -1655,7 +1655,7 @@ namespace AFBaseBase
 			}
 		}
 		
-		TellLongCustom("[AFB] Failed to find expansion SID, check your spelling (case sensetive).\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("[AFB] Провалено нахождение SID дополнения, проверьте ваше правописание (с учетом регистра).\n", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void extstart(AFBaseArguments@ AFArgs)
@@ -1671,18 +1671,18 @@ namespace AFBaseBase
 				{
 					if(AFBClass.StatusOverride)
 					{
-						TellLongCustom("[AFB] Error: Expansion "+AFBClass.ShortName+" can't be started: locked!\n", AFArgs.User, HUD_PRINTCONSOLE);
-						afbasebase.Log(AFArgs.FixedNick+" attempted to start locked expansion "+string(AFBClass.ShortName));
+						TellLongCustom("[AFB] Ошибка: Дополнение "+AFBClass.ShortName+" не запустилось: закрыто!\n", AFArgs.User, HUD_PRINTCONSOLE);
+						afbasebase.Log(AFArgs.FixedNick+" попытался запустить закрытое дополнение "+string(AFBClass.ShortName));
 						return;
 					}else{
 						if(AFBClass.Running)
 						{
-							TellLongCustom("[AFB] Can't start expansion "+AFBClass.ShortName+": Already running!\n", AFArgs.User, HUD_PRINTCONSOLE);
-							afbasebase.Log(AFArgs.FixedNick+" attempted to start already running expansion "+string(AFBClass.ShortName));
+							TellLongCustom("[AFB] Невозможно запустить дополнение "+AFBClass.ShortName+": Уже запущен!\n", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Log(AFArgs.FixedNick+" попытался запустить уже запущеное дополнение "+string(AFBClass.ShortName));
 							return;
 						}else{
-							TellLongCustom("[AFB] Started expansion: "+AFBClass.ShortName+".\n", AFArgs.User, HUD_PRINTCONSOLE);
-							afbasebase.Log(AFArgs.FixedNick+" started expansion "+string(AFBClass.ShortName));
+							TellLongCustom("[AFB] Запускаем дополнение: "+AFBClass.ShortName+".\n", AFArgs.User, HUD_PRINTCONSOLE);
+							afbasebase.Log(AFArgs.FixedNick+" запустил дополнение "+string(AFBClass.ShortName));
 							AFBClass.Start();
 							return;
 						}
@@ -1691,7 +1691,7 @@ namespace AFBaseBase
 			}
 		}
 		
-		TellLongCustom("[AFB] Failed to find expansion SID, check your spelling (case sensetive).\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("[AFB] Провалено нахождение SID дополнения, проверьте ваше правописание (с учетом регистра).\n", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void help(AFBaseArguments@ AFArgs)
@@ -1747,7 +1747,7 @@ namespace AFBaseBase
 		uint cEnd = cStart+10;
 		if(cStart >= sComm.length())
 		{
-			TellLongCustom("[AFB] No such page! attempted page "+(1+cStart/10)+", but list length is "+(1+((sComm.length()-1)/10))+" pages!\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("[AFB] Такой страницы нет! попытались открыть страницу "+(1+cStart/10)+", но длина списка только до "+(1+((sComm.length()-1)/10))+" страниц!\n", AFArgs.User, HUD_PRINTCONSOLE);
 			return;
 		}
 
@@ -1758,9 +1758,9 @@ namespace AFBaseBase
 				pLength++;
 		}
 		
-		TellLongCustom("----AdminFuckeryBase help: Command list-----------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom("Quick quide: (arg) required parameter, <arg> optional parameter. Targets: @all, @admins, @noadmins, @alive\n", AFArgs.User, HUD_PRINTCONSOLE);
-		TellLongCustom(" @dead, @aim, @random, @last, @me, \"nickname\" (supports * wildcard), \"STEAM_0:1:ID\"\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("----AdminFuckeryBase help: Список команд-----------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom("Маленький гайд: (арг) обязательная настройка, <арг> опциональная настройка. Цели: @all, @admins, @noadmins, @alive\n", AFArgs.User, HUD_PRINTCONSOLE);
+		TellLongCustom(" @dead, @aim, @random, @last, @me, \"nickname\" (подержует * подстановочный знак), \"STEAM_0:1:ID\"\n", AFArgs.User, HUD_PRINTCONSOLE);
 		TellLongCustom("--------------------------------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 		for(uint i = 0; i < pLength; i++)
 		{
@@ -1769,9 +1769,9 @@ namespace AFBaseBase
 		
 		TellLongCustom("--------------------------------------------------------------------------------\n", AFArgs.User, HUD_PRINTCONSOLE);
 		if(cStart+10 < sComm.length())
-			TellLongCustom("[AFB] type \".afb_help "+(1+(cEnd)/10)+"\" for more - showing page "+(1+cStart/10)+" of "+(1+((sComm.length()-1)/10))+".\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("[AFB] напишите \".afb_help "+(1+(cEnd)/10)+"\" для больше страниц - показуем страницу "+(1+cStart/10)+" из "+(1+((sComm.length()-1)/10))+".\n", AFArgs.User, HUD_PRINTCONSOLE);
 		else
-			TellLongCustom("[AFB] showing page "+(1+cStart/10)+" of "+(1+((sComm.length()-1)/10))+".\n", AFArgs.User, HUD_PRINTCONSOLE);
+			TellLongCustom("[AFB] показуем страницу "+(1+cStart/10)+" из "+(1+((sComm.length()-1)/10))+".\n", AFArgs.User, HUD_PRINTCONSOLE);
 	}
 	
 	void TellLongCustom(string sIn, CBasePlayer@ pUser, HUD targetHud)

@@ -80,7 +80,7 @@ abstract class AFBaseClass
 		if(!bInserted)
 		{
 			this.Running = false;
-			this.Log("Stopped: command register failed!");
+			this.Log("Остановлен: ошибка регистрации команды!");
 		}
 	}
 	
@@ -90,7 +90,7 @@ abstract class AFBaseClass
 		if(!bInserted)
 		{
 			this.Running = false;
-			this.Log("Stopped: command register failed!");
+			this.Log("Остановлен: ошибка регистрации команды!");
 		}
 	}
 	
@@ -143,10 +143,10 @@ abstract class AFBaseClass
 	void SendMessage(string sReceiver, string sIdentifier, dictionary dData) final
 	{
 		if(sIdentifier == "")
-			this.Log("Can't send message, identifier missing!");
+			this.Log("Нельзя отправить сообщение, отсутвует индетификатор!");
 			
 		if(sReceiver == "")
-			this.Log("Can't send message \""+sIdentifier+"\", receiver missing!");
+			this.Log("Нельзя отправить сообщение, \""+sIdentifier+"\", отсутвует получатель!");
 			
 		MessageData msgData(this.ShortName, sReceiver, sIdentifier, dData);
 		AFBase::SendMessage(msgData);

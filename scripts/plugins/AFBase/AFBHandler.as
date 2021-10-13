@@ -163,7 +163,7 @@ namespace AFBase
 		{
 			if(iFlags & CMD_SERVER != 0 || iFlags & CMD_SERVERONLY != 0)
 			{
-				BaseLog("Can't register command \""+sName+"\": attempting to register say command to server console!");
+				BaseLog("Нельзя зарегестировать команду \""+sName+"\": попытка регистрации команды say на консоль сервера!");
 				return false;
 			}
 		
@@ -171,7 +171,7 @@ namespace AFBase
 			array<string> sHold = g_afbChatCommandList.getKeys();
 			if(sHold.find(sFixName) > -1)
 			{
-				BaseLog("Can't register command \""+sName+"\": command already exists!");
+				BaseLog("Нельзя зарегестировать команду \""+sName+"\": команда уже существует!");
 				return false;
 			}
 			string sLowerCommand = sFixName;
@@ -193,7 +193,7 @@ namespace AFBase
 			array<string> sHold = g_afbConCommandList.getKeys();
 			if(sHold.find(sName) > -1)
 			{
-				BaseLog("Can't register command \""+sName+"\": command already exists!");
+				BaseLog("Нельзя зарегестировать команду \""+sName+"\": команда уже существует!");
 				return false;
 			}
 			
@@ -214,18 +214,18 @@ namespace AFBase
 			flags |= CMD_PRECACHE;
 		if(bSupressChat)
 			flags |= CMD_SUPRESS;
-		BaseLog("Obsolete RegisterCommand arguments in \""+sENameID+"\"->\""+sName+"\": void RegisterCommand(string sCommand, string sReqArgs, string sDescription, int iAccess, callback, bool bRequiresPrecache, bool bHideChat)");
-		BaseLog("  Consider using: void RegisterCommand(string sCommand, string sReqArgs, string sDescription, int iAccess, callback, int iFlags)");
+		BaseLog("Устаревший RegisterCommand аргумент на \""+sENameID+"\"->\""+sName+"\": void RegisterCommand(string sCommand, string sReqArgs, string sDescription, int iAccess, callback, bool bRequiresPrecache, bool bHideChat)");
+		BaseLog("  Попробуйте возпользоваться: void RegisterCommand(string sCommand, string sReqArgs, string sDescription, int iAccess, callback, int iFlags)");
 		return InsertCommand(sENameID, sName, sReqArgs, sDescription, iAccess, callback, flags);
 	}
 	
 	void AddExpansion(AFBaseClass@ afbExpansion)
 	{
-		BaseLog("Registering expansion: "+afbExpansion.ExpansionName+" (SID: "+afbExpansion.ShortName+") by "+afbExpansion.AuthorName);
+		BaseLog("Регестрируем дополнение: "+afbExpansion.ExpansionName+" (SID: "+afbExpansion.ShortName+") созданым "+afbExpansion.AuthorName);
 		array<string> sHold = g_afbExpansionList.getKeys();
 		if(sHold.find(afbExpansion.ShortName) > -1)
 		{
-			BaseLog("Can't register expansion \""+afbExpansion.ExpansionName+"\": SID \""+afbExpansion.ShortName+"\" is already reserved!");
+			BaseLog("Нельзя зарегестировать дополнение \""+afbExpansion.ExpansionName+"\": SID \""+afbExpansion.ShortName+"\" уже зарезервирован!");
 			return;
 		}
 		
@@ -289,9 +289,9 @@ namespace AFBase
 			@command = cast<AFBaseCommand@>(g_afbChatCommandList[sLowerCommand]);
 		if(command is null)
 		{
-			BaseLog("Command execution failed: callback null!");
-			BaseLog("Caller: "+ (bServer?"Server":string(pUser.pev.netname)));
-			BaseLog("Contents: ");
+			BaseLog("Ошибка исполнения команды: callback null!");
+			BaseLog("Звонящий: "+ (bServer?"Сервер":string(pUser.pev.netname)));
+			BaseLog("Контент: ");
 			for(uint i = 0; i < parsedCommand.length(); i++)
 			{
 				BaseLog(string(i)+" -> "+parsedCommand[i]);
@@ -303,7 +303,7 @@ namespace AFBase
 		{
 			if(!CheckAccess(pUser, command.AccessFlags))
 			{
-				BaseTell("You do not have access to this command!", pUser, targetPrint);
+				BaseTell("У вас нет доступа к данной команде!", pUser, targetPrint);
 				return command.Flags & CMD_SUPRESS != 0 ? true : false;
 			}
 		}
@@ -311,13 +311,13 @@ namespace AFBase
 		AFBaseClass@ AFBClass = cast<AFBaseClass@>(g_afbExpansionList[command.ExpansionNameID]);
 		if(!AFBClass.Running)
 		{
-			BaseTell("Expansion stopped: can't execute command.", pUser, targetPrint);
+			BaseTell("Дополнение остановлен(о): нельзя выполнить команду.", pUser, targetPrint);
 			return command.Flags & CMD_SUPRESS != 0 ? true : false;
 		}
 		
 		if(command.Flags & CMD_PRECACHE != 0 && !g_afbIsSafePlugin)
 		{
-			BaseTell("Command blocked, requires precaching first! Please wait for a map change.", pUser, targetPrint);
+			BaseTell("Команда заблокирована, сначало нужно прекешировать! Пожалуйста подождите смену карты", pUser, targetPrint);
 			return command.Flags & CMD_SUPRESS != 0 ? true : false;
 		}
 		
@@ -345,7 +345,7 @@ namespace AFBase
 		
 		if(iArgCount > parsedCommand.length()-1)
 		{
-			BaseTell("Missing arguments! Usage:", pUser, targetPrint);
+			BaseTell("Аргументы отсутствуют! Изпользование:", pUser, targetPrint);
 			if(bConsole)
 				BaseTellLong("."+command.Name+" "+command.Description, pUser, targetPrint);
 			else

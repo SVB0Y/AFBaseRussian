@@ -1,12 +1,13 @@
 # AFBase
-AFB is based on AdminFuckery2 -- most of the commands have been ported over.
-This plugin allows server owners to easily setup access flags for admins & install expansions to the plugin (AMX-like functionality), it also allows for scripters to make more commands really fast.
+AFB был зделан на базе AdminFuckery2 -- большинство команд было взято оттуда.
+Этот плагин позволяет владельцам сервера легко настраивать флаги доступа для админов и устанавливать дополнения для плагина (функциональность как у AMX), это позволяет скриптерам делать команды очень быстро.
 
-## Quick installation guide:
-1. download the repo
-2. extract to /svencoop_addons/ or /svencoop/ folder
-(if you extracted to svencoop_addons: move contents from svencoop_addons/scripts/plugins/store/ to svencoop/scripts/plugins/store/)
-3. insert AFBase into default_plugins.txt:
+
+## Гайд для быстрой установки:
+1. скачайте репо
+2. извлечьте плагин на /svencoop_addons/ или /svencoop/ папку
+(если вы извлекли на svencoop_addons: переместите контент из svencoop_addons/scripts/plugins/store/ в svencoop/scripts/plugins/store/)
+3. пропишите AFBase в default_plugins.txt:
 ```
     "plugin"
     {
@@ -14,158 +15,145 @@ This plugin allows server owners to easily setup access flags for admins & insta
         "script" "AFBase"
     }  
 ```
-4. open up AFBaseAccess.txt
-5. Do either of these methods.
+4. открываем AFBaseAccess.txt
+5. следите за любым из этих методов.
 
-Method A
-1. add your steamid with  the flag B or alternatively give yourself all the flags
-2. as_reloadplugins & changelevel
-3. (optional): if you didn't give yourself all the flags in step 5, run this command: .afb_access @me "+cdefghijklmnopqrstuvwyx"
-4. done!
+Метод А
+1. добавьте ваш steamid с флагом доступа B или алтернативно выдайте себе все флаги
+2. команда as_reloadplugins и поменяйте\перезапустите карту
+3. (опционально): если вы не выдали себе все флаги доступа в 5-ом шаге, пропишите эту команду: .afb_access @me "+cdefghijklmnopqrstuvwyx"
+4. готово!
 
-Method B
-1. connect to your server
-2. in your svends server console, run: as_command .s_afb_access "NICKNAME OR STEAMID HERE" "+bcdefghijklmnopqrstuvwyx"
-3. done!
+Метод Б
+1. подключитесь к вашему серверу
+2. в вашем консоли сервера svends, напишите: as_command .s_afb_access "НИКНЕЙМ ИЛИ STEAMID СЮДА" "+bcdefghijklmnopqrstuvwyx"
+3. готово!
 
-## for scripters:
-"documentation" for extension scripting available [here](https://zode.github.io/AFBase/)
+## для скриптеров:
+Документация по созданию команд не было переведено, потому что скорее всего вы и так англиский знаете если знаете как делать плагины или скрипты
+Но если вы знаете angelscript и англиский, [документация](https://zode.github.io/AFBase/)
 
-## for users:
-(new in 1.5.0) wildcarding works now from start, and both ways. You can use \*mpleUser, \*mple\* or Example\* to target "ExampleUser". Wildcards that result in multiple players wont be executed anymore.
+## для пользователей:
+(новое в версии 1.5.0) подержует * подстановочный знак, на оба стороны. Вы можете изпользовать\*стИгрок, \*стИгр\* или Тест\* чтобы выбрать "ТестИгрок". Подстановочные знак который выбрал бы несколько игроков больше не выполняет команду.
 
-random values in keyvalue fields: you can use r#A-B to select a random value, for example: .player_keyvalue @me health r#30-60 would set your health to a random value between 30 and 60.
+рандомные значения в поле параметрах: вы можете изпользовать r#A-B чтобы выбрать рандомное значение, к примеру: .player_keyvalue @me health r#30-60 , рандомно изменяет значения вашего ХП от 30-ти до 60-ти.
 
-svends server console can now issue AFB commands, syntax: as_command .s_(command), example: as_command .s_afb_help (prefix is needed due to AS implementation not allowing client/server command to exist with the same name, it is automatically added to any server command registered)
+консоль сервера svends теперь может распознавать AFB команды, синтакс: as_command .s_(команда), пример: as_command .s_afb_help (префикс нужен изза AS реализации которое не позволяет команды клиента\сервера существовать с одинаковым именем, оно автоматом добавлена на любую зарегестированую команду)
 
-(new in 1.5.0) cvar to bypass access file for those who want the system to behave in a binary way (is admin, or isnt admin): .afb_access_ignore 0/1, by default this value is 0 and AFB will use the access file.
+(новое в версии 1.5.0) команда чтобы обойти файл доступа для тех кто хочет систему административония в ввиде бинарнии (админ либо не админ, без заморачиваний): .afb_access_ignore 0/1, по стандарту стоит на параметре 0 и афб будет изпользовать файл доступа.
 
-Keep an eye in this space, i might have forgotten something and might update this later :)
+Следите за этим пространсвтом, я возможно забыл чтото и возможно обновлю это позже :)
 
-## Other stuff:
-use ".afb_help" to view all available commands!
+## Мелочь:
+пропишите ".afb_help" чтобы посмотреть все доступные команды!
 
-these commands are always available to everyone:
+эти команды всегда доступно всем игрокам :
 ```
 .afb_help
-.afb_who (wont show ip unless user has any flag from A to Y)
+.afb_who (не будет показывать ip, только если есть флаг доступа от А до Y)
 .afb_info
 .afb_listextensions
 ```
 
-Here is a full list of stock commands:
+Вот полный список стоковых команд:
 ```
-] .afb_help
-----AdminFuckeryBase help: Command list-----------------------------------------
-Quick quide: (arg) required parameter, <arg> optional parameter. Targets: @all, @admins, @noadmins, @alive
- @dead, @aim, @random, @last, @me, "nickname" (supports * wildcard), "STEAM_0:1:ID"
+----AdminFuckeryBase help: Список команд-----------------------------------------
+Маленький гайд: (арг) обязательная настройка, <арг> опциональная настройка. Цели: @all, @admins, @noadmins, @alive
+ @dead, @aim, @random, @last, @me, "nickname" (подержует * подстановочный знак), "STEAM_0:1:ID"
 --------------------------------------------------------------------------------
- 1: admin_ban ("steamid") <"reason"> <duration in minutes, 0 for infinite> <0/1 ban ip instead of steamid> - ban target
- 2: admin_banlate ("steamid/ip") <"reason"> <duration in minutes, 0 for infinite> - late ban target, basically adds to ban list. Doesn't validate player like admin_ban does.
- 3: admin_blockdecals (target) (0/1 unban/ban) - Ban target from spraying
- 4: admin_changelevel (level) - change level
- 5: admin_gag (targets) (mode a/c/v) - gag player, a = all, c = chat, v = voice
- 6: admin_kick (target) <"reason"> - kicks target with reason
- 7: admin_rcon (command) <noquotes 0/1> - remote console
- 8: admin_say (0/1 showname) (0/1/2 chat/hud/middle) ("text") <holdtime> <target> <r> <g> <b> <x> <y> - say text
- 9: admin_slap (target) <damage> - slap target(s)
- 10: admin_slay (target) - slay target(s)
- 1: admin_ban ("steamid") <"reason"> <duration in minutes, 0 for infinite> <0/1 ban ip instead of steamid> - ban target
- 2: admin_banlate ("steamid/ip") <"reason"> <duration in minutes, 0 for infinite> - late ban target, basically adds to ban list. Doesn't validate player like admin_ban does.
- 3: admin_blockdecals (target) (0/1 unban/ban) - Ban target from spraying
- 4: admin_changelevel (level) - change level
- 5: admin_gag (targets) (mode a/c/v) - gag player, a = all, c = chat, v = voice
- 6: admin_kick (target) <"reason"> - kicks target with reason
- 7: admin_rcon (command) <noquotes 0/1> - remote console
- 8: admin_say (0/1 showname) (0/1/2 chat/hud/middle) ("text") <holdtime> <target> <r> <g> <b> <x> <y> - say text
- 9: admin_slap (target) <damage> - slap target(s)
- 10: admin_slay (target) - slay target(s)
- 11: admin_trackdecals <0/1 mode> - track player sprays, don't define mode to toggle
- 12: admin_unban ("steamid or ip") - unban target
- 13: admin_ungag (targets) - ungag player
- 14: afb_access (target) <accessflags> - get/set accessflags, add + or - before flags to add or remove
- 15: afb_disconnected <0/1 don't shorten nicks> - Show recently disconnected client information
- 16: afb_expansion_list - List expansions
- 17: afb_expansion_start ("expansion SID") - start expansion
- 18: afb_expansion_stop ("expansion SID") - stop expansion
- 19: afb_help <page> <0/1 show expansion> - List available commands
- 20: afb_info - Show info
- 21: afb_last <0/1 don't shorten nicks> - (alias for afb_disconnected) Show recently disconnected client information
- 22: afb_menu - pop open a simple command menu
- 23: afb_peek (targets) - peeks into internal AFB info
- 24: afb_setlast (target) - sets last target, use if you only want to select somebody without running a command on them
- 25: afb_whatsnew - show changelog for this version
- 26: afb_who <0/1 don't shorten nicks> - Show client information
- 27: ent_bbox <r> <g> <b> <lifetime> - show the ent's bounding box
- 28: ent_bboxname (targetname) <r> <g> <b> <lifetime> - show the specified ent's bounding box
- 29: ent_create (classname) <"key:value:key:value:key:value" etc> - create entity, default position at your origin
- 30: ent_damage <damage> <targetname> - damage entity, if no targetname given it will attempt to trace forwards
- 31: ent_drop - Drop entity that you are aiming at to ground
- 32: ent_dumpinfo <dirty 0/1> <targetname> - dump entity keyvalues into console, if no targetname given it will attempt to trace forwards
- 33: ent_grid (gridsize) - set a grid for snapping, 0 to disable
- 34: ent_item (weapon_/ammo_/item_ name) - Spawn weapon/ammo/item at your location
- 35: ent_keyvalue (key) <value> <value> <value> - get/set keyvalue of entity you are aiming at, use "!null!" to set keyvalue as empty
- 36: ent_keyvaluename (targetname) (key) <value> <value> <value> - get/set keyvalue of entity based on targetname, use "!null!" to set keyvalue as empty
- 37: ent_keyvaluerange (classname) (range) (key) <value> <value><value> - get/set keyvalue of entity based on classname and range, use "!null!" to set keyvalue as empty
- 38: ent_kill <targetname> - removes entity, if no targetname given it will attempt to trace forwards
- 39: ent_move - Use without argument to see usage/alias - Grab entity and move it relative to you
- 40: ent_movecopy - Use without argument to see usage/alias - Copy & grab (copied) entity and move it relative to you
- 41: ent_movename (targetname) - absolute move, entity is placed to your origin
- 42: ent_mover <0/1 mode> - weapon_entmover, don't define mode to toggle
- 43: ent_rotate (x) (y) (z) <targetname> - rotate entity, if no targetname given it will attempt to trace forwards. For best results use 15 increments
- 44: ent_rotateabsolute (x) (y) (z) <targetname> - set entity rotation, if no targetname given it will attempt to trace forwards
- 45: ent_rotatefix <targetname> - attempt to reset originless brush to default position
- 46: ent_show (x/y/z) - show world direction
- 47: ent_trigger <targetname> - trigger entity, if no targetname given it will attempt to trace forwards
- 48: ent_triggerrange (classname) (range) - trigger entity based on classname and range
- 49: ent_worldcopy (speed) <angle vector> <0/1 reverse> <0/1 xaxis> <0/1 yaxis> - Create worldcopy
- 50: ent_worldremove - Remove all worldcopies
- 51: fun_conc (targets) (amplitude) (frequency) (fadetime) - CoNcUsSiOn!
- 52: fun_fade (targets) <r> <g> <b> <fadetime> <holdtime> <alpha> <flags> - fade target(s) screens!
- 53: fun_flash (targets) <0/1> - toggle or set target(s) flashlight
- 54: fun_fog (targets) (r) <g> <b> <start> <end> - set level fog, supply target(s) and -1 to disable
- 55: fun_gibhead (targets) - GIBS!!! Spawns head gib on target(s)
- 56: fun_gibrand (targets) <amount> - GIBS!!! Spawns random gibs on target(s)
- 57: fun_maplight (character from A (darkest) to Z (brightest), M returns to normal) - set map lighting
- 58: fun_shake <amplitude> <frequency> <duration> - shake everyone's screen!
- 59: fun_shootgrenade <velocitymultipier> <time> - shoot grenades
- 60: fun_shootportal <damage> <radius> <velocity> - shoot portals
- 61: fun_shootrocket <velocity> - shoot normal RPG rockets
- 62: player_disarm (targets) <weapon> - disarm target(s), don't define weapon to disarm everything
- 63: player_dumpinfo (targets) <dirty 0/1> - dump player keyvalues into console
- 64: player_exec (targets) ("command") <noquotes 0/1> - execute command on client console
- 65: player_freeze (targets) <0/1 mode> - freeze/unfreeze target(s), don't define mode to toggle
- 66: player_getmodel (targets) - return target(s) playermodel
- 67: player_give (targets) (weapon/ammo/item) - give target(s) stuff
- 68: player_giveall <targets> <set> - give target(s) all stock weapons, don't define target to view all currently possible sets, set defaults to vanilla
- 69: player_giveammo (targets) <0/1 all> - give target(s) ammo, defaults to all weapons
- 70: player_givemapcfg (targets) - apply map cfg to target(s)
- 71: player_god (targets) <0/1 mode> - set target(s) godmode, don't define mode to toggle
- 72: player_ignite (targets) - ignite target(s)
- 73: player_keyvalue (targets) (key) <value> <value> <value> - get/set target(s) keyvalue
- 74: player_maxspeed (targets) (speed) - set target(s) max speed, -1 to restore to default
- 75: player_noclip (targets) <0/1 mode> - set target(s) noclip mode, don't define mode to toggle
- 76: player_nosolid (targets) <0/1 mode> - set target(s) solidity, don't define mode to toggle
- 77: player_notarget (targets) <0/1 mode> - set target(s) notarget, don't define mode to toggle
- 78: player_position (target) - returns target position,
- 79: player_resurrect (targets) <0/1 no respawn> - resurrect target(s)
- 80: player_tag <targets> <tag> - tag target, visible only for admins. Run without arguments to view list
- 81: player_tagfix - refresh tags on your view, in case something fucks up
- 82: player_teleportaim (targets) - teleport target(s) to where you are aiming at
- 83: player_teleportmeto (target) - teleport you to target
- 84: player_teleportpos (targets) (vector) - teleport target(s) to position
- 85: player_teleporttome (targets) - teleport target(s) to you
- 86: player_viewmode (targets) (0/1 firstperson/thirdperson) - set target(s) viewmode
- 87: say !freeze (targets) <0/1 mode> - freeze/unfreeze target(s), don't define mode to toggle
- 88: say !give (targets) (weapon/ammo/item) - give target(s) stuff
- 89: say !giveammo (targets) <0/1 all> - give target(s) ammo, defaults to all weapons
- 90: say !nosolid (targets) <0/1 mode> - set target(s) nosolid mode, don't define mode to toggle
- 91: say !resurrect (targets) <0/1 no respawn> - resurrect target(s)
- 92: say !tag <targets> <tag> - tag target, visible only for admins. Run without arguments to view list
- 93: say !tagfix - refresh tags on your view, in case something fucks up
- 94: say !tpaim (targets) - teleport target(s) to where you are aiming at
- 95: say !tpmeto (target) - teleport you to target
- 96: say !tptome (targets) - teleport target(s) to you
---------------------------------------------------------------------------------
-[AFB] showing page 10 of 10.
+ 1: admin_ban ("стим айди") <"причина"> (длительность в минутах, 0 навсегда) (0 бан по стим айди, 1 бан по айпи) - банит игрока
+ 2: admin_banlate ("стим айди/айпи") <"причина"> (длительность в минутах, 0 навсегда) - банит игрока, добавляя его айди/айпи в бан лист
+ 3: admin_blockdecals (игрок) (0/1 разбан/бан) - блокирует выбранному игроку исползовать спрей
+ 4: admin_changelevel (название карты) - меняет карту
+ 5: admin_gag (игроки) (режим a/c/v) - мьюутить игрока, c = чат, v = голосовой, a = оба 6: admin_kick (игрок) <"причина"> - кикает игрока
+ 7: admin_rcon (команда) <без кавычек 0/1> - выполняет команду от имени консоли
+ 8: admin_say (0/1 показывать имя) (0/1/2 чат/худ/по середине) ("текст") <длительность> <игрок> <R> <G> <B> <X> <Y> - пишет текст
+ 9: admin_slap (игрок) <урон> - бьёт игрока
+ 10: admin_slay (игрок) - убивает игрока
+ 11: admin_trackdecals <0/1 вкл/выкл> - отслеживает стим айди и имя игрока, при наводке на спрей
+ 12: admin_unban ("стим айди/айпи") - разбан игрока
+ 13: admin_ungag (игроки) - размьючивает игрока
+ 14: afb_access (игрок) (доступ) - выдаёт административные флаги выбранному игроку, + выдает, - отбирает
+ 15: afb_disconnected <0/1 не укорачивать ники> - показывает недавний список игроков которые вышли из сервера
+ 16: afb_expansion_list - список дополнений афб
+ 17: afb_expansion_start (айди дополнения) - стартует дополнение
+ 18: afb_expansion_stop (айди дополнения) - останавливает дополнение
+ 19: afb_help <страница 1-10> <0/1 показывать дополнения> - показывает команды афб
+ 20: afb_info - информация о афб
+ 21: afb_last <0/1 не укорачивать ники> - алиас к .afb_disconnected, тоже показывает информацию о игроках которые недавно вышли
+ 22: afb_menu - показует простенькое меню, на котором перевод невозможен
+ 23: afb_peek (игрок) - показывает информацию о игроке
+ 24: afb_setlast (игрок) - ставит на игрока тег @last, полезно если к примеру ты часто пишешь ему команды
+ 25: afb_whatsnew - показывает список новых изменений в обновлённом версии afb
+ 26: afb_who <0/1 не укорачивать ники> - показывает общее доступную информацию о игроках
+ 27: ent_bbox <R> <G> <B> <длительность> - показывает границы объекта
+ 28: ent_bboxname (имя цели) <R> <G> <B> <длительность> - показывает прописанного границы объекта
+ 29: ent_create (имя объекта) <"параметр:значение:параметр:значение:параметр:значение"> - создает объект с вашими параметрами, спавнит на вашу точку
+ 30: ent_damage <урон> <имя цели> - наносит урон объекту, без аргументов наносит 5000 урона
+ 31: ent_drop  - ложить объект нацеленый объект на пол
+ 32: ent_dumpinfo <0/1 грязно> <имя цели> - показывает информацию о нацеленном ентити
+ 33: ent_grid (размер сетки в юнитах) - включает сетку когда перетаскиваешь какой либо объект, 0 отключает
+ 34: ent_item (weapon_/ammo_/item_) - спавнит какое либо оружие, патрон или предмет, облегченный .ent_create
+ 35: ent_keyvalue (параметр) <значение> <значение> <значение> - меняет параметры объекту, изпользуйте "!null!" чтобы оставить параметр пустым
+ 36: ent_keyvaluename (имя цели) (параметр) <значение> <значение> <значение> - меняет параметры прописанному объекту
+ 37: ent_keyvaluerange (имя объекта) (радиус) (параметр) <значение> <значение> <значение> - меняет параметры какой либо группы объектов по радиусу
+ 38: ent_kill <имя цели> - удаляет объект
+ 39: ent_move - используйте без каких либо аргументов чтобы вам прислали алиасы чтобы иcпользовать эту команду - Двигает нацеленый объект мышкой
+ 40: ent_movecopy - тоже самое что и .ent_move, но заодно и копирует
+ 41: ent_movename (имя цели) - абсолтюное движение, двигает объект на ваши кординаты
+ 42: ent_mover - выдает weapon_entmover, позволяет двигать объекты на лкм, и удалять их на пкм
+ 43: ent_rotate  (X) (Y) (Z) <имя цели> - переворачивает ось объекта, для лучших результатов изпользуйте ось 15
+ 44: ent_rotateabsolute (X) (Y) (Z) <имя цели> - абсолютное переворачивание объекта
+ 45: ent_rotatefix <имя цели> - попытается починить багнутое переворачивание
+ 46: ent_show (X/Y/Z) - показывает направление карты/мира
+ 47: ent_trigger <имя цели> - активирует объект
+ 48: ent_triggerrange (имя объекта/ов) (радиус) - активирует группу объектов по радиусу
+ 49: ent_worldcopy (скорость) <угол вектора> <реверс> <0/1 X ось> <0/1 Y ось> - создает копию карты
+ 50: ent_worldremove - убирает копию карты
+ 51: fun_conc  (игроки) (размах) (частота) (время затухания) - БУХАРИК!
+ 52: fun_fade (игроки) <R> <G> <B> <время затухания> <длительность> <прозрачность> <флаги> - затухание экранов!
+ 53: fun_flash (игроки) <0/1 выкл/вкл> - извините, а кто включил мой фонарик?
+ 54: fun_fog (игроки) (R) <G> <B> <начало в юнитах> <конец в юнитах> - я ничего не вижу, -1 чтобы отключить!!!!
+ 55: fun_gibhead (игроки) - МЯСО!!! - спавнить череп на игрока
+ 56: fun_gibrand (игроки) <количество> - МЯСО!!! - спавнить мясо на игрока)
+ 57: fun_maplight (знак от A (самая темная) до Z (самая светлая), М стоит по стандарту) - меняет яркость карты
+ 58: fun_shake  <размах> <частота> <длительность> - землетресение!
+ 59: fun_shootgrenade <скорость вылета> <длительность в секундах> - кидает гранату
+ 60: fun_shootportal .fun_shootportal <урон> <радиус> <скорость> - стреляет порталами
+ 61: fun_shootrocket <скорость> - стреляет ракетой!
+ 62: player_disarm (игроки) <оружие> - убирает оружия/ие игрока, не указуйте оружие чтобы отобрать все оружия
+ 63: player_dumpinfo (игроки) <0/1 грязно> - показывает игровые значения о игроке
+ 64: player_exec (игроки) ("команда") <без кавычек 0/1> - заставляет игрока написать за него в консоль
+ 65: player_freeze (игроки) <0/1 выкл/вкл> - замораживает/размораживает 
+ 66: player_getmodel (игроки) - узнаёт название модели игрока
+ 67: player_give (игроки) (weapon_/ammo_/item_) - выдаёт вещь
+ 68: player_giveall  <игроки> <сет> - выдаёт все оружия напишите ins2 или cs16 чтоб выдать оружие соотвественым плагинам
+ 69: player_giveammo (игроки) <0/1 данному оружию/всем оружям> - выдает патроны
+ 70: player_givemapcfg (игроки) - выдает стандартное экипировку карты
+ 71: player_god (игроки) <0/1 выкл/вкл> - бессмертие
+ 72: player_ignite (игроки) - поджечь игрока
+ 73: player_keyvalue (игроки) (параметр) <значение> <знач.> <знач.> - меняет параметры игрока
+ 74: player_maxspeed (игроки) (скорость в юнитах) - меняет скорость игрока, -1 для стандратной скорости
+ 75: player_noclip (игроки) <0/1 выкл/вкл> - ноклип
+ 76: player_nosolid (игроки) <0/1 выкл/вкл> - солидность
+ 77: player_notarget (игроки) <0/1 выкл/вкл> - нотаргет
+ 78: player_position (игрок) - показывает позицию игрока
+ 79: player_resurrect (игроки) <0/1 возрождение/на месте> - возрождение
+ 80: player_tag <игроки> <тег> - дать тег игроку, только админы могут видеть теи, используйте без аргументов чтобы посмотреть список
+ 81: player_tagfix - фикс тег, если чтото с ними не так
+ 82: player_teleportaim (игроки) - телепорт по прицелу
+ 83: player_teleportmeto (игроки) - телепорт к игроку
+ 84: player_teleportpos (игроки) (X) (Y) (Z) - телепорт по кординатам
+ 85: player_teleporttome (игроки) - телепорт игрока к вам
+ 86: player_viewmode (игроки) (0/1 от 1-го лица/ от 3-го лица) - переключает от 1-го и 3-го лица
+ 87: say !freeze (игроки) <0/1 выкл/вкл> - замораживает/размораживает 
+ 88: say !give (игроки) (weapon_/ammo_/item_) - выдаёт вещь
+ 89: say !giveammo (игроки) <0/1 данному оружию/всем оружию> - выдает патроны
+ 90: say !nosolid (игроки) <0/1 выкл/вкл> - солидность
+ 91: say !resurrect (игроки) <0/1 возрождение/на месте> - возрождение
+ 92: say !tag <игроки> <тег> - дать тег игроку, только админы могут видеть тег, используйте без аргументов чтобы посмотреть список
+ 93: say !tagfix - фикс тег, если чтото с ними не так
+ 94: say !tpaim (игроки) - телепорт по прицелу
+ 95: say !tpmeto (игроки) - телепорт к игроку
+ 96: say !tptome (игроки) - телепорт игрока к вам
 ```

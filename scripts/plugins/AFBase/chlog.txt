@@ -1,26 +1,26 @@
-.player_setmaxspeed is now .player_maxspeed
-grab/copy update frequency is now higher, for smoother experience
-grabbing/copying now shows bounds.
-added in support for inventory modifiers for player_keyvalue (m_iEffect- and m_flEffect- stuff)
-added in support for m_iDeaths for player_keyvalue
-r#a-b is now in format of r#a#b to allow for negative numbers (eg. r#-100#100)
-new command: .ent_bbox
-new command: .ent_bboxname
-new command: .ent_grid
-patched exploit where ent_* commands could be used to bypass the C flag requirement for rcon - any modifications to trigger_setcvar now require the flag C to work properly
-new command: .afb_whatsnew 
-new command: .fun_fog
-spray bans are now handled via a hook instead of the spray time hack
-admin_kick no longer shows debug output (whoops)
-admin_ban no longer errors out when it should use default values
-admin_ban should be no longer able to ban with an empty string causing the gate keep to completely break
-fixed an internal bug: console commands & registers are now internally lowercased so that expansion scripters don't have to care about case sensitivity in registercommand
-fixed a bug where command registers wouldn't lowercase and would cause a mismatch with the console handler
-.player_giveammo/say !giveammo now has capability to max out ammo in every weapon in the target's inventory - Defaults to giving ammo for every weapon but this can be toggled off by using the new additional parameter
-.player_disarm can now be used to selectively remove one weapon only
-fixed a division by zero issue with .ent_rotate
-.ent_mover no longer has a glitchy viewmodel, it is now using a weapon script for visual purposes and acts more like the entmod's entmover
-new command: .ent_show
-.player_giveall now supports popular weapon modifications
-.afb_menu now prints @target(s) in red to remove any confusion with player(s) using similar nicks
-.afb_menu also now handles targets internally with steamids rather than their nicks
+.player_setmaxspeed переменовался в .player_maxspeed
+частота обновления для копирования и хватания теперь выше, для более плавного опыта
+копирование\хватание теперь показует границы.
+добавлена поддержка команд из модификаторов инвентаря для player_keyvalue (типо m_iEffect- и m_flEffect-) 
+добавлена поддержка m_iDeaths для player_keyvalue
+r#a-b изменился в формат r#a#b что позволит изпользовать цыфры ниже нуля (к примеру. r#-100#100)
+новая команда: .ent_bbox
+новая команда: .ent_bboxname
+новая команда: .ent_grid
+исправлена эксплуатация в котором ent_* команды могли обойти доступ С для rcon - любые модификации для trigger_setcvar теперь требуют доступ С
+новая команда: .afb_whatsnew 
+новая команда: .fun_fog
+спрей баны теперь обрабатываються через хук заместь изменения времени спрея
+admin_kick теперь не должен показывать откладочный результат (упс) 
+admin_ban теперь не показует ошибку когда ты изпользуешь стандартные значения
+admin_ban теперь не позволит бан без пустого строка которая полностью ломает привратник
+исправлен внутренний баг: консольные комманды и регистрации теперь внутренно всегда со строчной буквы, чтобы скриптеры с дополнениями не марочились с чуствительность букв в registercommand
+исправлен баг в котором регистрация команд непозволяла регестрировать со строчной буквы и делал бы конфликты с консолью
+.player_giveammo/say !giveammo теперь имееют способность на наполнение всех патрон на каждом пушке цели - Теперь делает по стандрату, но можно отрубить изпользуя дополнитильные параметры
+.player_disarm теперь может убирать одно оружие по выбору
+исправлена проблема с делением на ноль с .ent_rotate
+.ent_mover теперь уже не глюканутый виюмодель, он теперь работает как скрипт на оружия для визуальных целей и дейсвует как ентмодовский entmover
+новая команда: .ent_show
+.player_giveall теперь поддержует популярные плагины на оружия
+.afb_menu теперь показует @target(ты) в красном чтобы убрать путанину с игроками похожими никами
+.afb_menu теперь обращяет цели внутренно со SteamId чем с ихними никами
